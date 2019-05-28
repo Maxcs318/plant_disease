@@ -23,10 +23,13 @@
         <?php echo $_SESSION["m_status"]; ?>
 
     </div>
-    <p class="text-line">
-        <img src="../img/mangoicon.png" style="width: 50px; margin-right: 20px;">
-        EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION
-    </p>
+        <!-- slide text -->
+        <div class="row" style="margin-bottom: 70px;">
+        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
+        <p class="item-2 ">Some Text for [item-2]</p>
+        <p class="item-3 ">Some Text for [item-3]</p>
+    </div>
+    <!-- end slide text -->
 
     <div class="container">
         <!-- home button -->
@@ -43,7 +46,7 @@
                 <p class="text-img-detail">Symptoms</p>
             </button></a>
 
-        <!-- home button -->
+        <!-- back button -->
         <a href="../index.php">
             <button type="submit" style="border: 0; background: transparent">
                 <img src="../img/back.svg" class="imgabout">

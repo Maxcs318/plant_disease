@@ -56,13 +56,15 @@
                     ?>
                     <div class="col-md-4 imgpost">
                         
-                            <img src="../Image/image_file_post/<?php echo $row["iop_name"]; ?>" style="width:100%;">
+                            <img src="../Image/image_file_post/<?php echo $row["iop_name"]; ?>" style="width:100%; border: 4px solid red;">
                         
                     </div>
+                    <br>
                 <?php
             }
         }
-        echo ' </div>';
+        echo ' </div> ';
+        
     } else {
         echo "0 results";
     }
@@ -124,23 +126,30 @@
             while ($row = $result->fetch_assoc()) {
                 echo '<div class="row">
                                 <div class="col-12">';
+
                 echo ' <div> Username : ';
                 echo $row["m_username"] . "<br>";
                 echo '</div>';
+
                 echo ' <div> Detail : ';
                 echo substr($row["c_detail"], 0, 200) . "<br>";
                 echo '</div>';
+
                 if ($row["c_confirm"] != '') {
                     echo "Your plant is : " . $row["c_confirm"] . " disese <br>";
                 }
+
                 echo ' <div> Date : ';
                 echo substr($row["c_date"], 0, 10)  . "<br>";
                 echo '</div>';
+
                 echo ' <div> Time : ';
                 echo substr($row["c_date"], 11)  . "<br>";
                 echo '</div>';
+
                 echo '  </div>
-                                             </div> <hr class="border-comment">';
+                            </div> <hr class="border-comment">';
+                            
             }
         } else {
             echo "0 Comment .";
@@ -183,7 +192,9 @@
         <a class="btn btn-danger float-right" onclick="window.history.go(-1); return false;" style="color: white;width: 90px; margin:30px 0px 10px">Back</a>
         <br>
     </div>
+<footer style="margin-bottom: 70px;">
 
+</footer>
 </body>
 
 </html>

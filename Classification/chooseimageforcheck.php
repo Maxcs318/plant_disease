@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../bootstrap/css/main.css">
     <link rel="shortcut icon" href="../img/leaficon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -25,8 +26,8 @@
     </div>
     <!--end user id top -->
 
-     <!-- slide text -->
-     <div class="row">
+    <!-- slide text -->
+    <div class="row">
         <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
         <p class="item-2 ">Some Text for [item-2]</p>
         <p class="item-3 ">Some Text for [item-3]</p>
@@ -46,18 +47,27 @@
                 <div class="col-xs-2 col-md-4"></div>
 
                 <div class="col-xs-8 col-md-4">
-                    <div class="check-img ">
-                    </div>
-                    <label id="first" >Upload Photo :</label>
 
-                    <input type="file" name="imageforcheck[]" id="image" required>
-                    <input type="hidden" name="linkmember" value="<?php echo $_SESSION["m_id"]; ?>">
-                    <div class="row float-right" style="margin-top:20px; margin-bottom: 10px;">
-                        <a class="btn btn-danger " href="../index.php" style="width: 80px; margin-right: 10px;">Back</a>
-                        <button class="btn-primary form-control " type="submit" name="save" style="width: 80px;">Next</button>
 
-                    </div>
+                    <!-- <input type='file' id="imgInp" />
+                            <img id="blah" src="#" alt="your image" class="check-img"/> -->
 
+
+                    
+                    <form id="form1" runat="server">
+
+                        <img id="blah" src="#" class="check-img"/>
+                        <br>
+                        <br>
+                        <label id="first">Upload Photo :</label>
+                
+                        <input type="file" name="imageforcheck[]" id="image" required>
+                        <input type="hidden" id="blah" class="check-img" name="linkmember" value="<?php echo $_SESSION["m_id"]; ?>">
+                        <div class="row float-right" style="margin-top:20px; margin-bottom: 10px;">
+                            <a class="btn btn-danger " href="../index.php" style="width: 80px; margin-right: 10px;">Back</a>
+                            <button class="btn-primary form-control " type="submit" name="save" style="width: 80px;">Next</button>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="col-xs-2 col-md-4"></div>
@@ -72,5 +82,23 @@
 
 
 </body>
+<script>
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#blah').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#image").change(function() {
+        readURL(this);
+    });
+</script>
 
 </html>
