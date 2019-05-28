@@ -25,12 +25,15 @@
 
     </div>
 
-    <p class="text-line">
-        <img src="../img/mangoicon.png" style="width: 50px; margin-right: 20px;">
-        EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION
-    </p>
+    <!-- slide text -->
+    <div class="row">
+        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
+        <p class="item-2 ">Some Text for [item-2]</p>
+        <p class="item-3 ">Some Text for [item-3]</p>
+    </div>
+    <!-- end slide text -->
 
-    <div class="container box-post" style="margin-top: 30px;">
+    <div class="container box-post">
 
         <form action="../ConnData/InsertPost.php" method="post" enctype="multipart/form-data">
 

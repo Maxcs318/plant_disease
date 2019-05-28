@@ -14,30 +14,45 @@
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
 </head>
 
-<body class="mobile">
+<body>
 
-    <p class="text-line">
-        <img src="../img/mangoicon.png" style="width: 50px; margin-right: 20px;">
-        EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION
-    </p>
+    <!-- user id top -->
+    <div style="text-align:right;" class="usertop">
+        Username :
+        <?php echo $_SESSION["m_username"]; ?>
+        | Status :
+        <?php echo $_SESSION["m_status"]; ?>
+    </div>
+    <!--end user id top -->
+
+    <!-- slide text -->
+    <div class="row">
+        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
+        <p class="item-2 ">Some Text for [item-2]</p>
+        <p class="item-3 ">Some Text for [item-3]</p>
+    </div>
+    <!-- end slide text -->
 
     <div class="container">
         <div class="row">
             <div class="col-xs-2 col-md-2">
                 <img src="../Image/image_profile/<?php echo $_SESSION["m_imageprofile"]; ?>" class="about-img">
             </div>
-            <div class="col-xs-6 col-md-6 about-header">
-                 <p style="margin-left: 30px;">Aboutme.</p>
+            <div class="col-xs-9 col-md-6 about-header">
                 <div class="about-box">
-                    <div style="margin-left: 30px; margin-top: auto;height: auto; text-transform: capitalize; font-size: 25px;">
-                        Username : 
+                    <div class="about-text-id">
+                        My Profile <br>
+                        Username :
                         <?php echo $_SESSION["m_username"]; ?> <br>
                         Status :
-                        <?php echo $_SESSION["m_status"]; ?> 
+                        <?php echo $_SESSION["m_status"]; ?> <br>
+                        <a href="../index.php">Home</a> |
+                        <a href="../Actor/editProfile.php">Edit profile</a> |
+                        <a href="../classification/classification_list_person.php">Classification</a>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-2 col-md-4">
+            <div class="col-xs-0 col-md-4">
             </div>
         </div>
     </div>
@@ -45,7 +60,7 @@
     <div class="container box-list" style="margin: auto; margin-top: 30px;">
         <div class="row">
             <div class="col-xs-12 col-md-12"><br>
-                <h4 class=" list-header"> My Post All . <a href="../index.php">Index</a></h4>
+                <h4 class=" list-header">My Post All </h4>
             </div>
         </div>
         <?php require("../ConnData/connectDB.php"); ?>
@@ -85,17 +100,17 @@
                                 Time : <?php echo substr($row["p_date"], 11)  . "<br>"; ?>
 
                                 <a class="float:bottom" href='post_selected.php?getPostID= <?php echo $row["p_id"]; ?>'">View Post</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
 
-                                        <?php
+                                                <?php
+                                            }
+                                        }
+                                    } else {
+                                        echo "0 results";
                                     }
-                                }
-                            } else {
-                                echo "0 results";
-                            }
-                            ?>
+                                    ?>
             <a class=" btn btn-danger float-right" href="../index.php" style="width: 90px; margin:30px 0px 10px ">Back</a>
                 </div>
 

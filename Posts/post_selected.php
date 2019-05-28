@@ -25,15 +25,17 @@
     </div>
     <!--end user id top -->
 
-    <p class="text-line">
-        <img src="../img/mangoicon.png" style="width: 50px; margin-right: 20px;">
-        EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION
-    </p>
+    <!-- slide text -->
+    <div class="row">
+        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
+        <p class="item-2 ">Some Text for [item-2]</p>
+        <p class="item-3 ">Some Text for [item-3]</p>
+    </div>
+    <!-- end slide text -->
 
-    <div class="container box-list" style="margin-top: 40px;">
+    <div class="container box-list" style="margin-top: 70px;">
         <div class="row">
-            <div class="col-12"><br>
-                <!-- EDIT HERE -->
+            <div class="col-md-12">
                 <h4 class="list-header">Post ID : </h4>
             </div>
         </div>
@@ -52,10 +54,10 @@
             while ($row = $result->fetch_assoc()) {
                 if ($row["iop_name"] != '') {
                     ?>
-                    <div class="col-md-4">
-                        <div class="imgpost">
+                    <div class="col-md-4 imgpost">
+                        
                             <img src="../Image/image_file_post/<?php echo $row["iop_name"]; ?>" style="width:100%;">
-                        </div>
+                        
                     </div>
                 <?php
             }
@@ -122,14 +124,23 @@
             while ($row = $result->fetch_assoc()) {
                 echo '<div class="row">
                                 <div class="col-12">';
+                echo ' <div> Username : ';
                 echo $row["m_username"] . "<br>";
-                echo $row["c_detail"] . "<br>";
+                echo '</div>';
+                echo ' <div> Detail : ';
+                echo substr($row["c_detail"], 0, 200) . "<br>";
+                echo '</div>';
                 if ($row["c_confirm"] != '') {
-                    echo "Your plant is a " . $row["c_confirm"] . " disese <br>";
+                    echo "Your plant is : " . $row["c_confirm"] . " disese <br>";
                 }
-                echo $row["c_date"] . "<br>";
+                echo ' <div> Date : ';
+                echo substr($row["c_date"], 0, 10)  . "<br>";
+                echo '</div>';
+                echo ' <div> Time : ';
+                echo substr($row["c_date"], 11)  . "<br>";
+                echo '</div>';
                 echo '  </div>
-                             </div> <hr>';
+                                             </div> <hr class="border-comment">';
             }
         } else {
             echo "0 Comment .";
@@ -168,9 +179,9 @@
         <?php
     }
     ?>
-    <br>
-        <a class="btn btn-danger float-right" onclick="window.history.go(-1); return false;" style="width: 90px; margin:30px 0px 10px">Back</a>
-    <br>
+        <br>
+        <a class="btn btn-danger float-right" onclick="window.history.go(-1); return false;" style="color: white;width: 90px; margin:30px 0px 10px">Back</a>
+        <br>
     </div>
 
 </body>

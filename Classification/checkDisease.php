@@ -214,27 +214,33 @@
     </script>
 </head>
 
-<body>
+<body style="text-align:center;">
 
-    <div style="text-align:right" class="usertop">
+    <!-- user id top -->
+    <div style="text-align:right;" class="usertop">
         Username :
         <?php echo $_SESSION["m_username"]; ?>
         | Status :
         <?php echo $_SESSION["m_status"]; ?>
     </div>
-    <p class="text-line">
-        <img src="../img/mangoicon.png" style="width: 50px; margin-right: 20px;">
-        EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION
-    </p>
+    <!--end user id top -->
+
+     <!-- slide text -->
+     <div class="row">
+        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
+        <p class="item-2 ">Some Text for [item-2]</p>
+        <p class="item-3 ">Some Text for [item-3]</p>
+    </div>
+    <!-- end slide text -->
 
     <div class="container">
-        <form class="container box-post" style="margin-top: 30px;" action="../ConnData/checkDiseaseUpdate.php" method="post" enctype="multipart/form-data">
+        <form class="container box-post" action="../ConnData/checkDiseaseUpdate.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i:s", time() + (60 * 60) * 5); ?>">
             <div class="row">
                 <div class="col-xs-12 col-md-12"><br>
-                    <center>
-                        <h1 style="margin-bottom: 30px;">Classification.</h1>
-                    </center>
+                 
+                        <h1 class="header">Classification.</h1>
+                   
                 </div>
                 <input type="hidden" name="S1" value="0">
                 <input type="hidden" name="S2" value="0">
@@ -255,15 +261,16 @@
             </div>
             <div class="row container">
                 <div class="col-6">
-                    <x>
-                        <center>Your Image.<br></center>
+                    <x >
                         <img src="../Image/image_for_checkdisease/<?php echo $_SESSION["nameimage"]; ?>">
+                        Your Image.<br>
                     </x>
                 </div>
                 <div class="col-6">
                     <x class="S15">
-                        <center>s15<br></center>
+                        
                         <img src="../Image/image_classification/S15.jpg">
+                        s15<br>
                         <div class="row S15">
                             <div class="col-12"><br>
                                 <input class="S15y" type="radio" name="S15" value="1"> Yes
@@ -272,8 +279,9 @@
                         </div>
                     </x>
                     <x class="S9">
-                        s9<br>
+                        
                         <img src="../Image/image_classification/S9.jpg">
+                        s9<br>
                         <div class="row S9">
                             <div class="col-12"><br>
                                 <input class="S9y" type="radio" name="S9" value="1"> Yes
@@ -282,7 +290,8 @@
                         </div>
                     </x>
                     <x class="S8">
-                        s8<br><img src="../Image/image_classification/S8.jpg">
+                        <img src="../Image/image_classification/S8.jpg">
+                        s8<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S8y" type="radio" name="S8" value="1"> Yes
@@ -291,7 +300,8 @@
                         </div>
                     </x>
                     <x class="S12_2">
-                        s12<br><img src="../Image/image_classification/S12.jpg">
+                        <img src="../Image/image_classification/S12.jpg">
+                        s12<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S12_2y" type="radio" name="S12" value="1"> Yes
@@ -301,7 +311,8 @@
 
                     </x>
                     <x class="S12">
-                        s12<br><img src="../Image/image_classification/S12.jpg">
+                        <img src="../Image/image_classification/S12.jpg">
+                        s12<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S12y" type="radio" name="S12" value="1"> Yes
@@ -310,7 +321,8 @@
                         </div>
                     </x>
                     <x class="S5">
-                        s5<br><img src="../Image/image_classification/S5.jpg">
+                        <img src="../Image/image_classification/S5.jpg">
+                        s5<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S5y" type="radio" name="S5" value="1"> Yes
@@ -319,7 +331,8 @@
                         </div>
                     </x>
                     <x class="S16">
-                        s16<br><img src="../Image/image_classification/S16.jpg">
+                        <img src="../Image/image_classification/S16.jpg">
+                        s16<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S16y" type="radio" name="S16" value="1"> Yes
@@ -328,7 +341,8 @@
                         </div>
                     </x>
                     <x class="S9_2">
-                        s9<br><img src="../Image/image_classification/S9.jpg">
+                        <img src="../Image/image_classification/S9.jpg">
+                        s9<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S9_2y" type="radio" name="S9" value="1"> Yes
@@ -337,7 +351,8 @@
                         </div>
                     </x>
                     <x class="S8_2">
-                        s8<br><img src="../Image/image_classification/S8.jpg">
+                        <img src="../Image/image_classification/S8.jpg">
+                        s8<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S8_2y" type="radio" name="S8" value="1"> Yes
@@ -346,7 +361,8 @@
                         </div>
                     </x>
                     <x class="S4">
-                        s4<br><img src="../Image/image_classification/S4.jpg">
+                        <img src="../Image/image_classification/S4.jpg">
+                        s4<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S4y" type="radio" name="S4" value="1"> Yes
@@ -355,7 +371,8 @@
                         </div>
                     </x>
                     <x class="S12_3">
-                        s12<br><img src="../Image/image_classification/S12.jpg">
+                        <img src="../Image/image_classification/S12.jpg">
+                        s12<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S12_3y" type="radio" name="S12" value="1"> Yes
@@ -364,7 +381,8 @@
                         </div>
                     </x>
                     <x class="S14">
-                        s14<br><img src="../Image/image_classification/S14.jpg">
+                        <img src="../Image/image_classification/S14.jpg">
+                        s14<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S14y" type="radio" name="S14" value="1"> Yes
@@ -373,7 +391,8 @@
                         </div>
                     </x>
                     <x class="S3">
-                        s3<br><img src="../Image/image_classification/S3.jpg">
+                        <img src="../Image/image_classification/S3.jpg">
+                        s3<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S3y" type="radio" name="S3" value="1"> Yes
@@ -382,7 +401,8 @@
                         </div>
                     </x>
                     <x class="S9_3">
-                        s9<br><img src="../Image/image_classification/S9.jpg">
+                        <img src="../Image/image_classification/S9.jpg">
+                        s9<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S9_3y" type="radio" name="S9" value="1"> Yes
@@ -391,7 +411,8 @@
                         </div>
                     </x>
                     <x class="S6">
-                        s6<br><img src="../Image/image_classification/S6.jpg">
+                        <img src="../Image/image_classification/S6.jpg">
+                        s6<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S6y" type="radio" name="S6" value="1"> Yes
@@ -400,7 +421,8 @@
                         </div>
                     </x>
                     <x class="S14_2">
-                        s14<br><img src="../Image/image_classification/S14.jpg">
+                        <img src="../Image/image_classification/S14.jpg">
+                        s14<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S14_2y" type="radio" name="S14" value="1"> Yes
@@ -409,7 +431,8 @@
                         </div>
                     </x>
                     <x class="S13">
-                        s13<br><img src="../Image/image_classification/S13.jpg">
+                        <img src="../Image/image_classification/S13.jpg">
+                        s13<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S13y" type="radio" name="S13" value="1"> Yes
@@ -418,7 +441,8 @@
                         </div>
                     </x>
                     <x class="S12_4">
-                        s12<br><img src="../Image/image_classification/S12.jpg">
+                        <img src="../Image/image_classification/S12.jpg">
+                        s12<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S12_4y" type="radio" name="S12" value="1"> Yes
@@ -427,7 +451,8 @@
                         </div>
                     </x>
                     <x class="S2">
-                        s2<br><img src="../Image/image_classification/S2.jpg">
+                        <img src="../Image/image_classification/S2.jpg">
+                        s2<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S2y" type="radio" name="S2" value="1"> Yes
@@ -441,7 +466,7 @@
                             <div class="col-12">
                                 <br>
                                 <h1>
-                                    <center> Anthracnose . </center>
+                                    Anthracnose .
                                 </h1><br><br>
                                 <button type="submit" class="form-control btn-primary" name="disease" value="Anthracnose">Save.</button> <br><br>
                                 <button type="reset" class="form-control  btn-danger" onClick="window.location.reload();">
@@ -455,7 +480,7 @@
                             <div class="col-12">
                                 <br>
                                 <h1>
-                                    <center> Algol Spot . </center>
+                                    Algol Spot .
                                 </h1><br><br>
                                 <button type="submit" class="form-control btn-primary" name="disease" value="Algol Spot">Save.</button> <br><br>
                                 <button type="reset" class="form-control  btn-danger" onClick="window.location.reload();">
@@ -469,7 +494,7 @@
                             <div class="col-12">
                                 <br>
                                 <h1>
-                                    <center> Normal . </center>
+                                    Normal .
                                 </h1><br><br>
                                 <button type="submit" class="form-control  btn-primary" name="disease" value="Normal">Save.</button> <br><br>
                                 <button type="reset" class="form-control  btn-danger" onClick="window.location.reload();">
@@ -488,8 +513,8 @@
 
     <style>
         x {
-            text-align: center;
-            font-size: 20px;
+            font-size: 30px;
+    border-bottom: 2px solid black;
             /* margin: auto; */
         }
 

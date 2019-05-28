@@ -28,15 +28,18 @@
     </div>
     <!--end user id top -->
 
-    <p class="text-line">
-        <img src="../../img/mangoicon.png" style="width: 50px; margin-right: 20px;">
-        EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION
-    </p>
+         <!-- slide text -->
+         <div class="row">
+        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
+        <p class="item-2 ">Some Text for [item-2]</p>
+        <p class="item-3 ">Some Text for [item-3]</p>
+    </div>
+    <!-- end slide text -->
 
     <div class="container">
         <!-- row 1 -->
         <div class="row" style="margin-top: 50px;">
-            <div class="col-xs-12 col-md-4">
+            <div class="col-xs-6 col-md-4">
                 <a href="../../Posts/post_list_person.php">
                     <button type="submit" class="imgcenter" style="border:0; background: transparent; ">
                         <img src="../../img/pageicon/aboutme.png" class="imgcenter">
@@ -44,7 +47,7 @@
                     </button></a>
             </div>
 
-            <div class="col-xs-12 col-md-4">
+            <div class="col-xs-6 col-md-4">
                 <a href="../../Posts/post_form.php">
                     <button type="submit" class="imgcenter" style="border: 0; background: transparent">
                         <img src="../../img/pageicon/post.png" class="imgcenter">
@@ -52,7 +55,7 @@
                     </button></a>
             </div>
 
-            <div class="col-xs-12 col-md-4">
+            <div class="col-xs-6 col-md-4">
                 <a href="../../Classification/chooseimageforcheck.php">
                     <button type="submit" class="imgcenter" style="border: 0; background: transparent">
                         <img src="../../img/pageicon/classification.png" class="imgcenter">
@@ -60,13 +63,7 @@
                     </button></a>
             </div>
 
-
-        </div>
-
-        <!-- row 2 -->
-        <div class="row" style="margin-top: 50px;">
-
-            <div class="col-xs-12 col-md-4">
+            <div class="col-xs-6 col-md-4">
                 <a href="../../Aboutplant/AboutPlant.php">
                     <button type="submit" class="imgcenter" style="border: 0; background: transparent">
                         <img src="../../img/pageicon/aboutplant.png" class="imgcenter">
@@ -74,7 +71,7 @@
                     </button></a>
             </div>
 
-            <div class="col-xs-12 col-md-4">
+            <div class="col-xs-6 col-md-4">
                 <a href="../../Posts/post_list_all.php">
                     <button type="submit" class="imgcenter" style="border: 0; background: transparent">
                         <img src="../../img/pageicon/dataidentify.png" class="imgcenter">
@@ -82,7 +79,7 @@
                     </button></a>
             </div>
 
-            <div class="col-xs-12 col-md-4">
+            <div class="col-xs-6 col-md-4">
                     <button type="submit" class="imgcenter" style="border: 0; background: transparent" onclick="logout()">
                         <img src="../../img/pageicon/logout.png" class="imgcenter">
                         <p class="textimg">Log out</p>

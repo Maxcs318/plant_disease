@@ -16,18 +16,25 @@
 
 <body>
 
-    <div style="text-align:right" class="usertop">
+    <!-- user id top -->
+    <div style="text-align:right;" class="usertop">
         Username :
         <?php echo $_SESSION["m_username"]; ?>
         | Status :
         <?php echo $_SESSION["m_status"]; ?>
     </div>
-    <p class="text-line">
-        <img src="../img/mangoicon.png" style="width: 50px; margin-right: 20px;">
-        EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION
-    </p>
+    <!--end user id top -->
+
+     <!-- slide text -->
+     <div class="row">
+        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
+        <p class="item-2 ">Some Text for [item-2]</p>
+        <p class="item-3 ">Some Text for [item-3]</p>
+    </div>
+    <!-- end slide text -->
+
     <form action="../ConnData/InsertClasscification.php" method="post" enctype="multipart/form-data">
-        <div class="container box-post" style="margin-top: 30px;">
+        <div class="container box-post">
 
             <div class="row">
                 <div class="col-12">
@@ -36,17 +43,12 @@
             </div>
 
             <div class="row">
-                <div class="col-xs-0 col-md-4"></div>
+                <div class="col-xs-2 col-md-4"></div>
 
-                <div class="col-xs-12 col-md-4">
+                <div class="col-xs-8 col-md-4">
                     <div class="check-img ">
-
                     </div>
-                    <label id="first" style="margin-top: 20px;">Upload Photo :</label>
-
-                    <div id="img">
-                        <img src="" alt="">
-                    </div>
+                    <label id="first" >Upload Photo :</label>
 
                     <input type="file" name="imageforcheck[]" id="image" required>
                     <input type="hidden" name="linkmember" value="<?php echo $_SESSION["m_id"]; ?>">
@@ -58,7 +60,7 @@
 
                 </div>
 
-                <div class="col-xs-0 col-md-4"></div>
+                <div class="col-xs-2 col-md-4"></div>
             </div>
             <div class="row">
                 <div class="col-12">
