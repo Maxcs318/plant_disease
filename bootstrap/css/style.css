@@ -1,0 +1,187 @@
+body {
+  background: url(../../img/background.jpg) center center fixed;
+  font-family: 'Prompt', sans-serif;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.box {
+  max-width: auto;
+  max-height: 800px;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: lightgray;
+  float: center;
+  text-align: center;
+  border-radius: 50px;
+  opacity: 0.8;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
+.box h1 {
+  color: green;
+  transform: uppercase;
+  font-weight: 500;
+  font-size: 50px;
+  margin: 20px auto;
+}
+
+/* input */
+.box input[type="text"],
+.box input[type="password"],
+.box input[type="email"],
+.box input[type="number"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  border: 2px solid green;
+  padding: 14px 10px;
+  width: 60%;
+  outline: none;
+  border-radius: 50px;
+  transition: 0.25s;
+  font-weight: 500;
+}
+
+/* input focus */
+.box input[type="text"]:focus,
+.box input[type="password"]:focus,
+.box input[type="email"]:focus,
+.box input[type="number"]:focus {
+  width: 80%;
+  border-color: green;
+  color: darkgreen;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* button */
+.box button[type="submit"] {
+  background: green;
+  width: 30%;
+  color: white;
+  margin: 10px;
+  text-align: center;
+  border: 2px solid green;
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* button hover */
+.box button[type="submit"]:hover {
+  background: darkgreen;
+}
+
+p {
+  color: darkgreen;
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0px;
+}
+
+.tab {
+  margin-left: 80%;
+  font-size: 12px;
+  padding: 0px 6px;
+  background: green;
+  color: white;
+  border: 2px solid green;
+  border-radius: 20px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  color: green;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: darkgreen;
+  color: white;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: green;
+  color: white;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+  div.box {
+    background: none;
+    max-width: auto;
+    width: 100%;
+    max-height: auto;
+    height: 100%;
+    margin: auto;
+    opacity: 1.0;
+  }
+
+  div.tab {
+    width: 40%;
+    height: auto;
+    margin-top: 20px;
+    padding: 0px;
+    font-size: 50%;
+  }
+
+  div.tab button {
+    font-size: 10px;
+    padding: 10px;
+
+  }
+
+  div.box h1 {
+    font-size: 40px;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    background-color: lightgray;
+  }
+}
+
+
