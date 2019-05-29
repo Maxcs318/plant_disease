@@ -72,11 +72,11 @@
                     <?php
                     // output data of each row
                     $check_post1 = 'a';
-                    while ($row0 = $result->fetch_assoc()) {
+                    while ($row = $result->fetch_assoc()) {
                         ?>
                             <div class="col-lg-12 col-xs-12">
-                            <a class="float:bottom" href='post_selected.php?getPostID= <?php echo $row0["p_id"]; ?>'>
-                                Post ID: <?php echo $row0["p_id"]; ?> Have been Comments.
+                            <a class="float:bottom" href='post_selected.php?getPostID= <?php echo $row["p_id"]; ?>'>
+                                Post ID: <?php echo $row["p_id"]; ?> Have been Comments.
                             </a>
                             </div> 
                         <?php
@@ -94,7 +94,7 @@
                 <?php require("../ConnData/connectDB.php"); ?>
                 <?php
                 $sql = " SELECT * FROM classification LEFT JOIN member 
-                ON member.m_id = cl_linkmember WHERE cl_status_confirm !='' AND m_id='" . $_SESSION["m_id"] . "' ";
+                ON member.m_id=cl_linkmember WHERE cl_status_confirm !='' AND m_id='" . $_SESSION["m_id"] . "' ";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     ?>
@@ -103,10 +103,10 @@
                     <div class="row">
                     <?php
                     // output data of each row
-                    while ($row1 = $result->fetch_assoc()) {
+                    while ($row = $result->fetch_assoc()) {
                         ?>
                             <div class="col-lg-12 col-xs-12">
-                            <!-- <a class="float:bottom" href='post_selected.php?getPostID= <?php echo $row1["cl_id"]; ?>'>View Post</a> -->
+                            <!-- <a class="float:bottom" href='post_selected.php?getPostID= <?php echo $row["cl_id"]; ?>'>View Post</a> -->
                                 Classification : ID <?php echo $row['cl_id']; ?> Have been Confirm.
                             </div>                        
                         <?php
