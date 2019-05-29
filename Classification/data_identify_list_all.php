@@ -99,8 +99,13 @@
                 ?>
                 <div class="row border-line">
                     <div class="col-md-4 col-lg-3 col-xs-12" style="margin-top:20px; text-align:center;">
-                        <a class="btn btn-success" href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
-                            <img id="edit-save" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" style="width: 200px;">
+                        <a href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
+                            <img id="edit-save" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" 
+                                style="width: 200px; margin-bottom: 10px; border: 3px solid green;">
+                        </a>
+                       
+                        <a class="btn btn-primary" href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
+                            View post
                         </a>
                     </div>
                     <div class="col-md-2 col-lg-2 col-xs-6">
@@ -128,9 +133,7 @@
                             }
                             ?>
                         </h5>
-
                     </div>
-
                 </div>
 
             <?php
