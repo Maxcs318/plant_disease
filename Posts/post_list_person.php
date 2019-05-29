@@ -106,8 +106,10 @@
                     while ($row = $result->fetch_assoc()) {
                         ?>
                             <div class="col-lg-12 col-xs-12">
+                                <a class="float:bottom" href='../Classification/classification_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
                                 Classification : ID <?php echo $row['cl_id']; ?> Have been Confirm.
-                            </div>                        
+                                </a> 
+                            </div>                      
                         <?php
                     }
                     ?>
@@ -178,7 +180,9 @@
                 </div>
 
                 <footer style=" margin-bottom: 50px;">
-                    
+                    <div>
+
+                    </div>
                 </footer>
 
                 <?php $conn->close(); ?>

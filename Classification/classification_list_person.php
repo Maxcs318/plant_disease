@@ -94,8 +94,8 @@ error_reporting(E_ALL ^ E_NOTICE); ?>
                                                                 echo 'Waiting to be confirmed';
                                                             }
                                                             ?><br><br>
-                        <!-- <button type="submit" class="form-control btn-primary" 
-                                onclick="window.location.href='classification_selected.php?getCl_image=<?php echo $row["cl_image"]; ?>'"> View</button><br><br> -->
+                        <button type="submit" class="form-control btn-primary" 
+                                onclick="window.location.href='classification_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'"> View</button><br><br>
                     </div>
                 
                 <?php
