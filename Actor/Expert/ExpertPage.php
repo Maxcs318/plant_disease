@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -17,8 +18,11 @@
 
 <body>
     <?php require("../../ConnData/sessionNULL.php");
-    require("../../ConnData/sessionForExpert.php");
+    require("../../ConnData/sessionForExpert.php");    
+    require("../../Posts/test_post_identify.php");    
     ?>
+    
+
     <!-- user id top -->
     <div style="text-align:right;" class="usertop">
         Username :
@@ -29,7 +33,7 @@
     <!--end user id top -->
 
     <!-- slide text -->
-    <div class="row" style="margin-bottom: 50px;">
+    <div class="row" style="margin-bottom: 100px;">
         <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
         <p class="item-2 ">Some Text for [item-2]</p>
         <p class="item-3 ">Some Text for [item-3]</p>
@@ -44,6 +48,7 @@
                     <button type="submit" class="imgcenter" style="border:0; background: transparent; ">
                         <img src="../../img/pageicon/aboutme.png" class="imgcenter">
                         <p class="textimg">About me</p>
+                        <?php echo 'Post have comment '.$countpost.' posts <br>'.'Classification confirm '.$countclass.' classification<br>'; ?> <br>
                     </button></a>
             </div>
 
