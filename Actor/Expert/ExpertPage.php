@@ -1,4 +1,4 @@
-
+<?php error_reporting (E_ALL ^ E_NOTICE); ?>
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +19,7 @@
 <body>
     <?php require("../../ConnData/sessionNULL.php");
     require("../../ConnData/sessionForExpert.php");    
-    require("../../Posts/test_post_identify.php");    
+    require("../../ConnData/Alert_Posts_Classification.php");    
     ?>
     
 
@@ -47,8 +47,20 @@
                 <a href="../../Posts/post_list_person.php">
                     <button type="submit" class="imgcenter" style="border:0; background: transparent; ">
                         <img src="../../img/pageicon/aboutme.png" class="imgcenter">
-                        <p class="textimg">About me</p>
-                        <?php echo 'Post have comment '.$countpost.' posts <br>'.'Classification confirm '.$countclass.' classification<br>'; ?> <br>
+                        <p class="textimg">About me 
+                        <font color="red"> <?php 
+                        if($countpost>0){
+                            echo 'p+'.$countpost;
+                        }
+                        if($countclass>0){
+                            echo ' c+'.$countclass ;
+                        } 
+                        
+                        ?>
+                        
+                        </font>
+                        </p> 
+                        <!-- ..แจ้งเตือน -->
                     </button></a>
             </div>
 

@@ -1,3 +1,4 @@
+<?php error_reporting (E_ALL ^ E_NOTICE); ?>
 <!DOCTYPE html>
 <html>
 
@@ -18,6 +19,7 @@
 <body>
     <?php require("../../ConnData/sessionNULL.php");
     require("../../ConnData/sessionForUser.php");
+    require("../../ConnData/Alert_Posts_Classification.php");    
     ?>
     <!-- user id top -->
     <div style="text-align:right;" class="usertop">
@@ -42,7 +44,17 @@
                 <a href="../../Posts/post_list_person.php">
                     <button type="submit" class="imgcenter" style="border:0; background: transparent; ">
                         <img src="../../img/pageicon/aboutme.png" class="imgcenter">
-                        <p class="textimg">About me</p>
+                        <p class="textimg">About me
+                        <font color="red"> <?php 
+                        if($countpost>0){
+                            echo 'p+'.$countpost;
+                        }
+                        if($countclass>0){
+                            echo ' c+'.$countclass ;
+                        } 
+                        ?>
+                        </font>
+                        </p>
                     </button></a>
             </div>
 

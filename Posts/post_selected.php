@@ -1,4 +1,17 @@
 <?php session_start(); ?>
+<?php require("../ConnData/connectDB.php"); ?>
+<?php
+    $sql = "UPDATE posts SET p_status_comment = '' ,p_status_confirm = ''
+    
+    WHERE p_id='" . $_GET["getPostID"] . "' ";
+    if ($conn->query($sql) === TRUE) { 
+		
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    $conn->close();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -36,7 +49,7 @@
     <div class="container box-list" style="margin-top: 70px;">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="list-header">Post ID : </h4>
+                <h4 class="list-header">Post ID : <?php echo $_GET["getPostID"] ?> </h4>
             </div>
         </div>
 
