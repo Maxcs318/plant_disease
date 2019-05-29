@@ -28,8 +28,8 @@
     </div>
     <!--end user id top -->
 
-         <!-- slide text -->
-         <div class="row">
+    <!-- slide text -->
+    <div class="row" style="margin-bottom: 100px;">
         <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
         <p class="item-2 ">Some Text for [item-2]</p>
         <p class="item-3 ">Some Text for [item-3]</p>
@@ -38,7 +38,7 @@
 
     <div class="container">
         <!-- row 1 -->
-        <div class="row" style="margin-top: 50px;">
+        <div class="row">
             <div class="col-xs-6 col-md-4">
                 <a href="../../Posts/post_list_person.php">
                     <button type="submit" class="imgcenter" style="border:0; background: transparent; ">
@@ -80,36 +80,36 @@
             </div>
 
             <div class="col-xs-6 col-md-4">
-                    <button type="submit" class="imgcenter" style="border: 0; background: transparent" onclick="logout()">
-                        <img src="../../img/pageicon/logout.png" class="imgcenter">
-                        <p class="textimg">Log out</p>
-                    </button>
+                <button type="submit" class="imgcenter" style="border: 0; background: transparent" onclick="logout()">
+                    <img src="../../img/pageicon/logout.png" class="imgcenter">
+                    <p class="textimg">Log out</p>
+                </button>
             </div>
         </div>
 
     </div>
 
     </div>
-<script>
-    function logout() {
-        
-        swal({
-        title: "Are you sure?", 
-        text: "You want to Logout ." , 
-        type: "warning",
-        confirmButtonText: 'Yes.',
-        confirmButtonColor: '#DD6B55',
-        
-        showCancelButton: true ,
-        }, function() {
-            // swal("Log Out!", " ", "success");
-            //     setTimeout(function(){
-                    window.location.href = "../../ConnData/logout.php";
-            //     },4000);
-        });
-         
-    }
-</script>
+    <script>
+        function logout() {
+
+            swal({
+                title: "Are you sure?",
+                text: "You want to Logout .",
+                type: "warning",
+                confirmButtonText: 'Yes.',
+                confirmButtonColor: '#DD6B55',
+
+                showCancelButton: true,
+            }, function() {
+                // swal("Log Out!", " ", "success");
+                //     setTimeout(function(){
+                window.location.href = "../../ConnData/logout.php";
+                //     },4000);
+            });
+
+        }
+    </script>
 </body>
 
 </html>
