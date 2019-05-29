@@ -101,16 +101,13 @@
                     <div class="col-md-4 col-lg-3 col-xs-12" style="margin-top:20px; text-align:center;">
                         <a href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
                             <img id="edit-save" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" 
-                                style="width: 200px; margin-bottom: 10px; border: 3px solid green;">
-                        </a>
-                       
-                        <a class="btn btn-primary" href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
-                            View post
+                                style="width: 200px; margin-bottom: 10px;">
                         </a>
                     </div>
                     <div class="col-md-2 col-lg-2 col-xs-6">
                         <h4>Date</h4>
                         <h5><?php echo substr($row["cl_date"], 0, 10);  ?></h5>
+                       
                     </div>
 
                     <div class="col-md-2 col-lg-2 col-xs-6">
@@ -133,6 +130,11 @@
                             }
                             ?>
                         </h5>
+                    </div>
+                    <div class="col-md-4 col-xs-8 float-right" style="text-align:right;">
+                    <a class="btn btn-primary" style="margin-top: " href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
+                            View post
+                        </a>
                     </div>
                 </div>
 
