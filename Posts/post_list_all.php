@@ -83,7 +83,7 @@
                                 Detail : <?php echo substr($row["p_detail"], 0, 100) . "<br>"; ?>
                                 Date : <?php echo substr($row["p_date"], 0, 10)  . "<br>"; ?>
                                 Time : <?php echo substr($row["p_date"], 11)  . "<br>"; ?>
-                                <a class="float:bottom" href='post_selected.php?getPostID= <?php echo $row["p_id"]; ?>'">View Post</a>
+                                <a class="float:bottom" href='post_selected.php?getPostID=<?php echo $row["p_id"];?>'">View Post</a>
 
                                     </div>
                                 </div>
