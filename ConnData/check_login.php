@@ -2,6 +2,16 @@
 session_start();
 require_once("connectDB.php");
 
+if(isset($_SESSION["m_status"])){
+    if($_SESSION["m_status"] == "admin"){
+        header("location:../Actor/Admin/AdminPage.php");
+    }else if($_SESSION["m_status"] == "expert"){
+        header("location:../Actor/Expert/ExpertPage.php");
+    }else if($_SESSION["m_status"] == "user") {
+        header("location:../Actor/User/UserPage.php");
+    }
+}
+
 $strUsername = $_POST['username'];
 $strPassword = $_POST['password'];
 
