@@ -56,7 +56,8 @@
                     
                     <form id="form1" runat="server">
 
-                        <img id="blah" src="#" class="check-img"/>
+                        <img id="blah" src="../img/leafpreview.png" class="check-img" />
+
                         <br>
                         <br>
                         <label id="first">Upload Photo :</label>

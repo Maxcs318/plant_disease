@@ -270,7 +270,7 @@
                     <x class="S15">
                         
                         <img src="../Image/image_classification/S15.jpg">
-                        s15<br>
+                        s15 : Yellow margins around a lesion.<br>
                         <div class="row S15">
                             <div class="col-12"><br>
                                 <input class="S15y" type="radio" name="S15" value="1"> Yes
@@ -281,7 +281,7 @@
                     <x class="S9">
                         
                         <img src="../Image/image_classification/S9.jpg">
-                        s9<br>
+                        s9 : Greenish-gray spot on leaf.<br>
                         <div class="row S9">
                             <div class="col-12"><br>
                                 <input class="S9y" type="radio" name="S9" value="1"> Yes
@@ -291,7 +291,7 @@
                     </x>
                     <x class="S8">
                         <img src="../Image/image_classification/S8.jpg">
-                        s8<br>
+                        s8 : White spot on leaf.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S8y" type="radio" name="S8" value="1"> Yes
@@ -301,7 +301,7 @@
                     </x>
                     <x class="S12_2">
                         <img src="../Image/image_classification/S12.jpg">
-                        s12<br>
+                        s12 : Brown or orange powdery appear on the underside of leaf.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S12_2y" type="radio" name="S12" value="1"> Yes
@@ -312,7 +312,7 @@
                     </x>
                     <x class="S12">
                         <img src="../Image/image_classification/S12.jpg">
-                        s12<br>
+                        s12 Brown or orange powdery appear on the underside of leaf.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S12y" type="radio" name="S12" value="1"> Yes
@@ -322,7 +322,7 @@
                     </x>
                     <x class="S5">
                         <img src="../Image/image_classification/S5.jpg">
-                        s5<br>
+                        s5 : Lesion occur at leaf margin.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S5y" type="radio" name="S5" value="1"> Yes
@@ -332,7 +332,7 @@
                     </x>
                     <x class="S16">
                         <img src="../Image/image_classification/S16.jpg">
-                        s16<br>
+                        s16 : Leaf is irregular shape.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S16y" type="radio" name="S16" value="1"> Yes
@@ -342,7 +342,7 @@
                     </x>
                     <x class="S9_2">
                         <img src="../Image/image_classification/S9.jpg">
-                        s9<br>
+                        s9 : Greenish-gray spot on leaf.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S9_2y" type="radio" name="S9" value="1"> Yes
@@ -352,7 +352,7 @@
                     </x>
                     <x class="S8_2">
                         <img src="../Image/image_classification/S8.jpg">
-                        s8<br>
+                        s8 : White spot on leaf.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S8_2y" type="radio" name="S8" value="1"> Yes
@@ -362,7 +362,7 @@
                     </x>
                     <x class="S4">
                         <img src="../Image/image_classification/S4.jpg">
-                        s4<br>
+                        s4 : Mature lesion are explanded and become dark-brown.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S4y" type="radio" name="S4" value="1"> Yes
@@ -372,7 +372,7 @@
                     </x>
                     <x class="S12_3">
                         <img src="../Image/image_classification/S12.jpg">
-                        s12<br>
+                        s12 : Brown or orange powdery appear on the underside of leaf.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S12_3y" type="radio" name="S12" value="1"> Yes
@@ -382,7 +382,7 @@
                     </x>
                     <x class="S14">
                         <img src="../Image/image_classification/S14.jpg">
-                        s14<br>
+                        s14 : Watery around lesion area.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S14y" type="radio" name="S14" value="1"> Yes
@@ -392,7 +392,7 @@
                     </x>
                     <x class="S3">
                         <img src="../Image/image_classification/S3.jpg">
-                        s3<br>
+                        s3 : Blight on leaf.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S3y" type="radio" name="S3" value="1"> Yes
@@ -402,7 +402,7 @@
                     </x>
                     <x class="S9_3">
                         <img src="../Image/image_classification/S9.jpg">
-                        s9<br>
+                        s9 : Greenish-gray spot on leaf.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S9_3y" type="radio" name="S9" value="1"> Yes
@@ -412,7 +412,7 @@
                     </x>
                     <x class="S6">
                         <img src="../Image/image_classification/S6.jpg">
-                        s6<br>
+                        s6 : Tiny and irregular spot appear on leaf.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S6y" type="radio" name="S6" value="1"> Yes
@@ -422,7 +422,7 @@
                     </x>
                     <x class="S14_2">
                         <img src="../Image/image_classification/S14.jpg">
-                        s14<br>
+                        s14 : Watery around lesion area.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S14_2y" type="radio" name="S14" value="1"> Yes
@@ -432,7 +432,7 @@
                     </x>
                     <x class="S13">
                         <img src="../Image/image_classification/S13.jpg">
-                        s13<br>
+                        s13 : Wither on the tip of leaf.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S13y" type="radio" name="S13" value="1"> Yes
@@ -442,7 +442,7 @@
                     </x>
                     <x class="S12_4">
                         <img src="../Image/image_classification/S12.jpg">
-                        s12<br>
+                        s12 : Brown or orange powdery appear on the underside of leaf.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S12_4y" type="radio" name="S12" value="1"> Yes
@@ -452,7 +452,7 @@
                     </x>
                     <x class="S2">
                         <img src="../Image/image_classification/S2.jpg">
-                        s2<br>
+                        s2 : check on lesion area.<br>
                         <div class="row">
                             <div class="col-12"><br>
                                 <input class="S2y" type="radio" name="S2" value="1"> Yes

@@ -18,7 +18,9 @@
     <div class="container box-list">
         <div class="row">
             <div class="col-12"><br>
-                <h1 style="text-align:center;">Disease : <?php echo $_SESSION["disease"]; ?> </h1><br>
+                <h1 style="text-align:center;">Disease : <?php echo $_SESSION["disease"]; ?> </h1>
+                <a class=" btn btn-primary float-left" href="../index.php" style="width: 90px; margin:30px 0px 10px ">Home</a>
+
             </div>
         </div>
 
@@ -66,7 +68,6 @@
         } else { }
         ?> <?php $conn->close(); ?>
         </div>
-
     </div>
     </form>
 </body>
