@@ -1,3 +1,4 @@
+<?php error_reporting (E_ALL ^ E_NOTICE); ?>
 <?php session_start(); ?>
 <?php 
 if(isset($_SESSION["m_status"])){
@@ -31,6 +32,7 @@ if(isset($_SESSION["m_status"])){
             <div class="col-xs-4 col-sm-4 col-md-4 box">
                 <form action="ConnData/check_login.php" method="post">
                     <h1>LOGIN</h1>
+                    <font color="red"><?php echo $_POST['checkLogin']; ?></font>
                     <p>User Name</p>
                     <input class="form-control" type="text" name="username" placeholder="username" required>
 
