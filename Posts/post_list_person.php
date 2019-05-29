@@ -58,69 +58,75 @@
     </div>
 
     <!-- alert post and classification -->
-    <div class="container " style="margin: auto; margin-top: 30px; background-color:white;" >
+    <div class="container " style="margin: auto; margin-top: 30px; background-color:white;">
         <div class="row">
-                <?php require("../ConnData/connectDB.php"); ?>
-                <?php
-                $sql = " SELECT * FROM posts WHERE p_status_comment !='' AND p_own='".$_SESSION["m_id"]."' ";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    ?>
-                    <div class="col-lg-6 col-xs-12">
-                    <center><h4>Posts that have been comments.</h4></center><hr>
+            <?php require("../ConnData/connectDB.php"); ?>
+            <?php
+            $sql = " SELECT * FROM posts WHERE p_status_comment !='' AND p_own='" . $_SESSION["m_id"] . "' ";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                ?>
+                <div class="col-lg-6 col-xs-12">
+                    <center>
+                        <h4>Posts that have been comments.</h4>
+                    </center>
+                    <hr>
                     <div class="row">
-                    <?php
-                    // output data of each row
-                    $check_post1 = 'a';
-                    while ($row = $result->fetch_assoc()) {
-                        ?>
+                        <?php
+                        // output data of each row
+                        $check_post1 = 'a';
+                        while ($row = $result->fetch_assoc()) {
+                            ?>
                             <div class="col-lg-12 col-xs-12">
-                            <a class="float:bottom" href='post_selected.php?getPostID=<?php echo $row["p_id"]; ?>'>
-                                Post ID: <?php echo $row["p_id"]; ?> Have been Comments.
-                            </a>
-                            </div> 
+                                <a class="float:bottom" href='post_selected.php?getPostID=<?php echo $row["p_id"]; ?>'>
+                                    Post ID: <?php echo $row["p_id"]; ?> Have been Comments.
+                                </a>
+                            </div>
                         <?php
                     }
                     ?>
                     </div><br>
-                    </div>
-                    <?php
-                } else {
-                // echo "";
-                }
-                $conn->close();
-                ?>
-                
-                <?php require("../ConnData/connectDB.php"); ?>
-                <?php
-                $sql = " SELECT * FROM classification LEFT JOIN member 
+                </div>
+            <?php
+        } else {
+            // echo "";
+        }
+        $conn->close();
+        ?>
+
+            <?php require("../ConnData/connectDB.php"); ?>
+            <?php
+            $sql = " SELECT * FROM classification LEFT JOIN member 
                 ON member.m_id=cl_linkmember WHERE cl_status_confirm !='' AND m_id='" . $_SESSION["m_id"] . "' ";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    ?>
-                    <div class="col-lg-6 col-xs-12">
-                    <center><h4>Classification that have been confirm.</h4></center><hr>
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                ?>
+                <div class="col-lg-6 col-xs-12">
+                    <center>
+                        <h4>Classification that have been confirm.</h4>
+                    </center>
+                    <hr>
                     <div class="row">
-                    <?php
-                    // output data of each row
-                    while ($row = $result->fetch_assoc()) {
-                        ?>
+                        <?php
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                            ?>
                             <div class="col-lg-12 col-xs-12">
                                 <a class="float:bottom" href='../Classification/classification_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
-                                Classification : ID <?php echo $row['cl_id']; ?> Have been Confirm.
-                                </a> 
-                            </div>                      
+                                    Classification : ID <?php echo $row['cl_id']; ?> Have been Confirm.
+                                </a>
+                            </div>
                         <?php
                     }
                     ?>
                     </div><br>
-                    </div>
-                    <?php
-                } else {
-                // echo "";
-                }
-                $conn->close();
-                ?>
+                </div>
+            <?php
+        } else {
+            // echo "";
+        }
+        $conn->close();
+        ?>
 
         </div>
     </div>
@@ -169,23 +175,23 @@
                             </div>
                         </div>
                     </div>
-        <?php
-                }
+                <?php
             }
-        } else {
-            echo "0 results";
         }
-        ?>
-            <a class=" btn btn-danger float-right" href="../index.php" style="width: 90px; margin:30px 0px 10px ">Back</a>
-                </div>
+    } else {
+        echo "0 results";
+    }
+    ?>
+        <a class=" btn btn-danger float-right" href="../index.php" style="width: 90px; margin:30px 0px 10px ">Back</a>
+    </div>
 
-                <footer style=" margin-bottom: 50px;">
-                    <div>
+    <footer style=" margin-bottom: 50px;">
+        <div>
 
-                    </div>
-                </footer>
+        </div>
+    </footer>
 
-                <?php $conn->close(); ?>
+    <?php $conn->close(); ?>
 </body>
 
 </html>
