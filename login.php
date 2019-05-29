@@ -30,7 +30,7 @@ if(isset($_SESSION["m_status"])){
         <div class="row">
            <div class="col-xs-4 col-sm-4 col-md-4"></div>
             <div class="col-xs-4 col-sm-4 col-md-4 box">
-                <form action="ConnData/check_login.php" method="post">
+                <form action="ConnData/check_login.php" method="post" autocomplete="off">
                     <h1>LOGIN</h1>
                     <font color="red"><?php echo $_POST['checkLogin']; ?></font>
                     <p>User Name</p>
