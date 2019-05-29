@@ -173,7 +173,7 @@
                 </div><br>
                 <div class="row">
                     <div class="col-12">
-                        <input type="hidden" name="id_linkpost" value="<?php echo $_GET["getPostID"]; ?>">
+                        <input type="hidden" name="id_linkpost" value="<?php echo $_GET["getPostID"];?>">
                         <input type="hidden" name="commentown" value="<?php echo $_SESSION["m_id"]; ?>">
                         <input type="hidden" name="commentdate" value="<?php echo date("Y-m-d H:i:s", time() + (60 * 60) * 5); ?>">
                         <textarea rows="4" class="form-control" name="commentdetail"> </textarea>
