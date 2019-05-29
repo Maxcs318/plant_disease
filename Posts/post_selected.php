@@ -171,7 +171,7 @@
         <?php $conn->close(); ?>
 
         <?php
-        if ($_SESSION["m_status"] == 'expert' && $_SESSION["m_status"] == 'admin') {
+        if ($_SESSION["m_status"] == 'expert' || $_SESSION["m_status"] == 'admin') {
             ?>
             <form action="../ConnData/InsertComment.php" method="post" enctype="multipart/form-data">
                 <div class="row">
