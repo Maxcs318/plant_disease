@@ -24,10 +24,30 @@
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+
+<?php session_start(); ?>
+<!-- user id top -->
+<div style="text-align:right;" class="usertop">
+        Username :
+        <?php echo $_SESSION["m_username"]; ?>
+        | Status :
+        <?php echo $_SESSION["m_status"]; ?>
+    </div>
+    <!--end user id top -->
+
+    <!-- slide text -->
+    <div class="row">
+        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
+        <p class="item-2 ">Some Text for [item-2]</p>
+        <p class="item-3 ">Some Text for [item-3]</p>
+    </div>
+    <!-- end slide text -->
+
+    <div class="container box-list" style="margin-top: 70px;">
         <div class="row">
             <div class="col-lg-12 col-xs-12"><br>
-                <center><h4>Classification ID : <?php echo $_GET["getCl_id"]; ?> </h4></center><hr>
+                <center><h4 class="header">Classification ID : <?php echo $_GET["getCl_id"]; ?> </h4></center>
+                <hr class="border-line">
             </div>
         </div>
         <div class="row">
@@ -79,8 +99,9 @@
                 }
                 
                 ?>
-
         </div>
+        <a class="btn btn-danger float-right" href="../index.php" style="width:80px; margin: 10px;">Back</a>
+
     </div>
 
 </body>

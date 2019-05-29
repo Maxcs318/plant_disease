@@ -213,13 +213,7 @@
                         <button class="form-control col-lg-6 btn-primary" style="margin-bottom: 50px;"> Save </button>
           
                 </div>
-
-
-
-
             </div><!--  end container -->
-
-
             </form>
 
             </div>
