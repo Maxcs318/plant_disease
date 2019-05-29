@@ -64,9 +64,8 @@ require_once("../ConnData/connectDB.php");
                         <label>Your Password</label>
                         <input class="form-control" type="text" name="password" value="<?php echo $row["m_password"]; ?>" maxlength="10" disabled="disabled">
 
-
                         <label>New Password</label>
-                        <input class="form-control" type="password" name="password" placeholder="-- new password --" maxlength="10" >
+                        <input class="form-control" type="text" name="password" value="<?php echo $row["m_password"]; ?>"  maxlength="10" >
                         <br>
 
                         <button class="form-control btn-primary" type="submit" name="save">Save</button>
