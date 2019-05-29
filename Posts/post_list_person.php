@@ -94,7 +94,7 @@
                 <?php require("../ConnData/connectDB.php"); ?>
                 <?php
                 $sql = " SELECT * FROM classification LEFT JOIN member 
-                ON member.m_id=cl_linkmember WHERE cl_status_confirm !='' AND m_id='" . $_SESSION["m_id"] . "' ";
+                ON member.m_id = cl_linkmember WHERE cl_status_confirm !='' AND m_id='" . $_SESSION["m_id"] . "' ";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     ?>
