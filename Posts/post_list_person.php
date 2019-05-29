@@ -75,7 +75,7 @@
                     while ($row = $result->fetch_assoc()) {
                         ?>
                             <div class="col-lg-12 col-xs-12">
-                            <a class="float:bottom" href='post_selected.php?getPostID= <?php echo $row["p_id"]; ?>'>
+                            <a class="float:bottom" href='post_selected.php?getPostID=<?php echo $row["p_id"]; ?>'>
                                 Post ID: <?php echo $row["p_id"]; ?> Have been Comments.
                             </a>
                             </div> 
@@ -106,7 +106,6 @@
                     while ($row = $result->fetch_assoc()) {
                         ?>
                             <div class="col-lg-12 col-xs-12">
-                            <!-- <a class="float:bottom" href='post_selected.php?getPostID= <?php echo $row["cl_id"]; ?>'>View Post</a> -->
                                 Classification : ID <?php echo $row['cl_id']; ?> Have been Confirm.
                             </div>                        
                         <?php
@@ -164,7 +163,7 @@
                                 Detail : <?php echo substr($row["p_detail"], 0, 100) . "<br>"; ?>
                                 Date : <?php echo substr($row["p_date"], 0, 10)  . "<br>"; ?>
                                 Time : <?php echo substr($row["p_date"], 11)  . "<br>"; ?>
-                                <a class="float:bottom" href='post_selected.php?getPostID= <?php echo $row["p_id"]; ?>'>View Post</a>
+                                <a class="float:bottom" href='post_selected.php?getPostID=<?php echo $row["p_id"]; ?>'>View Post</a>
                             </div>
                         </div>
                     </div>
