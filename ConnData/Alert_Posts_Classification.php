@@ -11,7 +11,7 @@
             }
             //echo 'Post have comment '.$countpost.' posts <br>';
         } else {
-        echo "0 results";
+        // echo "0 results";
         }
         $conn->close();
 ?>
@@ -28,7 +28,7 @@
             }
             //echo 'Classification confirm '.$countclass.' . <br>';
         } else {
-        echo "0 results";
+        // echo "0 results";
         }
         $conn->close();
 ?>
