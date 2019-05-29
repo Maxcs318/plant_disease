@@ -186,9 +186,7 @@
     </div>
 
     <footer style=" margin-bottom: 50px;">
-        <div>
-
-        </div>
+        
     </footer>
 
     <?php $conn->close(); ?>
