@@ -12,7 +12,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- sweetalert-->
 </head>
 <body>
-
+<?php
+    if($_POST["checkUp"]=='success'){
+        ?>
+        <script>
+        swal({
+        title: "Up status User to Expert Success", 
+        type: "success",
+        confirmButtonText: 'OK',
+        confirmButtonColor: '',
+        }, function() {
+            <?php $_POST["checkUp"]=0 ?>
+        });
+        </script>
+    <?php
+    }
+    ?>    
     <div class="container"> <br>    
         <!-- Row 1 -->
         <div class="row">
@@ -99,7 +114,6 @@
         </div>
     </div>
     
-
 </body>
 <script>
     function UpStatus(m_id,m_username) {

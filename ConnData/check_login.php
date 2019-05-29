@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login Fail</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> <!-- sweetalert-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- sweetalert-->
-</head>
-<body>
-    
-</body>
-</html>
 <?php
 session_start();
 require_once("connectDB.php");
@@ -25,17 +11,16 @@ $row = $result->fetch_assoc();
 
 	if ($result->num_rows == 0) {
 		?>
-		<script language="javascript">
-			swal({
-			title: "Please Login Again .", 
-			text: " Username or Password is incorrect." , 
-			type: "error",
-			confirmButtonText: 'Back.',
-			confirmButtonColor: '#DD6B55',
-			}, function() {
-				window.location.href = "../login.php";
-			});        
-		</script>
+		<!DOCTYPE html>
+		<html>
+		<head>    
+    	</head>
+		<body onload="setTimeout(function() { document.frm1.submit() },10)">
+            <form action="../login.php" name="frm1" method="POST">
+                <input type="hidden" name="checkLogin" value="Username or Password is Incorrect" />
+            </form>
+        </body>
+		</html>
 	<?php	
 	}else{	
 		$_SESSION["m_id"] = $row["m_id"];
