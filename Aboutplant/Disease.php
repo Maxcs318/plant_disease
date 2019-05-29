@@ -23,8 +23,8 @@
         <?php echo $_SESSION["m_status"]; ?>
 
     </div>
-        <!-- slide text -->
-        <div class="row" style="margin-bottom: 70px;">
+    <!-- slide text -->
+    <div class="row" style="margin-bottom: 70px;">
         <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
         <p class="item-2 ">Some Text for [item-2]</p>
         <p class="item-3 ">Some Text for [item-3]</p>
@@ -33,26 +33,27 @@
 
     <div class="container">
         <!-- home button -->
-        <a href="../index.php">
-            <button type="submit" style="border: 0; background: transparent">
-                <img src="../img/home.png" class="imgabout">
-                <p class="text-img-detail">Home</p>
-            </button></a>
+        <div class="col-xs-4 col-md-4">
 
+            <a href="../index.php">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../img/home.png" class="imgabout">
+                    <p class="text-img-detail">Home</p>
+                </button></a>
+        </div>
         <!-- symptoms button -->
-        <a href="Symptoms.php">
-            <button type="submit" style="border: 0; background: transparent">
-                <img src="../img/symptom.png" class="imgabout">
-                <p class="text-img-detail">Symptoms</p>
-            </button></a>
+        <div class="col-xs-4 col-md-4">
 
-        <!-- back button -->
-        <a href="../index.php">
-            <button type="submit" style="border: 0; background: transparent">
-                <img src="../img/back.svg" class="imgabout">
-                <p class="text-img-detail">Back</p>
-            </button></a>
+            <a href="Symptoms.php">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../img/symptom.png" class="imgabout">
+                    <p class="text-img-detail">Symptoms</p>
+                </button></a>
+        </div>
+
     </div>
+
+
 
     <!-- disease 1 -->
     <div class="container" style="margin-top: 10px;">
@@ -91,7 +92,7 @@
 
     <footer style="margin: 30px;">
         <div>
-    
+
         </div>
     </footer>
 

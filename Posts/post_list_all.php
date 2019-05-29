@@ -24,10 +24,13 @@
         <?php echo $_SESSION["m_status"]; ?>
     </div>
 
-    <p class="text-line">
-        <img src="../img/mangoicon.png" style="width: 50px; margin-right: 20px;">
-        EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION
-    </p>
+    <!-- slide text -->
+    <div class="row" style="margin-bottom: 50px;">
+        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
+        <p class="item-2 ">Some Text for [item-2]</p>
+        <p class="item-3 ">Some Text for [item-3]</p>
+    </div>
+    <!-- end slide text -->
 
     <div class="container">
         <!-- home button -->
@@ -83,26 +86,26 @@
                                 Detail : <?php echo substr($row["p_detail"], 0, 100) . "<br>"; ?>
                                 Date : <?php echo substr($row["p_date"], 0, 10)  . "<br>"; ?>
                                 Time : <?php echo substr($row["p_date"], 11)  . "<br>"; ?>
-                                <a class="float:bottom" href='post_selected.php?getPostID=<?php echo $row["p_id"];?>'">View Post</a>
+                                <a class="float:bottom" href='post_selected.php?getPostID=<?php echo $row["p_id"]; ?>'">View Post</a>
 
-                                    </div>
-                                </div>
-                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
                             
-                                    <?php
+                                            <?php
+                                        }
+                                    }
+                                } else {
+                                    echo "0 results";
                                 }
-                            }
-                        } else {
-                            echo "0 results";
-                        }
-                        ?>
+                                ?>
                         <a class=" btn btn-danger float-right" href="../index.php" style="width: 90px; margin:30px 0px 10px ">Back</a>
 
                 </div>
                 <?php $conn->close(); ?>
                 <footer>
                     <div class="row" style="margin: 30px;">
-                        
+
                     </div>
                 </footer>
 </body>

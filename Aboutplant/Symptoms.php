@@ -34,26 +34,28 @@
 
    <div class="container">
       <!-- home button -->
-      <a href="../index.php">
-         <button type="submit" style="border: 0; background: transparent">
-            <img src="../img/home.png" class="imgabout">
-            <p class="text-img-detail">Home</p>
-         </button></a>
+      <div class="col-xs-4 col-md-4">
 
-      <!-- symptoms button -->
-      <a href="Disease.php">
-         <button type="submit" style="border: 0; background: transparent">
-            <img src="../img/pageicon/classification.png" class="imgabout">
-            <p class="text-img-detail">Disease Detail</p>
-         </button></a>
+         <a href="../index.php">
+            <button type="submit" style="border: 0; background: transparent">
+               <img src="../img/home.png" class="imgabout">
+               <p class="text-img-detail">Home</p>
+            </button></a>
+      </div>
+      
+      <!-- Disease button -->
+      <div class="col-xs-4 col-md-4">
+         <a href="Disease.php">
+            <button type="submit" style="border: 0; background: transparent">
+               <img src="../img/pageicon/classification.png" class="imgabout">
+               <p class="text-img-detail">Disease Detail</p>
+            </button></a>
+      </div>
 
-      <!-- back button -->
-      <a href="../index.php">
-         <button type="submit" style="border: 0; background: transparent">
-            <img src="../img/back.svg" class="imgabout">
-            <p class="text-img-detail">Back</p>
-         </button></a>
    </div>
+
+
+
 
    <!-- disease 1 -->
    <div class="container" style="margin-top: 10px;">

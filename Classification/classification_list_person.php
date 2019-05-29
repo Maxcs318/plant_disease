@@ -81,8 +81,8 @@ error_reporting(E_ALL ^ E_NOTICE); ?>
             ?> <div class="row"> <?php
                                         while ($row = $result->fetch_assoc()) {
                                             ?>
-                <div class="col-xs-12 col-md-4"></div>
-                    <div class="col-md-4 col-xs-12">
+                
+                    <div class="col-md-4 col-xs-12  imgpost">
                         <img src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" height="" width="100%">
                         <br><br>
                         <b>The Disease you detected :</b> <?php echo $row["cl_disease"]; ?><br><br>
@@ -96,7 +96,7 @@ error_reporting(E_ALL ^ E_NOTICE); ?>
                         <!-- <button type="submit" class="form-control btn-primary" 
                                 onclick="window.location.href='classification_selected.php?getCl_image=<?php echo $row["cl_image"]; ?>'"> View</button><br><br> -->
                     </div>
-                <div class="col-xs-12 col-md-4"></div>
+                
                 <?php
             }
             ?></div> <?php

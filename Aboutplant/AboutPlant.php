@@ -19,7 +19,7 @@
            
             <div class="col-xs-4 col-sm-4 col-md-4 box"> 
                 <h1>About plant's<br> Disease in Mango</h1>
-                <button type="submit" onclick="window.location.href='Disease.php'">Disease</button>
+                <button type="submit" onclick="window.location.href='Disease.php'">Diseases</button>
                 <br>
                 <button type="submit" onclick="window.location.href='Symptoms.php'">Symptoms</button>
                 <br>
