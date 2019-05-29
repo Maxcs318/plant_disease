@@ -38,13 +38,13 @@ error_reporting(E_ALL ^ E_NOTICE); ?>
 
     <div class="container box-list" style="margin-top: 70px;">
         <div class="row">
-            <div class="col-md-8 col-xs-12"><br>
+            <div class="col-md-8 col-xs-12" style="text-align:center;"><br>
                 <center>
                     <h4 class="header"> My Classification All . </h4>
                 </center>
                 <a href="../index.php">Home</a> |
-                <a href="">Button 1</a> |
-                <a href="">Button 2</a> |
+                
+                
                 <a href="" onclick="window.history.go(-1); return false;">Back</a>
             </div>
             <div class="col-md-4 col-xs-12">
