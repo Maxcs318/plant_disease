@@ -60,7 +60,7 @@
 
     <div class="container box-list">
         <div class="row">
-            <div class="col-lg-8 col-xs-12"><br>
+            <div class="col-lg-8 col-xs-12" style="text-align:center;"><br>
                 <h4 class="list-header">Data Identify All .</h4>
                 <a href="../index.php">Home</a> |
                 <a href="">Button 1</a> |

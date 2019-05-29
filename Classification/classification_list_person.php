@@ -44,7 +44,8 @@ error_reporting(E_ALL ^ E_NOTICE); ?>
                 </center>
                 <a href="../index.php">Home</a> |
                 <a href="">Button 1</a> |
-                <a href="">Button 2</a>
+                <a href="">Button 2</a> |
+                <a href="" onclick="window.history.go(-1); return false;">Back</a>
             </div>
             <div class="col-md-4 col-xs-12">
                 <label>Status <?php echo $_GET['changStatus']; ?></label>

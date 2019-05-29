@@ -7,17 +7,37 @@
     <title>This Classification </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap/css/main.css">
     <link rel="shortcut icon" href="../img/leaficon.ico" type="image/x-icon" />
-    <link href="https://fonts.googleapis.com/css?family=Prompt|Sriracha&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> <!-- sweetalert-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- sweetalert-->
 </head>
 <body>
 
-    <div class="container"> 
+    <!-- user id top -->
+    <div style="text-align:right;" class="usertop">
+        Username :
+        <?php echo $_SESSION["m_username"]; ?>
+        | Status :
+        <?php echo $_SESSION["m_status"]; ?>
+    </div>
+    <!--end user id top -->
+
+     <!-- slide text -->
+     <div class="row">
+        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
+        <p class="item-2 ">Some Text for [item-2]</p>
+        <p class="item-3 ">Some Text for [item-3]</p>
+    </div>
+    <!-- end slide text -->
+
+
+    <div class="container box-list" style="margin-top: 70px;"> 
         <div class="row">
-            <div class="col-12"><br>
-            <h4>  Identify the disease . <a href="../index.php">Index</a></h4>
+            <div class="col-xs-12 col-md-12"><br>
+            <h4 class="header">  Identify the disease . <a href="../index.php">Home</a></h4>
             </div>
         </div>            
             <?php require("../ConnData/connectDB.php");?>
@@ -31,13 +51,13 @@
                     while($row = $result->fetch_assoc()) {
                             ?>
                             <div class="row">
-                                <div class="col-lg-4 col-xs-6">
-                                    <img src="../Image/image_for_checkdisease/<?php echo $row["cl_image"];?>" height="" width="100%" >
+                                <div class="col-lg-4 col-xs-612">
+                                    <img src="../Image/image_for_checkdisease/<?php echo $row["cl_image"];?>"width="100%" class="imgpost" >
                                 </div>
-                                <div class="col-lg-8 col-xs-6">
+                                <div class="col-lg-8 col-xs-612">
                                 <form action="../ConnData/EditClassificationDisease.php" method="post"> 
                                     <input type="hidden" name="Cl_id" value="<?php echo $_GET["getCl_id"]; ?>">
-                                    
+                                    <br>
                                     <b>S1 :</b>  Leaf become a lesion 
                                     <input type="radio" name="S1" value="1"> Yes 
                                     <input type="radio" name="S1" value="0"> No
@@ -108,11 +128,13 @@
                                             <option value="Algol Spot">Algol Spot</option>
                                             <option value="Normol">Normal</option>
                                             <option value="" selected>Choose</option>
-                                    </select><br>
-                                    <button class="form-control col-lg-6 btn-primary"> Save </button>
+                                    </select><br><br>
+                                    <button class="form-control col-lg-6 btn-primary"style="margin-bottom: 50px;"> Save </button>
+                                    
                                 </form>
                                 </div>
                             </div>  
+                          
                             <?php
                     }
                     ?> <?php
