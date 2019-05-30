@@ -54,7 +54,27 @@
     </div>
     
     <div class="container" style="margin-top: 10px;">
+    <div class="row">
+        <?php if($_SESSION['m_status']=='admin'){ ?>
+        <div class="col-lg-8 col-xs-12">
+        <?php }else{ ?>
+        <div class="col-lg-12 col-xs-12">
+        <?php } ?>
         <p class="textabout">Disease in Mango</p>
+        </div>
+        <?php 
+                if($_SESSION['m_status']=='admin'){
+            ?>  <div class="col-lg-4 col-xs-12"><br>
+                    <button class="btn-primary form-control col-lg-12 col-xs-12">Insert Disease</button>                     
+                        <br><br><br>
+                </div>
+                <?php
+                    }
+                ?>
+        
+
+        
+    </div>
 
     <?php require("../ConnData/connectDB.php");?>
     <?php 
@@ -76,6 +96,17 @@
                         <p class="detail">
                             <?php echo $row['d_detail']; ?>
                         </p>
+
+                        <?php 
+                            if($_SESSION['m_status']=='admin'){
+                            ?>
+                                <button class="btn-danger form-control col-lg-4 col-xs-12">Edit Data</button> 
+                                
+                                <br><br><br>
+                            <?php
+                            }
+                        ?>
+
                     </div>
                 </div><br>
             
@@ -84,6 +115,8 @@
         }else{
 
         }
+        $conn->close(); 
+
     ?>
     </div>
 

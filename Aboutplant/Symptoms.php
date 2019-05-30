@@ -61,51 +61,43 @@
    <div class="container" style="margin-top: 10px;">
       <p class="textabout">Symptoms in Mango</p>
       <div class="row box-disease">
-         <div class="col-xs-12 col-md-3">
-            <img src="../img/classify_img/S1.jpg" class="imgsymptoms" alt="">
-         </div>
-         <div class="col-xs-12 col-md-3">
-            <h2 class="detail-header">
-               S1 :
-            </h2>
-            <p class="detail">
-               Leaf become a lesion.
-            </p>
-         </div>
-         <div class="col-xs-12 col-md-3">
-            <img src="../img/classify_img/S2.jpg" class="imgsymptoms" alt="">
-         </div>
-         <div class="col-xs-12 col-md-3">
-            <h2 class="detail-header">
-               S2 :
-            </h2>
-            <p class="detail">
-               Crack on lesion area.
-            </p>
-         </div>
 
-         <div class="col-xs-12 col-md-3">
-            <img src="../img/classify_img/S3.jpg" class="imgsymptoms" alt="">
-         </div>
-         <div class="col-xs-12 col-md-3">
-            <h2 class="detail-header">
-               S3 :
-            </h2>
-            <p class="detail">
-               Blight on leaf.
-            </p>
-         </div>
-         <div class="col-xs-12 col-md-3">
-            <img src="../img/classify_img/S4.jpg" class="imgsymptoms" alt="">
-         </div>
-         <div class="col-xs-12 col-md-3">
-            <h2 class="detail-header">
-               S16 :
-            </h2>
-            <p class="detail">
-               Leaf is irregular shape.
-            </p>
-         </div>
+      <?php require("../ConnData/connectDB.php");?>
+      <?php 
+            $sql = "SELECT * FROM symptoms ";
+            $result = $conn->query($sql);
+                  if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+            
+            ?>
+
+         <!-- <div class="col-lg-6">
+            <div class="row"> -->
+                  <div class="col-xs-12 col-md-3">
+                        <br>
+                        <img style="display: block; margin: 0 auto;" src="../img/classify_img/<?php echo $row['s_image'] ?>" width="80%" alt="">
+                        <br>
+                  </div>
+                  <div class="col-xs-12 col-md-3">
+                        <h3 class="detail-header">
+                              <?php echo $row['s_name'] ?>
+                        </h3>
+                        <p class="detail">
+                              <?php echo $row['s_detail'] ?>
+                        </p>
+                        <b>Disease <?php echo $row['s_disease'] ?></b>
+                  </div>
+            <!-- </div>
+         </div> -->
+            <?php       }
+                  }else{
+
+            }
+            $conn->close();    
+            ?>
+         
+         
+         
       </div>
    </div>
    </div>
