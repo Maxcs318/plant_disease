@@ -11,7 +11,17 @@
    <link rel="stylesheet" href="../bootstrap/css/main.css">
    <link rel="shortcut icon" href="../img/leaficon.ico" type="image/x-icon" />
    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+   <script>
+        $(document).ready(function() {
+            $(".insertSymptoms").hide();
+            // $(".editDisease").hide();
 
+            $(".insertNewSymptoms").click(function() {
+                $(".insertSymptoms").toggle();
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -42,7 +52,6 @@
                <p class="text-img-detail">Home</p>
             </button></a>
       </div>
-      
       <!-- Disease button -->
       <div class="col-xs-4 col-md-4">
          <a href="Disease.php">
@@ -53,13 +62,57 @@
       </div>
 
    </div>
-
-
-
-
-   <!-- disease 1 -->
+   <!-- symptoms -->
    <div class="container" style="margin-top: 10px;">
-      <p class="textabout">Symptoms in Mango</p>
+      <div class="row">
+            <?php if($_SESSION['m_status']=='admin'){ ?>
+            <div class="col-lg-8 col-xs-12">
+            <?php }else{ ?>
+            <div class="col-lg-12 col-xs-12">
+            <?php } ?>
+            <p class="textabout">Symptoms in Mango</p>
+            </div>
+            <?php 
+                  if($_SESSION['m_status']=='admin'){
+                  ?>  <div class="col-lg-4 col-xs-12"><br>
+                        <button class="insertNewSymptoms btn-primary form-control col-lg-12 col-xs-12">Insert Symptoms</button>                     
+                              <br><br><br>
+                  </div>
+                  <?php
+                        }
+                  ?> 
+      </div>
+      <div class="insertSymptoms">
+      <form action="../ConnData/InsertSymptoms.php" method="post" enctype="multipart/form-data">
+            <div class="row box-disease">
+                  <div class="col-xs-12 col-md-4"><br>
+                              <img style="display: block; margin: 0 auto;" id="blah" src="../Image/image_disease/choose.png" width="100%" alt="">
+                              <br><br>
+                              <input type="file" id="image" name="imagesymptoms[]"> <br><br><br>
+                  </div>
+                  <div class="col-xs-12 col-md-8">
+                        <h3> Name of Symptoms </h3>
+                        <input type="text" class="form-control col-lg-8 col-xs-12" name="symptomsname" maxlength="50" required><br>
+                        <h3> Disease of Disease </h3>
+                        <input type="text" class="form-control col-lg-8 col-xs-12" name="symptomsofdisease" maxlength="50" required><br>
+                        <h3> Detail </h3>
+                        <textarea class="form-control" rows="5" type="text" name="symptomsdetail" required></textarea>
+                        <br>
+                        <button type="submit" class="form-control col-lg-4 col-xs-12 btn-primary" > Save </button> 
+                        <br><br><br>
+                  </div>
+            </div>
+      </form>
+      </div><br>
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <div class="row box-disease">
 
       <?php require("../ConnData/connectDB.php");?>
@@ -71,11 +124,9 @@
             
             ?>
 
-         <!-- <div class="col-lg-6">
-            <div class="row"> -->
                   <div class="col-xs-12 col-md-3">
                         <br>
-                        <img style="display: block; margin: 0 auto;" src="../img/classify_img/<?php echo $row['s_image'] ?>" width="80%" alt="">
+                        <img style="display: block; margin: 0 auto;" src="../Image/image_symptoms/<?php echo $row['s_image'] ?>" width="80%" alt="">
                         <br>
                   </div>
                   <div class="col-xs-12 col-md-3">
@@ -87,17 +138,14 @@
                         </p>
                         <b>Disease <?php echo $row['s_disease'] ?></b>
                   </div>
-            <!-- </div>
-         </div> -->
+            
             <?php       }
                   }else{
 
             }
             $conn->close();    
             ?>
-         
-         
-         
+                  
       </div>
    </div>
    </div>
@@ -108,6 +156,24 @@
 
       </div>
    </footer>
+   <script>
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#image").change(function() {
+            readURL(this);
+        });
+    </script>   
 
 </body>
 

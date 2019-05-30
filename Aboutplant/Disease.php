@@ -15,7 +15,7 @@
     <script>
         $(document).ready(function() {
             $(".insertDisease").hide();
-            $(".editDisease").hide();
+            // $(".editDisease").hide();
 
             $(".insertNewDisease").click(function() {
                 $(".insertDisease").toggle();
@@ -92,7 +92,7 @@
                 </div>
                 <div class="col-xs-12 col-md-8">
                     <h3> Name of Disease </h3>
-                    <input type="text" class="form-control col-lg-8 col-xs-12" name="diseasename" required><br>
+                    <input type="text" class="form-control col-lg-8 col-xs-12" name="diseasename" maxlength="50" required><br>
                     <h3> Detail </h3>
                     <textarea class="form-control" rows="5" type="text" name="diseasedetail" required></textarea>
                     <br>
