@@ -2,7 +2,6 @@
 <?php require("../ConnData/connectDB.php"); ?>
 <?php
     $sql = "UPDATE posts SET p_status_comment = '' ,p_status_confirm = ''
-    
     WHERE p_own= '".$_SESSION["m_id"]."' AND p_id='" . $_GET["getPostID"] . "' ";
     if ($conn->query($sql) === TRUE) { 
 		
@@ -98,19 +97,19 @@
             echo '<div class="col-12" style="margin-top: 10px;">';
             while ($row = $result->fetch_assoc()) {
 
-                echo ' <div> Post ID : ';
-                echo $row["p_header"] . "<br>";
+                echo ' <div> ';
+                echo ' <h3> '.$row["p_header"] . "</h3>";
                 echo '</div>';
 
-                echo ' <div> Detail : ';
-                echo substr($row["p_detail"], 0, 200) . "<br>";
+                echo ' <div>  ';
+                echo ' <p style="text-indent: 2.5em;">'.$row["p_detail"]."</p>";
                 echo '</div>';
 
-                echo ' <div> Date : ';
+                echo ' <div style="text-align: right"> Date : ';
                 echo substr($row["p_date"], 0, 10)  . "<br>";
                 echo '</div>';
 
-                echo ' <div> Time : ';
+                echo ' <div style="text-align: right"> Time : ';
                 echo substr($row["p_date"], 11)  . "<br>";
                 echo '</div>';
             }
@@ -140,23 +139,19 @@
                 echo '<div class="row">
                                 <div class="col-12">';
 
-                echo ' <div> Username : ';
-                echo $row["m_username"] . "<br>";
-                echo '</div>';
-
-                echo ' <div> Detail : ';
-                echo substr($row["c_detail"], 0, 200) . "<br>";
+                echo ' <div> ';
+                echo $row["m_username"] . " : ".$row["c_detail"];
                 echo '</div>';
 
                 if ($row["c_confirm"] != '') {
-                    echo "Your plant is : " . $row["c_confirm"] . " disese <br>";
+                    echo " <p style='text-indent: 2.5em;'>Your plant is : " . $row["c_confirm"] . " disese</p>";
                 }
 
-                echo ' <div> Date : ';
+                echo ' <div style="text-align: right"> Date : ';
                 echo substr($row["c_date"], 0, 10)  . "<br>";
                 echo '</div>';
 
-                echo ' <div> Time : ';
+                echo ' <div style="text-align: right"> Time : ';
                 echo substr($row["c_date"], 11)  . "<br>";
                 echo '</div>';
 
