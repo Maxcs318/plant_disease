@@ -52,48 +52,43 @@
         </div>
 
     </div>
-
-
-
-    <!-- disease 1 -->
+    
     <div class="container" style="margin-top: 10px;">
         <p class="textabout">Disease in Mango</p>
-        <div class="row box-disease">
-            <div class="col-xs-12 col-md-4">
-                <img src="../img/a1.jpg" class="imgdetail" alt="">
-            </div>
-            <div class="col-xs-12 col-md-8">
-                <h2 class="detail-header">
-                    1. Anthranose
-                </h2>
-                <p class="detail">
-                    Detail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in Mango
-                </p>
-            </div>
-        </div>
-    </div>
 
-    <!-- disease 2 -->
-    <div class="container box-disease" style="margin-top: 30px;">
-        <div class="row">
-            <div class="col-xs-12 col-md-4">
-                <img src="../img/a1.jpg" class="imgdetail" alt="">
-            </div>
-            <div class="col-xs-12 col-md-8">
-                <h2 class="detail-header">
-                    2. Anthranose
-                </h2>
-                <p class="detail">
-                    Detail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in MangoDetail of Disease in Mango
-                </p>
-            </div>
-        </div>
+    <?php require("../ConnData/connectDB.php");?>
+    <?php 
+        $sql = "SELECT * FROM disease WHERE d_name != 'normal'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+            ?>
+            
+                <div class="row box-disease">
+                    <div class="col-xs-12 col-md-4"><br>
+                        <img src="../Image/image_disease/<?php echo $row['d_image']; ?>" width="100%" alt="">
+                        <br><br>
+                    </div>
+                    <div class="col-xs-12 col-md-8">
+                        <h2 class="detail-header">
+                            <?php echo $row['d_name']; ?>
+                        </h2>
+                        <p class="detail">
+                            <?php echo $row['d_detail']; ?>
+                        </p>
+                    </div>
+                </div><br>
+            
+            <?php
+            }
+        }else{
+
+        }
+    ?>
     </div>
 
     <footer style="margin: 30px;">
-        <div>
-
-        </div>
+        
     </footer>
 
 </body>
