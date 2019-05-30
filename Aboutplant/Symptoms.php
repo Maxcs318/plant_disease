@@ -82,7 +82,7 @@
                         }
                   ?> 
       </div>
-      <div class="insertSymptoms">
+      <div class="insertSymptoms"> <!-- Start form insert -->
       <form action="../ConnData/InsertSymptoms.php" method="post" enctype="multipart/form-data">
             <div class="row box-disease">
                   <div class="col-xs-12 col-md-4"><br>
@@ -93,7 +93,7 @@
                   <div class="col-xs-12 col-md-8">
                         <h3> Name of Symptoms </h3>
                         <input type="text" class="form-control col-lg-8 col-xs-12" name="symptomsname" maxlength="50" required><br>
-                        <h3> Disease of Disease </h3>
+                        <h3> Disease of Symptoms </h3>
                         <input type="text" class="form-control col-lg-8 col-xs-12" name="symptomsofdisease" maxlength="50" required><br>
                         <h3> Detail </h3>
                         <textarea class="form-control" rows="5" type="text" name="symptomsdetail" required></textarea>
@@ -103,15 +103,7 @@
                   </div>
             </div>
       </form>
-      </div><br>
-      
-      
-      
-      
-      
-      
-      
-      
+      </div><br> <!-- Stop form insert -->
       
       <div class="row box-disease">
 
@@ -136,7 +128,24 @@
                         <p class="detail">
                               <?php echo $row['s_detail'] ?>
                         </p>
-                        <b>Disease <?php echo $row['s_disease'] ?></b>
+                        <b>Disease : <?php echo $row['s_disease'] ?></b><br><br>
+                              
+                        <?php 
+                            if($_SESSION['m_status']=='admin'){
+                            ?>  
+                                <!-- <div class="row">
+                                    <div class="col-6">
+                                        <button class="btn-primary form-control col-lg-12 col-xs-12">Edit </button> 
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn-danger form-control col-lg-12 col-xs-12">Delete </button> 
+                                    </div>
+                                </div> -->
+                                <br>
+                            <?php
+                            }
+                        ?>
+
                   </div>
             
             <?php       }
