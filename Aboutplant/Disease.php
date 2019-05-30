@@ -11,7 +11,19 @@
     <link rel="stylesheet" href="../bootstrap/css/main.css">
     <link rel="shortcut icon" href="../img/leaficon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // $(".insertDisease").hide();
+            $(".insertDisease").show();
+            $(".editDisease").hide();
 
+            $(".insertNewDisease").click(function() {
+                $(".insertDisease").show();
+                // $(".S9").show();
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -65,16 +77,30 @@
         <?php 
                 if($_SESSION['m_status']=='admin'){
             ?>  <div class="col-lg-4 col-xs-12"><br>
-                    <button class="btn-primary form-control col-lg-12 col-xs-12">Insert Disease</button>                     
+                    <button class="insertNewDisease btn-primary form-control col-lg-12 col-xs-12">Insert Disease</button>                     
                         <br><br><br>
                 </div>
                 <?php
                     }
-                ?>
-        
-
-        
+                ?> 
     </div>
+    <div class="insertDisease ">
+        <div class="row box-disease">
+            
+                <div class="col-xs-12 col-md-4"><br>
+                        <img src="../Image/image_disease/algal_spot.jpg" width="100%" alt="">
+                        <br><br>
+                        <input type="file"><br>
+                </div>
+                <div class="col-xs-12 col-md-8">
+                    <h3> Name of Disease </h3>
+                    <input type="text" class="form-control col-lg-8 col-xs-12"><br>
+                    <h3> Detail </h3>
+                    
+                </div>
+            
+        </div>
+    </div><br>
 
     <?php require("../ConnData/connectDB.php");?>
     <?php 
