@@ -202,11 +202,11 @@
                 <hr class="border-line">
 
                 <h5 style="margin-top:20px;">Identify The Disease</h5>
-                        <select class="form-control col-lg-6" type="text" name="newDisease">
+                        <select class="form-control col-lg-6" type="text" name="newDisease" >
                             <option value="Anthracnose">Anthracnose</option>
                             <option value="Algol Spot">Algol Spot</option>
                             <option value="Normol">Normal</option>
-                            <option value="" selected>Choose</option>
+                            <option value="" selected disabled>Choose</option>
                         </select>
                         <br>
                         <br>

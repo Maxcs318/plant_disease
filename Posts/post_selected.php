@@ -3,11 +3,11 @@
 <?php
     $sql = "UPDATE posts SET p_status_comment = '' ,p_status_confirm = ''
     
-    WHERE p_id='" . $_GET["getPostID"] . "' ";
+    WHERE p_own= '".$_SESSION["m_id"]."' AND p_id='" . $_GET["getPostID"] . "' ";
     if ($conn->query($sql) === TRUE) { 
 		
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        // echo "Error: " . $sql . "<br>" . $conn->error;
     }
     $conn->close();
 ?>

@@ -1,14 +1,15 @@
-<?php require("../ConnData/connectDB.php");?>
+<?php session_start(); ?>
 <?php
-    $sql = "UPDATE classification SET cl_status_confirm = '' 
-    
-    WHERE cl_id='" . $_GET["getCl_id"] . "' ";
+    require("../ConnData/connectDB.php");
+    $sql = "UPDATE classification SET cl_status_confirm = ''
+    WHERE cl_linkmember= '".$_SESSION["m_id"]."' AND cl_id='".$_GET["getCl_id"]."' ";
     if ($conn->query($sql) === TRUE) { 
 		
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        // echo "Error: " . $sql . "<br>" . $conn->error;
     }
     $conn->close();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,7 +26,6 @@
 </head>
 <body>
 
-<?php session_start(); ?>
 <!-- user id top -->
 <div style="text-align:right;" class="usertop">
         Username :
