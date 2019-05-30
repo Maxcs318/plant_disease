@@ -104,9 +104,9 @@ error_reporting(E_ALL ^ E_NOTICE); ?>
             }
             ?></div> <?php
                     } else {
-                        echo "0 results";
+                        echo "You have no classification.";
                     }
-                    ?>
+                    ?><br><br>
     </div>
     <?php $conn->close(); ?>
 </body>

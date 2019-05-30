@@ -85,11 +85,13 @@
                         <div class="col-xs-8 col-md-10">
                             <div style="margin-top:20px;">
                                 Post ID: <?php echo $row["p_id"] . "<br>"; ?>
-                                Header : <?php echo $row["p_header"] . "<br>"; ?>
-                                Detail : <?php echo substr($row["p_detail"], 0, 100) . "<br>"; ?>
-                                Date : <?php echo substr($row["p_date"], 0, 10)  . "<br>"; ?>
-                                Time : <?php echo substr($row["p_date"], 11)  . "<br>"; ?>
-                                <a class="float:bottom" href='post_selected.php?getPostID=<?php echo $row["p_id"]; ?>'">View Post</a>
+                                <h4> <?php echo $row["p_header"] . "<br>"; ?></h4>
+                                <p style="text-indent: 2.5em;"><font color="black">
+                                <?php echo substr($row["p_detail"], 0, 100) . "<br>"; ?>
+                                </font></p>
+                                <div style="text-align: right">Date : <?php echo substr($row["p_date"], 0, 10) ; ?></div>
+                                <div style="text-align: right">Time : <?php echo substr($row["p_date"], 11); ?></div>
+                                <a class="float:bottom" href='post_selected.php?getPostID=<?php echo $row["p_id"]; ?>'>View Post</a>
 
                                                 </div>
                                             </div>
