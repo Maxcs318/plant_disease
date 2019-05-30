@@ -1,6 +1,6 @@
 <?php require("../ConnData/connectDB.php");?>
 <?php
-    $sql = "UPDATE classification SET cl_status_confirm = ''
+    $sql = "UPDATE classification SET cl_status_confirm = '' 
     
     WHERE cl_id='" . $_GET["getCl_id"] . "' ";
     if ($conn->query($sql) === TRUE) { 

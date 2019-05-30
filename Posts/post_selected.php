@@ -177,9 +177,9 @@
                 <div class="row">
                     <div class="col-12">
                         <select class="form-control col-3" name="commentconfirm" style="float: right;">
-                            <option value="A">Disease A</option>
-                            <option value="B">Disease B</option>
-                            <option value="No">Not a Disease</option>
+                            <option value="Anthracnose">Disease Anthracnose</option>
+                            <option value="Algol Spot">Disease Algol Spot</option>
+                            <option value="Normal">Not a Disease</option>
                             <option value="" selected>Choose</option>
                         </select>
                     </div>

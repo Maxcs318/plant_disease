@@ -24,7 +24,7 @@
     }
 
         if ($conn->query($sql) === TRUE) {
-            header("location:../Posts/post_selected.php?getPostID=".$_POST['id_linkpost']);      
+            // header("location:../Posts/post_selected.php?getPostID=".$_POST['id_linkpost']);      
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
