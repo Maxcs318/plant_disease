@@ -14,13 +14,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            // $(".insertDisease").hide();
-            $(".insertDisease").show();
+            $(".insertDisease").hide();
             $(".editDisease").hide();
 
             $(".insertNewDisease").click(function() {
-                $(".insertDisease").show();
-                // $(".S9").show();
+                $(".insertDisease").toggle();
             });
         });
     </script>
@@ -85,21 +83,24 @@
                 ?> 
     </div>
     <div class="insertDisease ">
+    <form action="../ConnData/InsertDisease.php" method="post" enctype="multipart/form-data">
         <div class="row box-disease">
-            
                 <div class="col-xs-12 col-md-4"><br>
-                        <img src="../Image/image_disease/algal_spot.jpg" width="100%" alt="">
+                        <img style="display: block; margin: 0 auto;" id="blah" src="../Image/image_disease/choose.png" width="100%" alt="">
                         <br><br>
-                        <input type="file"><br>
+                        <input type="file" id="image" name="imagedisease[]"> <br><br><br>
                 </div>
                 <div class="col-xs-12 col-md-8">
                     <h3> Name of Disease </h3>
-                    <input type="text" class="form-control col-lg-8 col-xs-12"><br>
+                    <input type="text" class="form-control col-lg-8 col-xs-12" name="diseasename" required><br>
                     <h3> Detail </h3>
-                    
+                    <textarea class="form-control" rows="5" type="text" name="diseasedetail" required></textarea>
+                    <br>
+                    <button type="submit" class="form-control col-lg-4 col-xs-12 btn-primary" > Save </button> 
+                    <br><br><br>
                 </div>
-            
         </div>
+    </form>
     </div><br>
 
     <?php require("../ConnData/connectDB.php");?>
@@ -125,10 +126,15 @@
 
                         <?php 
                             if($_SESSION['m_status']=='admin'){
-                            ?>
-                                <button class="btn-danger form-control col-lg-4 col-xs-12">Edit Data</button> 
-                                
-                                <br><br><br>
+                            ?>  <div class="row">
+                                    <div class="col-6">
+                                        <button class="btn-primary form-control col-lg-12 col-xs-12">Edit Disease</button> 
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn-danger form-control col-lg-12 col-xs-12">Delete Disease</button> 
+                                    </div>
+                                </div>
+                                <br>
                             <?php
                             }
                         ?>
@@ -149,6 +155,24 @@
     <footer style="margin: 30px;">
         
     </footer>
+    <script>
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#image").change(function() {
+            readURL(this);
+        });
+    </script>
 
 </body>
 

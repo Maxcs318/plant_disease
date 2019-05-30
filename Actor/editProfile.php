@@ -41,7 +41,7 @@ require_once("../ConnData/connectDB.php");
                     <form action="../ConnData/EditProfile.php" method="post" enctype="multipart/form-data"  id="form1" runat="server">
                         <center>
                         <?php if($_SESSION['m_imageprofile']==''){ ?>
-                            <img id="blah" class="pf-img" src="../img/pageicon/aboutme.png ?>" class="about-img">
+                            <img id="blah" class="pf-img" src="../img/pageicon/aboutme.png" class="about-img">
                         <?php }else{ ?>
                             <img id="blah" class="pf-img" src="../Image/image_profile/<?php echo $row["m_imageprofile"]; ?>" >
                         <?php } ?>
