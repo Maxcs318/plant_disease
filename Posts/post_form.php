@@ -43,7 +43,7 @@
 
                     <h1 class="header">Create Post</h1>
                     <label id="first">Header :</label><br />
-                    <input class="form-control" type="text" name="header" maxlength="30" style="width:40%;" required><br />
+                    <input class="form-control" type="text" name="header" maxlength="100" style="width:40%;" required><br />
                     <label id="first">Detail :</label><br />
                     <textarea class="form-control" rows="5" type="text" name="detail" required></textarea>
 

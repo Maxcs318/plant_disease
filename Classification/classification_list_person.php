@@ -83,8 +83,10 @@ error_reporting(E_ALL ^ E_NOTICE); ?>
                                         while ($row = $result->fetch_assoc()) {
                                             ?>
                 
-                    <div class="col-md-4 col-xs-12  imgpost">
-                        <img src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" height="" width="100%">
+                    <div class="col-md-4 col-xs-12">
+                        <div>
+                            <img style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" height="" width="70%">
+                        </div>
                         <br><br>
                         <b>The Disease you detected :</b> <?php echo $row["cl_disease"]; ?><br><br>
                         <b>Expert Confirm Disease :</b><br> <?php

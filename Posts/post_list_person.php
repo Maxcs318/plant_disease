@@ -36,7 +36,12 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-2 col-md-2">
-                <img src="../Image/image_profile/<?php echo $_SESSION["m_imageprofile"]; ?>" class="about-img">
+                <?php if($_SESSION['m_imageprofile']==''){ ?>
+                    <img src="../img/pageicon/aboutme.png ?>" class="about-img">
+
+                <?php }else{ ?>
+                    <img src="../Image/image_profile/<?php echo $_SESSION["m_imageprofile"]; ?>" class="about-img">
+                <?php } ?>
             </div>
             <div class="col-xs-9 col-md-6 about-header">
                 <div class="about-box">
@@ -179,7 +184,7 @@
             }
         }
     } else {
-        echo "0 results";
+        echo " You have no posts. ";
     }
     ?>
         <a class=" btn btn-danger float-right" href="../index.php" style="width: 90px; margin:30px 0px 10px ">Back</a>
