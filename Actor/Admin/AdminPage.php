@@ -37,10 +37,11 @@
         <p class="item-3 ">Some Text for [item-3]</p>
     </div>
     <!-- end slide text -->
-    <div class="container">
+
+    <div class="container" style="margin-top: 70px;">
         <!-- row 1 -->
-        <div class="row" style="margin-top: 50px;">
-            <div class="col-xs-6 col-md-4">
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
                 <a href="../../Posts/post_list_person.php">
                     <button type="submit" class="imgcenter" style="border:0; background: transparent; ">
                         <img src="../../img/pageicon/aboutme.png" class="imgcenter">
@@ -58,7 +59,15 @@
                     </button></a>
             </div>
 
-            <div class="col-xs-6 col-md-4">
+            <div class="col-xs-6 col-md-3">
+                <a href="../../allmember.php">
+                    <button type="submit" class="imgcenter" style="border: 0; background: transparent">
+                        <img src="../../img/pageicon/allmember.png" class="imgcenter">
+                        <p class="textimg">All Member</p>
+                    </button></a>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
                 <a href="../../Posts/post_form.php">
                     <button type="submit" class="imgcenter" style="border: 0; background: transparent">
                         <img src="../../img/pageicon/post.png" class="imgcenter">
@@ -66,7 +75,7 @@
                     </button></a>
             </div>
 
-            <div class="col-xs-6 col-md-4">
+            <div class="col-xs-6 col-md-3">
                 <a href="../../Classification/chooseimageforcheck.php">
                     <button type="submit" class="imgcenter" style="border: 0; background: transparent">
                         <img src="../../img/pageicon/classification.png" class="imgcenter">
@@ -98,7 +107,7 @@
                     </button></a>
             </div>
 
-            <div class="col-xs-12 col-md-3">
+            <div class="col-xs-6 col-md-3">
                     <button type="submit" class="imgcenter" style="border: 0; background: transparent" onclick="logout()">
                         <img src="../../img/pageicon/logout.png" class="imgcenter">
                         <p class="textimg">Log out</p>
