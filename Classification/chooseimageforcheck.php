@@ -39,39 +39,45 @@
 
             <div class="row">
                 <div class="col-12">
-                    <h1 class="header">Choose plant image for check disease.</h1>
+                    <h1 class="header">Check disease.</h1>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-xs-2 col-md-4"></div>
-
-                <div class="col-xs-8 col-md-4">
-
-
-                    <!-- <input type='file' id="imgInp" />
-                            <img id="blah" src="#" alt="your image" class="check-img"/> -->
-
-
-                    
+                <div class="col-lg-12 col-xs-12">
                     <form id="form1" runat="server">
-
-                        <img id="blah" src="../img/leafpreview.png" class="check-img" />
+                        <div class="row">
+                            <div class="col-lg-6 col-xs-12">
+                            <label id="first">Upload front :</label><br>
+                                <img id="blah" src="../img/leafpreview.png" width="100%" />
+                                <input type="file" name="imageforcheck[]" id="image" required>
+                            </div>
+                            <div class="col-lg-6 col-xs-12">
+                            <label id="first">Upload back :</label><br>
+                                <img id="blah2" src="../img/leafpreview.png" width="100%" />
+                                <input type="file" name="imageforcheck[]" id="image2" required>
+                            </div>
+                        </div>
 
                         <br>
                         <br>
-                        <label id="first">Upload Photo :</label>
-                
-                        <input type="file" name="imageforcheck[]" id="image" required>
                         <input type="hidden" id="blah" class="check-img" name="linkmember" value="<?php echo $_SESSION["m_id"]; ?>">
-                        <div class="row float-right" style="margin-top:20px; margin-bottom: 10px;">
-                            <a class="btn btn-danger " href="../index.php" style="width: 80px; margin-right: 10px;">Back</a>
-                            <button class="btn-primary form-control " type="submit" name="save" style="width: 80px;">Next</button>
+                        <div class="row">
+                            <div class="col-lg-3 col-xs-1"></div>
+                            <div class="col-lg-6 col-xs-10">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a class="btn btn-danger col-12" href="../index.php" >Back</a>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn-primary form-control col-12" type="submit" name="save" >Next</button>
+                                    </div>
+                                </div> <br>
+                            </div>
+                            <div class="col-lg-3 col-xs-1"></div>
                         </div>
                     </form>
                 </div>
-
-                <div class="col-xs-2 col-md-4"></div>
             </div>
             <div class="row">
                 <div class="col-12">
@@ -99,6 +105,23 @@
 
     $("#image").change(function() {
         readURL(this);
+    });
+
+    function readURL2(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#blah2').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+        }
+
+    $("#image2").change(function() {
+        readURL2(this);
     });
 </script>
 
