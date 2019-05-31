@@ -260,13 +260,20 @@
                 <input type="hidden" name="S16" value="0">
             </div>
             <div class="row container">
-                <div class="col-6">
+                <div class="col-lg-8 col-xs-12">
                     <x >
-                        <img src="../Image/image_for_checkdisease/<?php echo $_SESSION["nameimage"]; ?>">
+                        <div class="row">
+                        <div class="col-lg-6 col-xs-6">
+                            <img src="../Image/image_for_checkdisease/<?php echo $_SESSION["imagefront"]; ?>">
+                        </div>
+                        <div class="col-lg-6 col-xs-6">
+                        <img src="../Image/image_for_checkdisease/<?php echo $_SESSION["imageback"]; ?>">
+                        </div>
+                        </div>
                         Your Image.<br>
                     </x>
                 </div>
-                <div class="col-6">
+                <div class="col-lg-4 col-xs-12">
                     <x class="S15">
                         
                         <img src="../Image/image_classification/S15.jpg">
