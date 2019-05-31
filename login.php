@@ -40,6 +40,8 @@ if(isset($_SESSION["m_status"])){
                     <input class="form-control" type="password" name="password" placeholder="password" required>
 
                     <button id="insert" type="submit" name="save">sign in</button>
+                    <br>
+                    <a href="register.php">Register</a>
                 </form>
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4"></div>
