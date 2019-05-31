@@ -53,6 +53,7 @@ if (isset($_SESSION["m_status"])) {
                         <input type="hidden" name="status" value="user">
                         <button type="submit" name="save">Save</button>
                         <br>
+                        <a href="index.php">Back</a> |
                         <a href="login.php">Login</a>
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4"></div>

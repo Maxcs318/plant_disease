@@ -41,6 +41,7 @@ if(isset($_SESSION["m_status"])){
 
                     <button id="insert" type="submit" name="save">sign in</button>
                     <br>
+                    <a href="index.php">Back</a> |
                     <a href="register.php">Register</a>
                 </form>
             </div>
