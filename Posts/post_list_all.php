@@ -28,7 +28,7 @@
     </div>
 
     <!-- slide text -->
-    <div class="row" >
+    <div class="row">
         <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
         <p class="item-2 ">Some Text for [item-2]</p>
         <p class="item-3 ">Some Text for [item-3]</p>
@@ -37,24 +37,29 @@
 
     <div class="container" style="margin-top: 50px;">
         <!-- home button -->
-        <a href="../index.php">
-            <button type="submit" style="border: 0; background: transparent">
-                <img src="../img/home.png" class="imgabout">
-                <p class="text-img-detail">Home</p>
-            </button></a>
+        <div class="col-md-4 col-xs4">
+            <a href="../index.php">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../img/home.png" class="imgabout">
+                    <p class="text-img-detail">Home</p>
+                </button></a>
+        </div>
 
-        <!-- symptoms button -->
-        <a href="../Classification/data_identify_list_all.php">
-            <button type="submit" style="border: 0; background: transparent">
-                <img src="../img/pageicon/dataidentify.png" class="imgabout">
-                <p class="text-img-detail">Data <br>Identify</p>
-            </button></a>
+        <div class="col-md-4 col-xs-4">
+            <!-- symptoms button -->
+            <a href="../Classification/data_identify_list_all.php">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../img/pageicon/dataidentify.png" class="imgabout">
+                    <p class="text-img-detail">Data <br>Identify</p>
+                </button></a>
+        </div>
+
     </div>
 
     <div class="container box-list" style="margin-top: 30px;">
         <div class="row">
             <div class="col-12"><br>
-                <h4 class="list-header"> Post All . <a href="../index.php">Index</a></h4>
+                <h4 class="list-header"> Post All .</h4>
             </div>
         </div>
         <?php require("../ConnData/connectDB.php"); ?>
@@ -86,33 +91,35 @@
                             <div style="margin-top:20px;">
                                 Post ID: <?php echo $row["p_id"] . "<br>"; ?>
                                 <h4> <?php echo $row["p_header"] . "<br>"; ?></h4>
-                                <p style="text-indent: 2.5em;"><font color="black">
-                                <?php echo substr($row["p_detail"], 0, 100) . "<br>"; ?>
-                                </font></p>
-                                <div style="text-align: right">Date : <?php echo substr($row["p_date"], 0, 10) ; ?></div>
+                                <p style="text-indent: 2.5em;">
+                                    <font color="black">
+                                        <?php echo substr($row["p_detail"], 0, 100) . "<br>"; ?>
+                                    </font>
+                                </p>
+                                <div style="text-align: right">Date : <?php echo substr($row["p_date"], 0, 10); ?></div>
                                 <div style="text-align: right">Time : <?php echo substr($row["p_date"], 11); ?></div>
                                 <a class="float:bottom" href='post_selected.php?getPostID=<?php echo $row["p_id"]; ?>'>View Post</a>
 
-                                                </div>
-                                            </div>
-                                        </div>
-                            
-                                            <?php
-                                        }
-                                    }
-                                } else {
-                                    echo "0 results";
-                                }
-                                ?>
-                        <a class=" btn btn-danger float-right" href="../index.php" style="width: 90px; margin:30px 0px 10px ">Back</a>
-
-                </div>
-                <?php $conn->close(); ?>
-                <footer>
-                    <div class="row" style="margin: 30px;">
-
+                            </div>
+                        </div>
                     </div>
-                </footer>
+
+                <?php
+            }
+        }
+    } else {
+        echo "0 results";
+    }
+    ?>
+        <a class=" btn btn-danger float-right" href="../index.php" style="width: 90px; margin:30px 0px 10px ">Back</a>
+
+    </div>
+    <?php $conn->close(); ?>
+    <footer>
+        <div class="row" style="margin: 30px;">
+
+        </div>
+    </footer>
 </body>
 
 </html>

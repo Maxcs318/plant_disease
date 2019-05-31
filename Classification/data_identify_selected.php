@@ -34,12 +34,22 @@
         <p class="item-3 ">Some Text for [item-3]</p>
     </div>
     <!-- end slide text -->
+    <div class="container" style="margin-top: 70px;">
+        <div class="col-md-4 col-xs-4">
+            <!-- home button -->
+            <a href="../index.php">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../img/home.png" class="imgabout">
+                    <p class="text-img-detail">Home</p>
+                </button></a>
+        </div>
+    </div>
 
 
-    <div class="container box-list" style="margin-top: 70px;">
+    <div class="container box-list">
         <div class="row">
             <div class="col-xs-12 col-md-12"><br>
-                <h4 class="header"> Identify the disease . <a href="../index.php">Home</a></h4>
+                <h4 class="header"> Identify the disease . </h4>
                 <hr class="border-line">
             </div>
         </div>
@@ -204,7 +214,7 @@
                     <div class="col-md-4">
 
                     </div>
-                    
+
                     <div class="col-md-4">
                         <h5 style="margin-top:20px; text-align:center;">Identify The Disease</h5>
                         <select class="form-control" type="text" name="newDisease">
@@ -240,6 +250,10 @@
     ?>
     </div>
     <?php $conn->close(); ?>
+
+    <footer style="margin-bottom:50px;">
+
+    </footer>
 </body>
 
 </html>

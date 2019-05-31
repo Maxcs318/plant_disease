@@ -34,28 +34,32 @@
     </div>
     <!-- end slide text -->
     <div class="container" style="margin-top: 50px;">
-        <!-- home button -->
-        <a href="../index.php">
-            <button type="submit" style="border: 0; background: transparent">
-                <img src="../img/home.png" class="imgabout">
-                <p class="text-img-detail">Home</p>
-            </button></a>
 
-        <!-- symptoms button -->
-        <a href="../Posts/post_list_all.php">
-            <button type="submit" style="border: 0; background: transparent">
-                <img src="../img/postlist.png" class="imgabout">
-                <p class="text-img-detail">Post list all</p>
-            </button></a>
+        <div class="col-md-4 col-xs-4">
+            <!-- home button -->
+            <a href="../index.php">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../img/home.png" class="imgabout">
+                    <p class="text-img-detail">Home</p>
+                </button></a>
+        </div>
+
+        <div class="col-md-4 col-xs-4">
+            <!-- symptoms button -->
+            <a href="../Posts/post_list_all.php">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../img/postlist.png" class="imgabout">
+                    <p class="text-img-detail">Post list all</p>
+                </button></a>
+        </div>
+
     </div>
 
     <div class="container box-list">
         <div class="row">
             <div class="col-lg-8 col-xs-12" style="text-align:center;"><br>
                 <h4 class="list-header">Data Identify All .</h4>
-                <a href="../index.php">Home</a> |
-                <a href="">Button 1</a> |
-                <a href="">Button 2</a>
+                
             </div>
             <div class="col-lg-4 col-xs-12">
                 <label>Status <?php echo $_GET['changStatus']; ?></label>
@@ -91,14 +95,13 @@
                 <div class="row border-line">
                     <div class="col-md-4 col-lg-3 col-xs-12" style="margin-top:20px; text-align:center;">
                         <a href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
-                            <img id="edit-save" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" 
-                                style="width: 200px; margin-bottom: 10px;">
+                            <img id="edit-save" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" style="width: 200px; margin-bottom: 10px;">
                         </a>
                     </div>
                     <div class="col-md-2 col-lg-2 col-xs-6">
                         <h4>Date</h4>
                         <h5><?php echo substr($row["cl_date"], 0, 10);  ?></h5>
-                       
+
                     </div>
 
                     <div class="col-md-2 col-lg-2 col-xs-6">
@@ -123,7 +126,7 @@
                         </h5>
                     </div>
                     <div class="col-md-4 col-xs-8 float-right" style="text-align:right;">
-                    <a class="btn btn-primary" style="margin-top: " href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
+                        <a class="btn btn-primary" style="margin-top: " href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
                             View post
                         </a>
                     </div>
@@ -142,22 +145,22 @@
 
     </footer>
     <style>
-    h4 {
-        margin-top: 20px;
-    }
+        h4 {
+            margin-top: 20px;
+        }
     </style>
     <script>
-    function edit()
-{   
-    var inputs = document.myform;
-    for(var i = 0; i < inputs.length; i++) {
-        inputs[i].disabled = false;
-    }
+        function edit() {
+            var inputs = document.myform;
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].disabled = false;
+            }
 
-    var edit_save = document.getElementById("edit-save");
+            var edit_save = document.getElementById("edit-save");
 
-       edit_save.src = "../img/a1.jpg";                              
-}
+            edit_save.src = "../img/a1.jpg";
+        }
     </script>
 </body>
+
 </html>
