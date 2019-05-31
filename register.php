@@ -39,25 +39,21 @@ if (isset($_SESSION["m_status"])) {
                     <form action="ConnData/InsertRegister.php" method="post">
 
                         <p>Username *</p>
-                        <input class="form-control" type="text" name="username" placeholder="username" maxlength="10" required>
+                        <input class="form-control" type="text" name="username" placeholder="username" maxlength="20" required>
 
                         <p>Password *</p>
-                        <input class="form-control" type="password" name="password" placeholder="password" maxlength="10" required>
+                        <input class="form-control" type="password" name="password" placeholder="password" maxlength="20" required>
 
                         <p>Phone *</p>
                         <input class="form-control" name='phone' type='text' placeholder="number 0-9" value="" OnKeyPress="return chkNumber(this)" required="" maxlength="10">
-
-                        <p>First Name</p>
-                        <input class="form-control" type="text" name="firstname" placeholder="first name" maxlength="25">
-
-                        <p>Last Name</p>
-                        <input class="form-control" type="text" name="lastname" placeholder="last name" maxlength="25">
 
                         <p>E-mail</p>
                         <input class="form-control" type="email" name="email" placeholder="example@plant.com">
 
                         <input type="hidden" name="status" value="user">
                         <button type="submit" name="save">Save</button>
+                        <br>
+                        <a href="login.php">Login</a>
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4"></div>
         </div>
