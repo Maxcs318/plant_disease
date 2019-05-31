@@ -48,13 +48,34 @@
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     ?>
-                    <div class="col-3" style="text-align:center;">
+                    <div class="col-lg-3 col-xs-4" style="text-align:center;">
                         <img src="../Image/image_classification/<?php echo $row["s_image"]; ?>" width="100%">
-                        <?php echo $row["s_id"]; ?>
+                        <?php echo $row["s_name"]; ?>
                     </div>
                 <?php
-            }
-        } else { }
+                }
+            } else { echo 'error'; }
+            ?> <?php $conn->close(); ?>
+        </div>
+        <div class="row"> 
+            <div class="col-lg-12 col-xs-12">
+                <p>Symptoms </p>
+            </div> 
+            <?php require("../ConnData/connectDB.php"); ?>
+            <?php
+            $sql = "SELECT * FROM symptoms WHERE s_disease ='" . $_SESSION["disease"] . "' ";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                    <div class="col-lg-12 col-xs-12" >
+                        <?php echo $row["s_name"].' : '.$row["s_detail"]; ?>
+                    </div>
+                <?php
+                    
+                }
+
+            } else { echo 'error'; }
         ?> <?php $conn->close(); ?>
         </div>
 
@@ -69,14 +90,8 @@
 
                     <div class="col-12">
                         <hr class="border-line">
-                        <h4> Symptoms :</h4>
-                        qweqwrqwr
-                        qwrqwrqwrq
-                        qwrqrqwrqwr
-                        qwrqrqw
-                        <hr class="border-line">
-                        <p>Disease : <?php echo $row['d_name'] ?></p>
-                        <p>Detail : <?php echo $row['d_detail'] ?></p>
+                        <p>Disease  <?php echo $row['d_name'] ?></p>
+                        <p style="text-indent: 2.5em;"><?php echo $row['d_detail'] ?></p>
                         <br>
                     </div>
                 <?php
