@@ -92,10 +92,15 @@
             // output data of each row
             while ($row = $result->fetch_assoc()) {
                 ?>
-                <div class="row border-line">
-                    <div class="col-md-4 col-lg-3 col-xs-12" style="margin-top:20px; text-align:center;">
+                <div class="row border-line" onclick="location.href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'">
+                    <div class="col-md-2 col-lg-2 col-xs-6" style="margin-top:20px; text-align:center;">
                         <a href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
-                            <img id="edit-save" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" style="width: 200px; margin-bottom: 10px;">
+                            <img id="edit-save" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" style="width: 100%; margin-bottom: 10px;">
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-xs-6" style="margin-top:20px; text-align:center;">
+                        <a href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
+                            <img id="edit-save" src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>" style="width: 100%; margin-bottom: 10px;">
                         </a>
                     </div>
                     <div class="col-md-2 col-lg-2 col-xs-6">
@@ -125,11 +130,7 @@
                             ?>
                         </h5>
                     </div>
-                    <div class="col-md-4 col-xs-8 float-right" style="text-align:right;">
-                        <a class="btn btn-primary" style="margin-top: " href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
-                            View post
-                        </a>
-                    </div>
+                    
                 </div>
 
             <?php

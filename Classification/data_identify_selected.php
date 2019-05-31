@@ -64,8 +64,11 @@
             while ($row = $result->fetch_assoc()) {
                 ?>
                 <div class="row">
-                    <div class="col-lg-4 col-xs-612">
-                        <img src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" width="100%" class="imgpost">
+                    <div class="col-lg-4 col-xs-12">
+                    Front Leaf : <br>
+                    <img style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" width="70%" >
+                    <br>Back Leaf :<br>
+                    <img style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>" width="70%" >
                     </div>
                     <div class="col-lg-8 col-xs-612">
                         <form action="../ConnData/EditClassificationDisease.php" method="post">

@@ -133,14 +133,14 @@
                         <?php 
                             if($_SESSION['m_status']=='admin'){
                             ?>  
-                                <!-- <div class="row">
+                                <div class="row">
                                     <div class="col-6">
                                         <button class="btn-primary form-control col-lg-12 col-xs-12">Edit </button> 
                                     </div>
                                     <div class="col-6">
                                         <button class="btn-danger form-control col-lg-12 col-xs-12">Delete </button> 
                                     </div>
-                                </div> -->
+                                </div>
                                 <br>
                             <?php
                             }

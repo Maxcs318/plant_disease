@@ -79,15 +79,20 @@ error_reporting(E_ALL ^ E_NOTICE); ?>
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // output data of each row
-            ?> <div class="row"> <?php
-                                        while ($row = $result->fetch_assoc()) {
-                                            ?>
-                
+            ?> <div class="row"> 
+            <?php
+                while ($row = $result->fetch_assoc()) {
+            ?>
                     <div class="col-md-4 col-xs-12">
-                        <div>
-                            <img style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" height="" width="70%">
+                        <div class="row">
+                        <div class="col-lg-6 col-xs-6">
+                            <img style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" height="" width="100%">
                         </div>
-                        <br><br>
+                        <div class="col-lg-6 col-xs-6">
+                            <img style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>" height="" width="100%">
+                        </div>
+                        </div>
+                        <br>
                         <b>The Disease you detected :</b> <?php echo $row["cl_disease"]; ?><br><br>
                         <b>Expert Confirm Disease :</b><br> <?php
                                                             if ($row["cl_confirm"] != '') {

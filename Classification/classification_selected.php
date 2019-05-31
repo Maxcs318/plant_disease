@@ -60,6 +60,7 @@
                     ?>
                     <div class="col-lg-5 col-xs-12">
                         <img src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" height="" width="100%">
+                        <img src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>" height="" width="100%">
                         
                         <br><br>
                         <b>The Disease you detected :</b> <?php echo $row["cl_disease"]; ?><br><br>

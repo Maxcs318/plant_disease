@@ -16,6 +16,8 @@
 </head>
 
 <body>
+    <?php $_SESSION["imagefront"]=''; ?>
+    <?php $_SESSION["imageback"]=''; ?>
 
     <!-- user id top -->
     <div style="text-align:right;" class="usertop">
