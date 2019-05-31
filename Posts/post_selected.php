@@ -141,10 +141,10 @@
 
                 echo ' <div> ';
                 echo $row["m_username"] . " : ".$row["c_detail"];
-                echo '</div>';
+                echo '<br></div>';
 
                 if ($row["c_confirm"] != '') {
-                    echo " <p style='text-indent: 2.5em;'>Your plant is : " . $row["c_confirm"] . " disese</p>";
+                    echo " <div style='text-align: right'> Your plant is : " . $row["c_confirm"] . " disese</div>";
                 }
 
                 echo ' <div style="text-align: right"> Date : ';
