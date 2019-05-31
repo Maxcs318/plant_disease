@@ -28,14 +28,14 @@
     </div>
 
     <!-- slide text -->
-    <div class="row" style="margin-bottom: 50px;">
+    <div class="row" >
         <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
         <p class="item-2 ">Some Text for [item-2]</p>
         <p class="item-3 ">Some Text for [item-3]</p>
     </div>
     <!-- end slide text -->
 
-    <div class="container">
+    <div class="container" style="margin-top: 50px;">
         <!-- home button -->
         <a href="../index.php">
             <button type="submit" style="border: 0; background: transparent">

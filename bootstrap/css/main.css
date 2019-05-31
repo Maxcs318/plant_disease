@@ -365,4 +365,7 @@ p.about-me {
     .imgabout{
         width: 70px;
     }
+    .text-img-detail{
+        font-size: 15px;
+    }
 }

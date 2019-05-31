@@ -33,29 +33,20 @@
         <p class="item-3 ">Some Text for [item-3]</p>
     </div>
     <!-- end slide text -->
+    <div class="container" style="margin-top: 50px;">
+        <!-- home button -->
+        <a href="../index.php">
+            <button type="submit" style="border: 0; background: transparent">
+                <img src="../img/home.png" class="imgabout">
+                <p class="text-img-detail">Home</p>
+            </button></a>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-2 col-md-2">
-                <img src="../Image/image_profile/<?php echo $_SESSION["m_imageprofile"]; ?>" class="about-img">
-            </div>
-            <div class="col-xs-9 col-md-6 about-header">
-                <div class="about-box">
-                    <div class="about-text-id">
-                        My Profile <br>
-                        Username :
-                        <?php echo $_SESSION["m_username"]; ?> <br>
-                        Status :
-                        <?php echo $_SESSION["m_status"]; ?> <br>
-                        <a href="../index.php">Home</a> |
-                        <a href="../Actor/editProfile.php">Edit profile</a> |
-                        <a href="../classification/classification_list_person.php">Classification</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-0 col-md-4">
-            </div>
-        </div>
+        <!-- symptoms button -->
+        <a href="../Posts/post_list_all.php">
+            <button type="submit" style="border: 0; background: transparent">
+                <img src="../img/postlist.png" class="imgabout">
+                <p class="text-img-detail">Post list all</p>
+            </button></a>
     </div>
 
     <div class="container box-list">

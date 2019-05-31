@@ -15,7 +15,23 @@
 </head>
 
 <body>
-    <div class="container box-list">
+
+    <div style="text-align:right" class="usertop">
+        Username :
+        <?php echo $_SESSION["m_username"]; ?>
+        | Status :
+        <?php echo $_SESSION["m_status"]; ?>
+    </div>
+
+    <!-- slide text -->
+    <div class="row" >
+        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
+        <p class="item-2 ">Some Text for [item-2]</p>
+        <p class="item-3 ">Some Text for [item-3]</p>
+    </div>
+    <!-- end slide text -->
+
+    <div class="container box-list" style="margin-top: 70px;">
         <div class="row">
             <div class="col-12"><br>
                 <h1 style="text-align:center;">Disease : <?php echo $_SESSION["disease"]; ?> </h1>
@@ -70,6 +86,10 @@
         </div>
     </div>
     </form>
+        <footer style="margin-bottom: 50px;">
+
+        </footer>
+
 </body>
 
 </html>
