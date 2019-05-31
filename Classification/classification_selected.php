@@ -74,24 +74,22 @@
                     </div>
                     <div class="col-lg-7 col-xs-12">
                             <center><h4>Latest results</h4></center><br>
-                            S1 :  <?php if($row['cl_S1']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-                            S2 : <?php if($row['cl_S2']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-                            S3 : <?php if($row['cl_S3']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-                            S4 : <?php if($row['cl_S4']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-                            S5 : <?php if($row['cl_S5']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-                            S6 : <?php if($row['cl_S6']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-                            S7 : <?php if($row['cl_S7']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-                            S8 : <?php if($row['cl_S8']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-                            S9 : <?php if($row['cl_S9']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-                            S10 : <?php if($row['cl_S10']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-                            S11 : <?php if($row['cl_S11']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-                            S12 : <?php if($row['cl_S12']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-                            S13 : <?php if($row['cl_S13']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-                            S14 : <?php if($row['cl_S14']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-                            S13 : <?php if($row['cl_S15']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-                            S16 : <?php if($row['cl_S16']==1){echo 'Found ';}else{echo 'Not Found';}   ?> <br>
-
-
+                            S1 : Leaf become a lesion [ <?php if($row['cl_S1']==1){echo '&#x2713';}else{echo '&#x2717';}   ?> ] <br>
+                            S2 : check on lesion area [ <?php if($row['cl_S2']==1){echo '&#x2713 ';}else{echo '&#x2717';}   ?> ] <br>
+                            S3 : Blight on leaf [ <?php if($row['cl_S3']==1){echo '&#x2713 ';}else{echo '&#x2717';}   ?> ] <br>
+                            S4 : Mature lesion are explanded and become dark-brown [ <?php if($row['cl_S4']==1){echo '&#x2713 ';}else{echo '&#x2717';} ?> ] <br>
+                            S5 : Lesion occur at leaf margin [ <?php if($row['cl_S5']==1){echo '&#x2713 ';}else{echo '&#x2717';}   ?> ] <br>
+                            S6 : Tiny and irregular spot appear on leaf [ <?php if($row['cl_S6']==1){echo '&#x2713 ';}else{echo '&#x2717';}  ?> ]<br>
+                            S7 : Rust-colored or orange spot on leaf [ <?php if($row['cl_S7']==1){echo '&#x2713 ';}else{echo '&#x2717';} ?> ]<br>
+                            S8 : White spot on leaf [ <?php if($row['cl_S8']==1){echo '&#x2713 ';}else{echo '&#x2717';} ?> ]<br>
+                            S9 : Greenish-gray spot on leaf [ <?php if($row['cl_S9']==1){echo '&#x2713 ';}else{echo '&#x2717';} ?> ]<br>
+                            S10 : Brown spot on leaf [ <?php if($row['cl_S10']==1){echo '&#x2713 ';}else{echo '&#x2717';} ?> ]<br>
+                            S11 : Black spot on leaf [ <?php if($row['cl_S11']==1){echo '&#x2713 ';}else{echo '&#x2717';} ?> ]<br>
+                            S12 : Brown or orange powdery appear on the underside of leaf [ <?php if($row['cl_S12']==1){echo '&#x2713 ';}else{echo '&#x2717';} ?> ]<br>
+                            S13 : Wither on the tip of leaf [ <?php if($row['cl_S13']==1){echo '&#x2713 ';}else{echo '&#x2717';} ?> ]<br>
+                            S14 : Watery around lesion area [ <?php if($row['cl_S14']==1){echo '&#x2713 ';}else{echo '&#x2717';} ?> ]<br>
+                            S13 : Yellow margin around a lesion [ <?php if($row['cl_S15']==1){echo '&#x2713 ';}else{echo '&#x2717';} ?> ]<br>
+                            S16 : Leaf is irregular shape [ <?php if($row['cl_S16']==1){echo '&#x2713 ';}else{echo '&#x2717';} ?> ]<br>
                     </div>
 
                     <?php
@@ -100,7 +98,7 @@
                 
                 ?>
         </div>
-        <a class="btn btn-danger float-right" href="../index.php" style="width:80px; margin: 10px;">Back</a>
+        <a class="btn btn-danger float-right" onclick="window.history.go(-1); return false;" style="width:80px; margin: 10px;">Back</a>
 
     </div>
 

@@ -200,19 +200,34 @@
                     </div>
                 </div><!-- end row -->
                 <hr class="border-line">
+                <div class="row">
+                    <div class="col-md-4">
 
-                <h5 style="margin-top:20px;">Identify The Disease</h5>
-                        <select class="form-control col-lg-6" type="text" name="newDisease" >
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <h5 style="margin-top:20px; text-align:center;">Identify The Disease</h5>
+                        <select class="form-control" type="text" name="newDisease">
                             <option value="Anthracnose">Anthracnose</option>
                             <option value="Algol Spot">Algol Spot</option>
                             <option value="Normol">Normal</option>
                             <option value="" selected disabled>Choose</option>
                         </select>
-                        <br>
-                        <br>
-                        <button class="form-control col-lg-6 btn-primary" style="margin-bottom: 50px;"> Save </button>
-          
+                        <div class="row">
+                            <button class="form-control btn-primary" style="margin: 10px;"> Save </button>
+                        </div>
+                        <div class="row">
+                            <button class="btn btn-danger form-control" onclick="window.history.go(-1); return false;" style="color:white; margin: 10px;">Back</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
                 </div>
+
+
+
+            </div>
             </div><!--  end container -->
             </form>
 
