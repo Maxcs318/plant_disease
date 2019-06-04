@@ -38,6 +38,13 @@ if (isset($_SESSION["m_status"])) {
                     <br>
                     <form action="ConnData/InsertRegister.php" method="post">
 
+                        <p>First Name *</p>
+                        <input class="form-control" type="text" name="firstname" placeholder="first name" maxlength="25" required>
+
+                        <p>Last Name *</p>
+                        <input class="form-control" type="text" name="lastname" placeholder="last name" maxlength="25" required>
+
+
                         <p>Username *</p>
                         <input class="form-control" type="text" name="username" placeholder="username" maxlength="20" required>
 
@@ -60,7 +67,13 @@ if (isset($_SESSION["m_status"])) {
         </div>
         </form>
     </div>
-
+    <script language="JavaScript">
+        function chkNumber(ele) {
+            var vchar = String.fromCharCode(event.keyCode);
+            if ((vchar < '0' || vchar > '9') && (vchar != '.')) return false;
+            ele.onKeyPress = vchar;
+        }
+    </script>
 </body>
 
 </html>

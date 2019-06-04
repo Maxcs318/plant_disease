@@ -39,7 +39,7 @@
 
             </div>
         </div>
-
+        <?php if($_SESSION["disease"]!='Normal'){ ?>
         <div class="row">
             <?php require("../ConnData/connectDB.php"); ?>
             <?php
@@ -54,7 +54,7 @@
                     </div>
                 <?php
                 }
-            } else { echo 'error'; }
+            } else { echo ''; }
             ?> <?php $conn->close(); ?>
         </div>
         <div class="row"> 
@@ -75,7 +75,7 @@
                     
                 }
 
-            } else { echo 'error'; }
+            } else { echo ''; }
         ?> <?php $conn->close(); ?>
         </div>
 
@@ -99,8 +99,9 @@
         } else { }
         ?> <?php $conn->close(); ?>
         </div>
+        <?php } ?>
     </div>
-    </form>
+        
         <footer style="margin-bottom: 50px;">
 
         </footer>
