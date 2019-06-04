@@ -58,7 +58,7 @@ for($i=0;$i<count($_FILES["imageprofile"]["name"]);$i++)
             // confirmButtonText: 'Yes.',
             // confirmButtonColor: '#64e986',                
             });
-            setTimeout("location.href = '../index.php';", 1500);
+            setTimeout("location.href = '../Posts/post_list_person.php';", 1500);
         </script>
         <?php
     } else {
