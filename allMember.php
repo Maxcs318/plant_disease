@@ -66,9 +66,7 @@
         <!-- Row 1 -->
         <div class="row">
             <div class="col-lg-8 col-xs-12">
-                <center>
-                    <h4> All Member .</h4>
-                </center>
+                <h1 style="text-align:center;"> All Member .</h1>
             </div>
             <div class="col-lg-4 col-xs-12">
                 <label>Search By Status : <?php if ($_GET['changStatus'] == '') {
@@ -86,9 +84,9 @@
                     </select>
             </div>
         </div>
-        <hr><br>
+        <br>
         <!-- Row 2 -->
-        <div class="row" style="margin:10px;">
+        <div class="row" style="margin:10px; overflow-x:auto;">
 
             <?php require("ConnData/connectDB.php"); ?>
             <?php
@@ -127,7 +125,7 @@
                             <td><?php echo $row["m_status"]; ?></td>
                             <?php if ($_GET['changStatus'] == 'user') { ?>
                                 <td onclick="UpStatus(<?php echo $row["m_id"]; ?>,<?php echo "'" . $row["m_username"] . "'"; ?>)">
-                                     <a href="#">UP to Expert</a></td>
+                                    <a href="#">UP to Expert</a></td>
                             <?php } ?>
 
 
@@ -144,17 +142,9 @@
                     // echo $_SESSION["m_firstname"];    
 
                     ?>
-        </div>
-
-        <!-- Row 3-->
-        <div class="row">
-
-        </div>
-        <!-- Row 4 -->
-        <div class="row">
-
-        </div>
-    </div>
+        </div> <!-- end row table -->
+        <br>
+    </div> <!-- end container -->
 
 </body>
 <script>
@@ -176,12 +166,24 @@
     }
 </script>
 <style>
-    table,
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 2px solid #ddd;
+    }
+
     th,
     td {
-        border: 1px solid black;
+        border: 2px solid #ddd;
         border-collapse: collapse;
-        text-align: center;
+        text-align: left;
+        text-indent: 5px;
+        padding: 5px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
     }
 </style>
 
