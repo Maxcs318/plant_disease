@@ -46,22 +46,21 @@
                     <input class="form-control" type="text" name="header" maxlength="100" style="width:40%;" required><br />
                     <label id="first">Detail :</label><br />
                     <textarea class="form-control" rows="5" type="text" name="detail" required></textarea>
+                    <br>
+                    <br>
 
-                    <label id="first" style="margin-top: 20px;">Upload Photo :</label><br />
                     <div class="row">
-                        <div class="col-xs-12    col-md-6">
+                        <div class="col-xs-12 col-md-6">
                             <img id="blah" src="../img/leafpreview.png" width="250px;" /><br>
-                            Font leaf.
+                            <label id="first" style="margin-top: 20px;">Upload Font leaf :</label><br />
                             <input type="file" name="image[]" id="image">
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <img id="blah" src="../img/leafpreview.png" width="250px;" /><br>
-                            Back leaf.
-                            <input type="file" name="image[]" id="image"><br>
+                            <img id="blah2" src="../img/leafpreview.png" width="250px;" /><br>
+                            <label id="first" style="margin-top: 20px;">Upload Back leaf :</label><br />
+                            <input type="file" name="image[]" id="image2"><br>
                         </div>
                     </div>
-
-
 
                     <!-- <h5></h5>
                     <input type="button" value="Add Image" id="add_image1"> -->
