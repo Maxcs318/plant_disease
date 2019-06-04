@@ -106,7 +106,7 @@
                     <div class="col-md-2 col-lg-2 col-xs-6">
                         <h4>Date</h4>
                         <h5><?php echo substr($row["cl_date"], 0, 10);  ?></h5>
-                        <a href="#">Identify Post</a> 
+                        <a href="#" onclick="location.href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'">Identify Post</a> 
                     </div>
 
                     <div class="col-md-2 col-lg-2 col-xs-6">
