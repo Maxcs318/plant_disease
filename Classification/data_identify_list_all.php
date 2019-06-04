@@ -92,7 +92,7 @@
             // output data of each row
             while ($row = $result->fetch_assoc()) {
                 ?>
-                <div class="row border-line" onclick="location.href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'">
+                <div class="row border-line">
                     <div class="col-md-2 col-lg-2 col-xs-6" style="margin-top:20px; text-align:center;">
                         <a href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
                             <img id="edit-save" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" style="width: 100%; margin-bottom: 10px;">
@@ -106,7 +106,7 @@
                     <div class="col-md-2 col-lg-2 col-xs-6">
                         <h4>Date</h4>
                         <h5><?php echo substr($row["cl_date"], 0, 10);  ?></h5>
-
+                        <a href="#" onclick="location.href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'">Identify Post</a> 
                     </div>
 
                     <div class="col-md-2 col-lg-2 col-xs-6">
@@ -130,16 +130,18 @@
                             ?>
                         </h5>
                     </div>
-                    
+                   
                 </div>
-
+                
             <?php
         }
     } else {
         echo "0 results";
     }
     ?>
-        <a class=" btn btn-danger float-right" href="../index.php" style="width: 90px; margin:30px 0px 10px ">Back</a>
+    
+        <a class=" btn btn-danger float-right" href="../index.php" style="width: 90px; margin-bottom:10px ">Back</a>
+        <a class="float-right" style="margin-right: 10px;" href="#top">Back to top</a>
     </div>
     <?php $conn->close(); ?>
     <footer style="margin: 50px;">
