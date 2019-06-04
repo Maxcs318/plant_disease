@@ -65,9 +65,9 @@
                 ?>
                 <div class="row">
                     <div class="col-lg-4 col-xs-12">
-                    Front Leaf : <br>
+                    <center> Front Leaf : </center>
                     <img style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" width="70%" >
-                    <br>Back Leaf :<br>
+                    <br> <center> Back Leaf : </center>
                     <img style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>" width="70%" >
                     </div>
                     <div class="col-lg-8 col-xs-612">

@@ -59,7 +59,9 @@
                     while($row = $result->fetch_assoc()) {
                     ?>
                     <div class="col-lg-5 col-xs-12">
+                        <center>Front Leaf</center>
                         <img src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" height="" width="100%">
+                        <center>Back Leaf</center>
                         <img src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>" height="" width="100%">
                         
                         <br><br>

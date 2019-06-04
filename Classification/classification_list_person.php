@@ -93,7 +93,7 @@ error_reporting(E_ALL ^ E_NOTICE); ?>
                         </div>
                         </div>
                         <br>
-                        <b>The Disease you detected :</b> <?php echo $row["cl_disease"]; ?><br><br>
+                        <b>The Disease you detected :</b> <?php echo $row["cl_disease"]; ?><br>
                         <b>Expert Confirm Disease :</b><br> <?php
                                                             if ($row["cl_confirm"] != '') {
                                                                 echo $row["cl_confirm"];
