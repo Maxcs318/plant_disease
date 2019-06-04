@@ -22,9 +22,7 @@
             $(".insertNewDisease").click(function() {
                 $(".insertDisease").toggle();
             });
-            for($i=0;$i<1000;$i++){
-                $(".showedit"+$i).hide();
-            }
+            
         });
             function EditThisDisease(d_id){                
                 $(".showedit"+d_id).toggle();
@@ -126,9 +124,9 @@
                 <div class="row box-disease">
                     <div class="col-xs-12 col-md-4"><br>
                         <div class="showedit<?php echo $row['d_id'];?>">
-                            <img style="display: block; margin: 0 auto;" class="blah2" src="../Image/image_disease/<?php echo $row['d_image']; ?>" width="100%" alt="">
+                            <img style="display: block; margin: 0 auto;" id="blah<?php echo $row['d_id'];?>" src="../Image/image_disease/<?php echo $row['d_image']; ?>" width="100%" alt="">
                             <br>
-                            <input type="file" class="image2" name="imagedisease[]" > <br>
+                            <input type="file" id="image<?php echo $row['d_id'];?>" name="imagedisease[]" > <br>
                         </div>
                         <div class="showdata<?php echo $row['d_id'];?>">
                             <img src="../Image/image_disease/<?php echo $row['d_image']; ?>" width="100%" alt="">
@@ -179,7 +177,23 @@
                             <?php
                             }
                         ?>
-
+                <script>
+                // hide edit
+                $(".showedit<?php echo $row['d_id'];?>").hide();
+                // set image 
+                function readURL<?php echo $row['d_id'];?>(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                            $('#blah<?php echo $row['d_id'];?>').attr('src', e.target.result);
+                        }
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+                $("#image<?php echo $row['d_id'];?>").change(function() {
+                    readURL<?php echo $row['d_id'];?>(this);
+                });
+                </script>
                     </div>
                 </div><br>
             
@@ -214,38 +228,19 @@
         }
         
         function readURL(input) {
-
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-
                 reader.onload = function(e) {
                     $('#blah').attr('src', e.target.result);
                 }
-
                 reader.readAsDataURL(input.files[0]);
             }
         }
-
         $("#image").change(function() {
             readURL(this);
         });
 
-        function readURL(input) {
-
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                $('.blah2').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-        }
-
-        $(".image2").change(function() {
-        readURL(this);
-        });
+        
     </script>
 
 </body>
