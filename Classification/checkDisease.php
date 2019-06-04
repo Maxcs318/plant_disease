@@ -214,7 +214,7 @@
     </script>
 </head>
 
-<body style="text-align:center;">
+<body style="text-align:center; ">
 
     <!-- user id top -->
     <div style="text-align:right;" class="usertop">
@@ -225,20 +225,39 @@
     </div>
     <!--end user id top -->
 
-     <!-- slide text -->
-     <div class="row">
+    <!-- slide text -->
+    <div class="row">
         <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
         <p class="item-2 ">Some Text for [item-2]</p>
         <p class="item-3 ">Some Text for [item-3]</p>
     </div>
     <!-- end slide text -->
 
+    <div class="container" style="margin-top: 50px;">
+        <div class="col-md-4 col-xs-4">
+            <!-- home button -->
+            <a href="../index.php">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../img/home.png" class="imgabout">
+                    <p class="text-img-detail">Home</p>
+                </button></a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+            <!-- home button -->
+            <a href="#" onclick="window.history.go(-1); return false;">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../img/back.svg" class="imgabout">
+                    <p class="text-img-detail">Back</p>
+                </button></a>
+        </div>
+    </div>
+
     <div class="container">
-        <form class="container box-post" action="../ConnData/checkDiseaseUpdate.php" method="post" enctype="multipart/form-data">
+        <form class="container box-list" action="../ConnData/checkDiseaseUpdate.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i:s", time() + (60 * 60) * 5); ?>">
             <div class="row">
                 <div class="col-xs-12 col-md-12"><br>
-                        <h1 class="header">Classification.</h1>     
+                    <h1 class="header">Classification.</h1>
                 </div>
                 <input type="hidden" name="S1" value="0">
                 <input type="hidden" name="S2" value="0">
@@ -257,292 +276,309 @@
                 <input type="hidden" name="S15" value="0">
                 <input type="hidden" name="S16" value="0">
             </div>
-            <div class="row ">
-                <?php   if($_SESSION["imagefront"]!='' && $_SESSION["imageback"]!=''){ ?>
-                <div class="col-lg-8 col-xs-12">
-                    <x >
-                        <div class="row">
-                        <div class="col-lg-6 col-xs-6">
-                            <img src="../Image/image_for_checkdisease/<?php echo $_SESSION["imagefront"]; ?>">
-                        </div>
-                        <div class="col-lg-6 col-xs-6">
-                        <img src="../Image/image_for_checkdisease/<?php echo $_SESSION["imageback"]; ?>">
-                        </div>
-                        </div>
-                        Your Image.<br>
-                    </x>
-                </div>
+            <hr class="border-line">
+
+            <br>
+            <div class="row">
+                <?php if ($_SESSION["imagefront"] != '' && $_SESSION["imageback"] != '') { ?>
+                    <div class="col-xs-12 col-md-8">
+                        <h1> My Images. </h1>
+                    </div>
+                    <div class="col-lg-8 col-xs-12">
+                        <x>
+                            <div class="row">
+                                <div class="col-lg-6 col-xs-6">
+                                    <img src="../Image/image_for_checkdisease/<?php echo $_SESSION["imagefront"]; ?>">
+                                    Font Leaf.
+                                </div>
+                                <div class="col-lg-6 col-xs-6">
+
+                                    <img src="../Image/image_for_checkdisease/<?php echo $_SESSION["imageback"]; ?>">
+                                    Back Leaf.
+                                </div>
+                            </div>
+                        </x>
+                        <br>
+                        <br>
+                        <a class="btn btn-danger" style="width: 80px;" href="chooseimageforcheck.php">cancel</a>
+                    </div>
+
                     <div class="col-lg-4 col-xs-12">
-                <?php }else{ ?>
-                    <div class="col-lg-4 col-xs-12"></div>
-                    <div class="col-lg-4 col-xs-12">
-                <?php } ?>
-                    <x class="S15">
-                        
-                        <img src="../Image/image_classification/S15.jpg">
-                        s15 : Yellow margins around a lesion.<br>
-                        <div class="row S15">
-                            <div class="col-12"><br>
-                                <input class="S15y" type="radio" name="S15" value="1"> Yes
-                                <input class="S15n" type="radio" name="S15" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S9">
-                        
-                        <img src="../Image/image_classification/S9.jpg">
-                        s9 : Greenish-gray spot on leaf.<br>
-                        <div class="row S9">
-                            <div class="col-12"><br>
-                                <input class="S9y" type="radio" name="S9" value="1"> Yes
-                                <input class="S9n" type="radio" name="S9" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S8">
-                        <img src="../Image/image_classification/S8.jpg">
-                        s8 : White spot on leaf.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S8y" type="radio" name="S8" value="1"> Yes
-                                <input class="S8n" type="radio" name="S8" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S12_2">
-                        <img src="../Image/image_classification/S12.jpg">
-                        s12 : Brown or orange powdery appear on the underside of leaf.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S12_2y" type="radio" name="S12" value="1"> Yes
-                                <input class="S12_2n" type="radio" name="S12" value="0"> No<br>
-                            </div>
-                        </div>
+                    <?php } else { ?>
+                        <div class="col-lg-4 col-xs-12"></div>
+                        <div class="col-lg-4 col-xs-12">
+                        <?php } ?>
+                        <x class="S15">
 
-                    </x>
-                    <x class="S12">
-                        <img src="../Image/image_classification/S12.jpg">
-                        s12 Brown or orange powdery appear on the underside of leaf.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S12y" type="radio" name="S12" value="1"> Yes
-                                <input class="S12n" type="radio" name="S12" value="0"> No<br>
+                            <img src="../Image/image_classification/S15.jpg">
+                            s15 : Yellow margins around a lesion.<br>
+                            <div class="row S15">
+                                <div class="col-12"><br>
+                                    <input class="S15y" type="radio" name="S15" value="1"> Yes
+                                    <input class="S15n" type="radio" name="S15" value="0"> No<br>
+                                </div>
                             </div>
-                        </div>
-                    </x>
-                    <x class="S5">
-                        <img src="../Image/image_classification/S5.jpg">
-                        s5 : Lesion occur at leaf margin.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S5y" type="radio" name="S5" value="1"> Yes
-                                <input class="S5n" type="radio" name="S5" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S16">
-                        <img src="../Image/image_classification/S16.jpg">
-                        s16 : Leaf is irregular shape.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S16y" type="radio" name="S16" value="1"> Yes
-                                <input class="S16n" type="radio" name="S16" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S9_2">
-                        <img src="../Image/image_classification/S9.jpg">
-                        s9 : Greenish-gray spot on leaf.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S9_2y" type="radio" name="S9" value="1"> Yes
-                                <input class="S9_2n" type="radio" name="S9" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S8_2">
-                        <img src="../Image/image_classification/S8.jpg">
-                        s8 : White spot on leaf.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S8_2y" type="radio" name="S8" value="1"> Yes
-                                <input class="S8_2n" type="radio" name="S8" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S4">
-                        <img src="../Image/image_classification/S4.jpg">
-                        s4 : Mature lesion are explanded and become dark-brown.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S4y" type="radio" name="S4" value="1"> Yes
-                                <input class="S4n" type="radio" name="S4" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S12_3">
-                        <img src="../Image/image_classification/S12.jpg">
-                        s12 : Brown or orange powdery appear on the underside of leaf.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S12_3y" type="radio" name="S12" value="1"> Yes
-                                <input class="S12_3n" type="radio" name="S12" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S14">
-                        <img src="../Image/image_classification/S14.jpg">
-                        s14 : Watery around lesion area.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S14y" type="radio" name="S14" value="1"> Yes
-                                <input class="S14n" type="radio" name="S14" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S3">
-                        <img src="../Image/image_classification/S3.jpg">
-                        s3 : Blight on leaf.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S3y" type="radio" name="S3" value="1"> Yes
-                                <input class="S3n" type="radio" name="S3" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S9_3">
-                        <img src="../Image/image_classification/S9.jpg">
-                        s9 : Greenish-gray spot on leaf.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S9_3y" type="radio" name="S9" value="1"> Yes
-                                <input class="S9_3n" type="radio" name="S9" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S6">
-                        <img src="../Image/image_classification/S6.jpg">
-                        s6 : Tiny and irregular spot appear on leaf.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S6y" type="radio" name="S6" value="1"> Yes
-                                <input class="S6n" type="radio" name="S6" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S14_2">
-                        <img src="../Image/image_classification/S14.jpg">
-                        s14 : Watery around lesion area.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S14_2y" type="radio" name="S14" value="1"> Yes
-                                <input class="S14_2n" type="radio" name="S14" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S13">
-                        <img src="../Image/image_classification/S13.jpg">
-                        s13 : Wither on the tip of leaf.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S13y" type="radio" name="S13" value="1"> Yes
-                                <input class="S13n" type="radio" name="S13" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S12_4">
-                        <img src="../Image/image_classification/S12.jpg">
-                        s12 : Brown or orange powdery appear on the underside of leaf.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S12_4y" type="radio" name="S12" value="1"> Yes
-                                <input class="S12_4n" type="radio" name="S12" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <x class="S2">
-                        <img src="../Image/image_classification/S2.jpg">
-                        s2 : check on lesion area.<br>
-                        <div class="row">
-                            <div class="col-12"><br>
-                                <input class="S2y" type="radio" name="S2" value="1"> Yes
-                                <input class="S2n" type="radio" name="S2" value="0"> No<br>
-                            </div>
-                        </div>
-                    </x>
-                    <!-- last -->
-                    <x class="An">
-                        <div class="row">
-                            <div class="col-12">
-                                <br>
-                                <h1>
-                                    Anthracnose .
-                                </h1><br><br>
-                                <button type="submit" class="form-control btn-primary" name="disease" value="Anthracnose">
-                                <?php if($_SESSION["imagefront"]=='' && $_SESSION["imageback"]==''){ ?>
-                                view detail
-                                <?php }else{ ?>
-                                Save.
-                                <?php } ?>
-                                </button> <br><br>
-                                <button type="reset" class="form-control  btn-danger" onClick="window.location.reload();">
-                                    Check Again.</button>
-                            </div>
-                        </div>
-                    </x>
+                        </x>
+                        <x class="S9">
 
-                    <x class=" As">
-                        <div class="row">
-                            <div class="col-12">
-                                <br>
-                                <h1>
-                                    Algol Spot .
-                                </h1><br><br>
-                                <button type="submit" class="form-control btn-primary" name="disease" value="Algol Spot">
-                                <?php if($_SESSION["imagefront"]=='' && $_SESSION["imageback"]==''){ ?>
-                                view detail
-                                <?php }else{ ?>
-                                Save.
-                                <?php } ?>
-                                </button> <br><br>
-                                <button type="reset" class="form-control  btn-danger" onClick="window.location.reload();">
-                                    Check Again.</button>
+                            <img src="../Image/image_classification/S9.jpg">
+                            s9 : Greenish-gray spot on leaf.<br>
+                            <div class="row S9">
+                                <div class="col-12"><br>
+                                    <input class="S9y" type="radio" name="S9" value="1"> Yes
+                                    <input class="S9n" type="radio" name="S9" value="0"> No<br>
+                                </div>
                             </div>
-                        </div>
-                    </x>
+                        </x>
+                        <x class="S8">
+                            <img src="../Image/image_classification/S8.jpg">
+                            s8 : White spot on leaf.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S8y" type="radio" name="S8" value="1"> Yes
+                                    <input class="S8n" type="radio" name="S8" value="0"> No<br>
+                                </div>
+                            </div>
+                        </x>
+                        <x class="S12_2">
+                            <img src="../Image/image_classification/S12.jpg">
+                            s12 : Brown or orange powdery appear on the underside of leaf.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S12_2y" type="radio" name="S12" value="1"> Yes
+                                    <input class="S12_2n" type="radio" name="S12" value="0"> No<br>
+                                </div>
+                            </div>
 
-                    <x class="Nor">
-                        <div class="row">
-                            <div class="col-12">
-                                <br>
-                                <h1>
-                                    Normal .
-                                </h1><br><br>
-                                <button type="submit" class="form-control  btn-primary" name="disease" value="Normal">
-                                <?php if($_SESSION["imagefront"]=='' && $_SESSION["imageback"]==''){ ?>
-                                view detail
-                                <?php }else{ ?>
-                                Save.
-                                <?php } ?>
-                                </button> <br><br>
-                                <button type="reset" class="form-control  btn-danger" onClick="window.location.reload();">
-                                    Check Again.</button>
+                        </x>
+                        <x class="S12">
+                            <img src="../Image/image_classification/S12.jpg">
+                            s12 Brown or orange powdery appear on the underside of leaf.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S12y" type="radio" name="S12" value="1"> Yes
+                                    <input class="S12n" type="radio" name="S12" value="0"> No<br>
+                                </div>
                             </div>
-                        </div>
-                    </x>
+                        </x>
+                        <x class="S5">
+                            <img src="../Image/image_classification/S5.jpg">
+                            s5 : Lesion occur at leaf margin.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S5y" type="radio" name="S5" value="1"> Yes
+                                    <input class="S5n" type="radio" name="S5" value="0"> No<br>
+                                </div>
+                            </div>
+                        </x>
+                        <x class="S16">
+                            <img src="../Image/image_classification/S16.jpg">
+                            s16 : Leaf is irregular shape.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S16y" type="radio" name="S16" value="1"> Yes
+                                    <input class="S16n" type="radio" name="S16" value="0"> No<br>
+                                </div>
+                            </div>
+                        </x>
+                        <x class="S9_2">
+                            <img src="../Image/image_classification/S9.jpg">
+                            s9 : Greenish-gray spot on leaf.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S9_2y" type="radio" name="S9" value="1"> Yes
+                                    <input class="S9_2n" type="radio" name="S9" value="0"> No<br>
+                                </div>
+                            </div>
+                        </x>
+                        <x class="S8_2">
+                            <img src="../Image/image_classification/S8.jpg">
+                            s8 : White spot on leaf.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S8_2y" type="radio" name="S8" value="1"> Yes
+                                    <input class="S8_2n" type="radio" name="S8" value="0"> No<br>
+                                </div>
+                            </div>
+                        </x>
+                        <x class="S4">
+                            <img src="../Image/image_classification/S4.jpg">
+                            s4 : Mature lesion are explanded and become dark-brown.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S4y" type="radio" name="S4" value="1"> Yes
+                                    <input class="S4n" type="radio" name="S4" value="0"> No<br>
+                                </div>
+                            </div>
+                        </x>
+                        <x class="S12_3">
+                            <img src="../Image/image_classification/S12.jpg">
+                            s12 : Brown or orange powdery appear on the underside of leaf.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S12_3y" type="radio" name="S12" value="1"> Yes
+                                    <input class="S12_3n" type="radio" name="S12" value="0"> No<br>
+                                </div>
+                            </div>
+                        </x>
+                        <x class="S14">
+                            <img src="../Image/image_classification/S14.jpg">
+                            s14 : Watery around lesion area.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S14y" type="radio" name="S14" value="1"> Yes
+                                    <input class="S14n" type="radio" name="S14" value="0"> No<br>
+                                </div>
+                            </div>
+                        </x>
+                        <x class="S3">
+                            <img src="../Image/image_classification/S3.jpg">
+                            s3 : Blight on leaf.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S3y" type="radio" name="S3" value="1"> Yes
+                                    <input class="S3n" type="radio" name="S3" value="0"> No<br>
+                                </div>
+                            </div>
+                        </x>
+                        <x class="S9_3">
+                            <img src="../Image/image_classification/S9.jpg">
+                            s9 : Greenish-gray spot on leaf.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S9_3y" type="radio" name="S9" value="1"> Yes
+                                    <input class="S9_3n" type="radio" name="S9" value="0"> No<br>
+                                </div>
+                            </div>
+                        </x>
+                        <x class="S6">
+                            <img src="../Image/image_classification/S6.jpg">
+                            s6 : Tiny and irregular spot appear on leaf.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S6y" type="radio" name="S6" value="1"> Yes
+                                    <input class="S6n" type="radio" name="S6" value="0"> No<br>
+                                </div>
+                            </div>
+                        </x>
+                        <x class="S14_2">
+                            <img src="../Image/image_classification/S14.jpg">
+                            s14 : Watery around lesion area.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S14_2y" type="radio" name="S14" value="1"> Yes
+                                    <input class="S14_2n" type="radio" name="S14" value="0"> No<br>
+                                </div>
+                            </div>
+                        </x>
+                        <x class="S13">
+                            <img src="../Image/image_classification/S13.jpg">
+                            s13 : Wither on the tip of leaf.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S13y" type="radio" name="S13" value="1"> Yes
+                                    <input class="S13n" type="radio" name="S13" value="0"> No<br>
+                                </div>
+                            </div>
+                        </x>
+                        <x class="S12_4">
+                            <img src="../Image/image_classification/S12.jpg">
+                            s12 : Brown or orange powdery appear on the underside of leaf.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S12_4y" type="radio" name="S12" value="1"> Yes
+                                    <input class="S12_4n" type="radio" name="S12" value="0"> No<br>
+                                </div>
+                            </div>
+                        </x>
+                        <x class="S2">
+                            <img src="../Image/image_classification/S2.jpg">
+                            s2 : check on lesion area.<br>
+                            <div class="row">
+                                <div class="col-12"><br>
+                                    <input class="S2y" type="radio" name="S2" value="1"> Yes
+                                    <input class="S2n" type="radio" name="S2" value="0"> No<br>
+                                </div>
+                            </div>
+                        </x>
+                        <!-- last -->
+                        <x class="An">
+                            <div class="row">
+                                <div class="col-12">
+                                    <br>
+                                    <h1>
+                                        Anthracnose .
+                                    </h1><br><br>
+                                    <button type="submit" class="form-control btn-primary" name="disease" value="Anthracnose">
+                                        <?php if ($_SESSION["imagefront"] == '' && $_SESSION["imageback"] == '') { ?>
+                                            view detail
+                                        <?php } else { ?>
+                                            Save.
+                                        <?php } ?>
+                                    </button> <br><br>
+                                    <button type="reset" class="form-control  btn-danger" onClick="window.location.reload();">
+                                        Check Again.</button>
+                                </div>
+                            </div>
+                        </x>
+
+                        <x class=" As">
+                            <div class="row">
+                                <div class="col-12">
+                                    <br>
+                                    <h1>
+                                        Algol Spot .
+                                    </h1><br><br>
+                                    <button type="submit" class="form-control btn-primary" name="disease" value="Algol Spot">
+                                        <?php if ($_SESSION["imagefront"] == '' && $_SESSION["imageback"] == '') { ?>
+                                            view detail
+                                        <?php } else { ?>
+                                            Save.
+                                        <?php } ?>
+                                    </button> <br><br>
+                                    <button type="reset" class="form-control  btn-danger" onClick="window.location.reload();">
+                                        Check Again.</button>
+                                </div>
+                            </div>
+                        </x>
+
+                        <x class="Nor">
+                            <div class="row">
+                                <div class="col-12">
+                                    <br>
+                                    <h1>
+                                        Normal .
+                                    </h1><br><br>
+                                    <button type="submit" class="form-control  btn-primary" name="disease" value="Normal">
+                                        <?php if ($_SESSION["imagefront"] == '' && $_SESSION["imageback"] == '') { ?>
+                                            view detail
+                                        <?php } else { ?>
+                                            Save.
+                                        <?php } ?>
+                                    </button> <br><br>
+                                    <button type="reset" class="form-control  btn-danger" onClick="window.location.reload();">
+                                        Check Again.</button>
+                                </div>
+                            </div>
+                        </x>
+
+                    </div>
 
                 </div>
-            </div>
-            <div style="margin-bottom: 30px;"></div>
-            
+                <div style="margin-bottom: 30px;"></div>
+
         </form>
 
     </div>
 
+<footer style="margin-bottom: 50px;"> 
+
+</footer>
+
     <style>
         x {
             font-size: 30px;
-    border-bottom: 2px solid black;
+            border-bottom: 2px solid black;
             /* margin: auto; */
         }
 
@@ -552,8 +588,9 @@
             display: block;
             margin: 0 auto;
         }
-        @media screen and (max-width: 500px){
-            x{
+
+        @media screen and (max-width: 500px) {
+            x {
                 font-size: 15px;
             }
         }
