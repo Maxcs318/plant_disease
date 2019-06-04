@@ -1,3 +1,4 @@
+<?php error_reporting (E_ALL ^ E_NOTICE); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +13,8 @@
     <link rel="shortcut icon" href="../img/leaficon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> <!-- sweetalert-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- sweetalert-->
     <script>
         $(document).ready(function() {
             $(".insertDisease").hide();
@@ -88,7 +91,7 @@
                 <div class="col-xs-12 col-md-4"><br>
                         <img style="display: block; margin: 0 auto;" id="blah" src="../Image/image_disease/choose.png" width="100%" alt="">
                         <br><br>
-                        <input type="file" id="image" name="imagedisease[]"> <br><br><br>
+                        <input type="file" id="image" name="imagedisease[]" required> <br><br><br>
                 </div>
                 <div class="col-xs-12 col-md-8">
                     <h3> Name of Disease </h3>
@@ -120,7 +123,7 @@
                         <h2 class="detail-header">
                             <?php echo $row['d_name']; ?>
                         </h2>
-                        <p class="detail">
+                        <p class="detail" style="text-indent: 2.5em;">
                             <?php echo $row['d_detail']; ?>
                         </p>
 
@@ -132,7 +135,7 @@
                                         <button class="btn-primary form-control col-lg-12 col-xs-12">Edit Disease</button> 
                                     </div>
                                     <div class="col-6">
-                                        <button class="btn-danger form-control col-lg-12 col-xs-12">Delete Disease</button> 
+                                        <button class="btn-danger form-control col-lg-12 col-xs-12" onclick="deleteData(<?php echo $row['d_id'];?>)" >Delete Disease</button> 
                                     </div>
                                 </div>
                                 <br>
@@ -157,6 +160,22 @@
         
     </footer>
     <script>
+        function deleteData(getid) {
+
+            swal({
+            title: "Are you sure?", 
+            text: "You want to Delete this Disease." , 
+            type: "warning",
+            confirmButtonText: 'Yes.',
+            confirmButtonColor: '#DD6B55',
+            
+            showCancelButton: true ,
+            }, function() {
+                window.location.href='../ConnData/DeleteDisease.php?getID='+getid;
+            });
+            
+        }
+        
         function readURL(input) {
 
             if (input.files && input.files[0]) {
