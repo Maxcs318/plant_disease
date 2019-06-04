@@ -197,7 +197,7 @@
     }
     ?>
         <br>
-        <a class="btn btn-danger float-right" href="post_list_all.php" style="color: white;width: 90px; margin:30px 0px 10px">Back</a>
+        <a class="btn btn-danger float-right" href="post_list_person.php" style="color: white;width: 90px; margin:30px 0px 10px">Back</a>
         <br>
     </div>
 <footer style="margin-bottom: 70px;">

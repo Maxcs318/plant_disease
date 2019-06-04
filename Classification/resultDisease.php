@@ -49,14 +49,18 @@
                 </button></a>
         </div>
     </div>
+
     <div class="container box-list" style="margin-top: 0px;">
         <div class="row">
             <div class="col-12"><br>
                 <h1 style="text-align:center;">Disease : <?php echo $_SESSION["disease"]; ?> </h1>
+                <br>
             </div>
         </div>
+        <h3>The picture of the disease leaves </h3>
         <?php if($_SESSION["disease"]!='Normal'){ ?>
         <div class="row">
+            
             <?php require("../ConnData/connectDB.php"); ?>
             <?php
             $sql = "SELECT * FROM symptoms WHERE s_disease ='" . $_SESSION["disease"] . "' ";
@@ -73,9 +77,10 @@
             } else { echo ''; }
             ?> <?php $conn->close(); ?>
         </div>
+        <hr class="border-line">
         <div class="row"> 
             <div class="col-lg-12 col-xs-12">
-                <p>Symptoms </p>
+                <h2>Symptoms</h2>
             </div> 
             <?php require("../ConnData/connectDB.php"); ?>
             <?php
@@ -106,7 +111,7 @@
 
                     <div class="col-12">
                         <hr class="border-line">
-                        <p>Disease  <?php echo $row['d_name'] ?></p>
+                        <h2>Disease  <?php echo $row['d_name'] ?></h2>
                         <p style="text-indent: 2.5em;"><?php echo $row['d_detail'] ?></p>
                         <br>
                     </div>
