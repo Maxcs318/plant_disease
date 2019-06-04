@@ -238,9 +238,7 @@
             <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i:s", time() + (60 * 60) * 5); ?>">
             <div class="row">
                 <div class="col-xs-12 col-md-12"><br>
-                 
-                        <h1 class="header">Classification.</h1>
-                   
+                        <h1 class="header">Classification.</h1>     
                 </div>
                 <input type="hidden" name="S1" value="0">
                 <input type="hidden" name="S2" value="0">
@@ -259,7 +257,8 @@
                 <input type="hidden" name="S15" value="0">
                 <input type="hidden" name="S16" value="0">
             </div>
-            <div class="row container">
+            <div class="row ">
+                <?php   if($_SESSION["imagefront"]!='' && $_SESSION["imageback"]!=''){ ?>
                 <div class="col-lg-8 col-xs-12">
                     <x >
                         <div class="row">
@@ -273,7 +272,11 @@
                         Your Image.<br>
                     </x>
                 </div>
-                <div class="col-lg-4 col-xs-12">
+                    <div class="col-lg-4 col-xs-12">
+                <?php }else{ ?>
+                    <div class="col-lg-4 col-xs-12"></div>
+                    <div class="col-lg-4 col-xs-12">
+                <?php } ?>
                     <x class="S15">
                         
                         <img src="../Image/image_classification/S15.jpg">
@@ -475,7 +478,13 @@
                                 <h1>
                                     Anthracnose .
                                 </h1><br><br>
-                                <button type="submit" class="form-control btn-primary" name="disease" value="Anthracnose">Save.</button> <br><br>
+                                <button type="submit" class="form-control btn-primary" name="disease" value="Anthracnose">
+                                <?php if($_SESSION["imagefront"]=='' && $_SESSION["imageback"]==''){ ?>
+                                view detail
+                                <?php }else{ ?>
+                                Save.
+                                <?php } ?>
+                                </button> <br><br>
                                 <button type="reset" class="form-control  btn-danger" onClick="window.location.reload();">
                                     Check Again.</button>
                             </div>
@@ -489,7 +498,13 @@
                                 <h1>
                                     Algol Spot .
                                 </h1><br><br>
-                                <button type="submit" class="form-control btn-primary" name="disease" value="Algol Spot">Save.</button> <br><br>
+                                <button type="submit" class="form-control btn-primary" name="disease" value="Algol Spot">
+                                <?php if($_SESSION["imagefront"]=='' && $_SESSION["imageback"]==''){ ?>
+                                view detail
+                                <?php }else{ ?>
+                                Save.
+                                <?php } ?>
+                                </button> <br><br>
                                 <button type="reset" class="form-control  btn-danger" onClick="window.location.reload();">
                                     Check Again.</button>
                             </div>
@@ -503,7 +518,13 @@
                                 <h1>
                                     Normal .
                                 </h1><br><br>
-                                <button type="submit" class="form-control  btn-primary" name="disease" value="Normal">Save.</button> <br><br>
+                                <button type="submit" class="form-control  btn-primary" name="disease" value="Normal">
+                                <?php if($_SESSION["imagefront"]=='' && $_SESSION["imageback"]==''){ ?>
+                                view detail
+                                <?php }else{ ?>
+                                Save.
+                                <?php } ?>
+                                </button> <br><br>
                                 <button type="reset" class="form-control  btn-danger" onClick="window.location.reload();">
                                     Check Again.</button>
                             </div>
@@ -528,6 +549,8 @@
         img {
             width: 100%;
             /* height="80%"; */
+            display: block;
+            margin: 0 auto;
         }
         @media screen and (max-width: 500px){
             x{

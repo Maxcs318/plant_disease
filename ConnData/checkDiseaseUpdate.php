@@ -1,4 +1,14 @@
 <?php session_start(); ?>
+
+<?php
+    if($_SESSION["imagefront"]=='' && $_SESSION["imageback"]==''){
+        $_SESSION["disease"]=$_POST["disease"];
+        header("location:../Classification/resultDisease.php"); 
+
+    }
+
+?>
+
 <?php require("connectDB.php");?>
 <?php
     $sql = "UPDATE classification SET cl_S1 = '".$_POST["S1"]."',cl_S2 = '".$_POST["S2"]."',
