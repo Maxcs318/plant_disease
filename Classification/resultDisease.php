@@ -31,12 +31,28 @@
     </div>
     <!-- end slide text -->
 
-    <div class="container box-list" style="margin-top: 70px;">
+    <div class="container" style="margin-top: 50px;">
+        <div class="col-md-4 col-xs-4">
+            <!-- home button -->
+            <a href="../index.php">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../img/home.png" class="imgabout">
+                    <p class="text-img-detail">Home</p>
+                </button></a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+            <!-- home button -->
+            <a href="#" onclick="window.history.go(-1); return false;">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../img/back.svg" class="imgabout">
+                    <p class="text-img-detail">Back</p>
+                </button></a>
+        </div>
+    </div>
+    <div class="container box-list" style="margin-top: 0px;">
         <div class="row">
             <div class="col-12"><br>
                 <h1 style="text-align:center;">Disease : <?php echo $_SESSION["disease"]; ?> </h1>
-                <a class=" btn btn-primary float-left" href="../index.php" style="width: 90px; margin:30px 0px 10px ">Home</a>
-
             </div>
         </div>
         <?php if($_SESSION["disease"]!='Normal'){ ?>
@@ -49,7 +65,7 @@
                 while ($row = $result->fetch_assoc()) {
                     ?>
                     <div class="col-lg-3 col-xs-4" style="text-align:center;">
-                        <img src="../Image/image_classification/<?php echo $row["s_image"]; ?>" width="100%">
+                        <img src="../Image/image_classification/<?php echo $row["s_image"]; ?>" style="border: 1px solid green;" width="100%">
                         <?php echo $row["s_name"]; ?>
                     </div>
                 <?php
