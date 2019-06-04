@@ -43,6 +43,14 @@
                     <p class="text-img-detail">Home</p>
                 </button></a>
         </div>
+        <div class="col-md-4 col-xs-4">
+            <!-- home button -->
+            <a href="#" onclick="window.history.go(-1); return false;">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../img/back.svg" class="imgabout">
+                    <p class="text-img-detail">Back</p>
+                </button></a>
+        </div>
     </div>
 
 
