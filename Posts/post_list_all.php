@@ -50,10 +50,9 @@
             <a href="../Classification/data_identify_list_all.php">
                 <button type="submit" style="border: 0; background: transparent">
                     <img src="../img/pageicon/dataidentify.png" class="imgabout">
-                    <p class="text-img-detail">Data <br>Identify</p>
+                    <p class="text-img-detail">Data Identify</p>
                 </button></a>
         </div>
-
     </div>
 
     <div class="container box-list" style="margin-top: 30px;">
