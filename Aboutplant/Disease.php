@@ -18,12 +18,21 @@
     <script>
         $(document).ready(function() {
             $(".insertDisease").hide();
-            // $(".editDisease").hide();
 
             $(".insertNewDisease").click(function() {
                 $(".insertDisease").toggle();
             });
+            for($i=0;$i<1000;$i++){
+                $(".showedit"+$i).hide();
+            }
         });
+            function EditThisDisease(d_id){                
+                $(".showedit"+d_id).toggle();
+                $(".showdata"+d_id).toggle();
+            }function CancelThisDisease(d_id){                
+                $(".showedit"+d_id).toggle();
+                $(".showdata"+d_id).toggle();
+            }
     </script>
 </head>
 
@@ -113,29 +122,57 @@
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
             ?>
-            
+                <form action="../ConnData/EditDisease.php" method="post" enctype="multipart/form-data" >
                 <div class="row box-disease">
                     <div class="col-xs-12 col-md-4"><br>
-                        <img src="../Image/image_disease/<?php echo $row['d_image']; ?>" width="100%" alt="">
-                        <br><br>
+                        <div class="showedit<?php echo $row['d_id'];?>">
+                            <img style="display: block; margin: 0 auto;" class="blah2" src="../Image/image_disease/<?php echo $row['d_image']; ?>" width="100%" alt="">
+                            <br>
+                            <input type="file" class="image2" name="imagedisease[]" > <br>
+                        </div>
+                        <div class="showdata<?php echo $row['d_id'];?>">
+                            <img src="../Image/image_disease/<?php echo $row['d_image']; ?>" width="100%" alt="">
+                            <br><br>
+                        </div>
                     </div>
                     <div class="col-xs-12 col-md-8">
                         <h2 class="detail-header">
-                            <?php echo $row['d_name']; ?>
-                        </h2>
-                        <p class="detail" style="text-indent: 2.5em;">
+                            <div class="showedit<?php echo $row['d_id'];?>">
+                                <input type="text" class="form-control col-lg-8 col-xs-12" name="diseasename" maxlength="50" value="<?php echo $row['d_name']; ?>" ><br>
+                            </div>
+                            <div class="showdata<?php echo $row['d_id'];?>">
+                                <?php echo $row['d_name']; ?>
+                            </div>
+                        </h2> <input type="hidden" name="diseaseid" value="<?php echo $row['d_id']; ?>">
+                        <p class="showdata<?php echo $row['d_id'];?> detail" style="text-indent: 2.5em;">
                             <?php echo $row['d_detail']; ?>
                         </p>
+                        <div class="showedit<?php echo $row['d_id'];?>">
+                            <textarea class="form-control" rows="7" type="text" name="diseasedetail" ><?php echo $row['d_detail'];?></textarea>
+                            <br>
+                        </div>
 
                         <?php 
                             if($_SESSION['m_status']=='admin'){
                             ?>  
                                 <div class="row">
                                     <div class="col-6">
-                                        <button class="btn-primary form-control col-lg-12 col-xs-12">Edit Disease</button> 
+                                        <div class="showedit<?php echo $row['d_id'];?>">
+                                            <input type="button" class="editDisease<?php echo $row['d_id'];?> btn-danger form-control col-lg-12 col-xs-12" value="Cancel" onclick="CancelThisDisease(<?php echo $row['d_id'];?>)">
+                                        </div>
+                                        
+                                        <div class="showdata<?php echo $row['d_id'];?>">
+                                            <input type="button" class="editDisease<?php echo $row['d_id'];?> btn-primary form-control col-lg-12 col-xs-12" value="Edit Disease" onclick="EditThisDisease(<?php echo $row['d_id'];?>)">
+                                        </div>
                                     </div>
                                     <div class="col-6">
-                                        <button class="btn-danger form-control col-lg-12 col-xs-12" onclick="deleteData(<?php echo $row['d_id'];?>)" >Delete Disease</button> 
+                                        <div class="showedit<?php echo $row['d_id'];?>">
+                                            <button class="editDisease<?php echo $row['d_id'];?> btn-primary form-control col-lg-12 col-xs-12" type="submit" >Save</button> 
+                                        </div>
+                </form>
+                                        <div class="showdata<?php echo $row['d_id'];?>">
+                                            <input type="button" class="btn-danger form-control col-lg-12 col-xs-12" value="Delete Disease" onclick="deleteData(<?php echo $row['d_id'];?>)" >
+                                        </div>
                                     </div>
                                 </div>
                                 <br>
@@ -191,6 +228,23 @@
 
         $("#image").change(function() {
             readURL(this);
+        });
+
+        function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('.blah2').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+        }
+
+        $(".image2").change(function() {
+        readURL(this);
         });
     </script>
 
