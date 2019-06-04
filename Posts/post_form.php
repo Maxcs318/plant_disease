@@ -39,7 +39,7 @@
 
             <div class="row" style="margin: 0px;">
                 <div class="col-xs-0 col-sm-0 col-md-2"></div>
-                <div class="col-xs-12 col-sm-12 col-md-8">
+                <div class="col-xs-12 col-sm-6 col-md-8">
 
                     <h1 class="header">Create Post</h1>
                     <label id="first">Header :</label><br />
@@ -48,9 +48,23 @@
                     <textarea class="form-control" rows="5" type="text" name="detail" required></textarea>
 
                     <label id="first" style="margin-top: 20px;">Upload Photo :</label><br />
-                    <input type="file" name="image[]" id="image"><br>
-                    <h5></h5>
-                    <input type="button" value="Add Image" id="add_image1">
+                    <div class="row">
+                        <div class="col-xs-12    col-md-6">
+                            <img id="blah" src="../img/leafpreview.png" width="250px;" /><br>
+                            Font leaf.
+                            <input type="file" name="image[]" id="image">
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <img id="blah" src="../img/leafpreview.png" width="250px;" /><br>
+                            Back leaf.
+                            <input type="file" name="image[]" id="image"><br>
+                        </div>
+                    </div>
+
+
+
+                    <!-- <h5></h5>
+                    <input type="button" value="Add Image" id="add_image1"> -->
 
                     <input type="hidden" name="own" value="<?php echo $_SESSION["m_id"]; ?>">
                     <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i:s", time() + (60 * 60) * 5); ?>">
@@ -78,7 +92,6 @@
                 </div>
                 <div class="col-xs-0 col-sm-0 col-md-2"></div>
 
-
             </div>
         </form>
     </div>
@@ -89,6 +102,42 @@
     <script>
         $('#add_image1').click(function() {
             $('h5').append('<input type="file" name="image[]" id="image"><br><br>');
+        });
+    </script>
+
+    <script>
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#image").change(function() {
+            readURL(this);
+        });
+
+        function readURL2(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#blah2').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#image2").change(function() {
+            readURL2(this);
         });
     </script>
 
