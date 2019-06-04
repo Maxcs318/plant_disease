@@ -37,7 +37,7 @@
 
     <div class="container" style="margin-top: 50px;">
         <!-- home button -->
-        <div class="col-md-4 col-xs4">
+        <div class="col-md-4 col-xs-4">
             <a href="../index.php">
                 <button type="submit" style="border: 0; background: transparent">
                     <img src="../img/home.png" class="imgabout">
