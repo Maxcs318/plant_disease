@@ -38,10 +38,10 @@ if (isset($_SESSION["m_status"])) {
                     <br>
                     <form action="ConnData/InsertRegister.php" method="post">
 
-                        <p>First Name</p>
+                        <p>First Name *</p>
                         <input class="form-control" type="text" name="firstname" placeholder="first name" maxlength="25" required>
 
-                        <p>Last Name</p>
+                        <p>Last Name *</p>
                         <input class="form-control" type="text" name="lastname" placeholder="last name" maxlength="25" required>
 
 
