@@ -100,7 +100,7 @@
             </div>
 
             <div class="col-xs-6 col-md-3">
-                <a href="#">
+                <a href="DataSummary.php">
                     <button type="submit" class="imgcenter" style="border: 0; background: transparent">
                         <img src="../../img/pageicon/summary.png" class="imgcenter">
                         <p class="textimg">Data Summary</p>
