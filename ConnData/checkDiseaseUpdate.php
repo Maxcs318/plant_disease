@@ -4,9 +4,7 @@
     if($_SESSION["imagefront"]=='' && $_SESSION["imageback"]==''){
         $_SESSION["disease"]=$_POST["disease"];
         header("location:../Classification/resultDisease.php"); 
-
     }
-
 ?>
 
 <?php require("connectDB.php");?>
