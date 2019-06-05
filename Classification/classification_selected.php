@@ -20,12 +20,13 @@ $conn->close();
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap/css/main.css">
+    <script src="../bootstrap/js/zoom_img.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/zoom_img.js"></script>
     <link rel="shortcut icon" href="../img/leaficon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
     <!-- user id top -->
     <div style="text-align:right;" class="usertop">
         Username :
@@ -81,16 +82,32 @@ $conn->close();
                     ?>
                     <div class="col-lg-12 col-xs-12">
                         <div class="row" style="margin-left:auto; margin-right: auto;">
+
+
+
                             <div class="col-xs-6 col-md-6">
 
-                                <img style="display: block; margin-left: auto; margin-right: auto; width: 70%;" 
-                                src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>">
+                                <!-- The Modal -->
+                                <div id="myModal" class="modal">
+                                    <span class="close">&times;</span>
+                                    <img class="modal-content" id="img01">
+                                    <div id="caption"></div>
+                                </div>
+
+                                <img id="myImg" style="display: block; margin-left: auto; margin-right: auto; width: 70%;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>">
                                 <center>Front Leaf</center>
                             </div>
+
                             <div class="col-xs-6 col-md-6">
 
-                                <img style="display: block; margin-left: auto; margin-right: auto; width: 70%;" 
-                                src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>">
+                                <!-- The Modal -->
+                                <div id="myModal2" class="modal2">
+                                    <span class="close2">&times;</span>
+                                    <img class="modal-content" id="img02">
+                                    <div id="caption2"></div>
+                                </div>
+
+                                <img id="myImg2" style="display: block; margin-left: auto; margin-right: auto; width: 70%;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>">
                                 <center>Back Leaf</center>
                             </div>
                         </div>
@@ -207,5 +224,48 @@ $conn->close();
     </footer>
 
 </body>
+<script> 
+    // // Img 1
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Img 2
+    var modal2 = document.getElementById("myModal2");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img2 = document.getElementById("myImg2");
+    var modalImg2 = document.getElementById("img02");
+    var captionText2 = document.getElementById("caption2");
+    img2.onclick = function() {
+        modal2.style.display = "block";
+        modalImg2.src = this.src;
+        captionText2.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var span2 = document.getElementsByClassName("close2")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span2.onclick = function() {
+        modal2.style.display = "none";
+    }
+</script>
 
 </html>
