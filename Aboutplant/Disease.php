@@ -27,7 +27,8 @@
             function EditThisDisease(d_id){                
                 $(".showedit"+d_id).toggle();
                 $(".showdata"+d_id).toggle();
-            }function CancelThisDisease(d_id){                
+            }
+            function CancelThisDisease(d_id){                
                 $(".showedit"+d_id).toggle();
                 $(".showdata"+d_id).toggle();
             }

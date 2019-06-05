@@ -13,15 +13,24 @@
    <link rel="shortcut icon" href="../img/leaficon.ico" type="image/x-icon" />
    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> <!-- sweetalert-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- sweetalert-->
    <script>
         $(document).ready(function() {
             $(".insertSymptoms").hide();
-            // $(".editDisease").hide();
 
             $(".insertNewSymptoms").click(function() {
                 $(".insertSymptoms").toggle();
             });
         });
+            function EditThisSymptoms(s_id){                
+                $(".showedit"+s_id).toggle();
+                $(".showdata"+s_id).toggle();
+            }
+            function CancelThisSymptoms(s_id){                
+                $(".showedit"+s_id).toggle();
+                $(".showdata"+s_id).toggle();
+            }
     </script>
 </head>
 
@@ -89,7 +98,7 @@
                   <div class="col-xs-12 col-md-4"><br>
                               <img style="display: block; margin: 0 auto;" id="blah" src="../Image/image_disease/choose.png" width="100%" alt="">
                               <br><br>
-                              <input type="file" id="image" name="imagesymptoms[]"> <br><br><br>
+                              <input type="file" id="image" name="imagesymptoms[]" required> <br><br><br>
                   </div>
                   <div class="col-xs-12 col-md-8">
                         <h3> Name of Symptoms </h3>
@@ -113,33 +122,67 @@
             $sql = "SELECT * FROM symptoms ";
             $result = $conn->query($sql);
                   if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-            
+                        while($row = $result->fetch_assoc()) {            
             ?>
-
+                  
                   <div class="col-xs-12 col-md-3">
                         <br>
-                        <img style="display: block; margin: 0 auto;" src="../Image/image_symptoms/<?php echo $row['s_image'] ?>" width="80%" alt="">
+                  <form action="../ConnData/EditSymptoms.php" method="post" enctype="multipart/form-data" >
+                        <input type="hidden" name="symptomsid" value="<?php echo $row['s_id']; ?>">
+                        <div class="showedit<?php echo $row['s_id'];?>">
+                            <img style="display: block; margin: 0 auto;" id="blah<?php echo $row['s_id'];?>" src="../Image/image_symptoms/<?php echo $row['s_image']; ?>" width="80%" alt="">
+                            <br>
+                            <input type="file" id="image<?php echo $row['s_id'];?>" name="imagesymptoms[]" > <br>
+                        </div>
+                        <div class="showdata<?php echo $row['s_id'];?>">
+                              <img style="display: block; margin: 0 auto;" src="../Image/image_symptoms/<?php echo $row['s_image'] ?>" width="80%" alt="">
+                        </div>
                         <br>
                   </div>
                   <div class="col-xs-12 col-md-3">
                         <h3 class="detail-header">
-                              <?php echo $row['s_name'] ?>
+                        <div class="showedit<?php echo $row['s_id'];?>">
+                              <input type="text" class="form-control " name="symptomsname" maxlength="50" value="<?php echo $row['s_name']; ?>" >
+                        </div>
+                        <div class="showdata<?php echo $row['s_id'];?>">
+                                    <?php echo $row['s_name'] ?>
+                        </div>
                         </h3>
-                        <p class="detail">
-                              <?php echo $row['s_detail'] ?>
-                        </p>
-                        <b>Disease : <?php echo $row['s_disease'] ?></b><br><br>
-                              
+                        <div class="showedit<?php echo $row['s_id'];?>">
+                            <textarea class="form-control" rows="3" type="text" name="symptomsdetail" ><?php echo $row['s_detail'];?></textarea>
+                            <br>
+                        </div>
+                        <div class="showdata<?php echo $row['s_id'];?>">
+                              <p class="detail">
+                                    <?php echo $row['s_detail'] ?>
+                              </p>
+                        </div>
+                        <div class="showedit<?php echo $row['s_id'];?>">
+                              <input type="text" class="form-control " name="symptomsdisease" maxlength="50" value="<?php echo $row['s_disease']; ?>" ><br>
+                        </div>
+                        <div class="showdata<?php echo $row['s_id'];?>">
+                              <b>Disease : <?php echo $row['s_disease'] ?></b><br><br>
+                        </div> 
                         <?php 
                             if($_SESSION['m_status']=='admin'){
                             ?>  
                                 <div class="row">
                                     <div class="col-6">
-                                        <button class="btn-primary form-control col-lg-12 col-xs-12">Edit </button> 
+                                          <div >
+                                                <input type="button" class="showdata<?php echo $row['s_id'];?> btn-primary form-control col-lg-12 col-xs-12" value="Edit" onclick="EditThisSymptoms(<?php echo $row['s_id'];?>)">
+                                          </div>
+                                          <div >
+                                                <input type="button" class="showedit<?php echo $row['s_id'];?> btn-danger form-control col-lg-12 col-xs-12" value="Cancel" onclick="CancelThisSymptoms(<?php echo $row['s_id'];?>)">
+                                          </div>
                                     </div>
                                     <div class="col-6">
-                                        <button class="btn-danger form-control col-lg-12 col-xs-12">Delete </button> 
+                                          <div >
+                                                <button class="showedit<?php echo $row['s_id'];?> btn-primary form-control col-lg-12 col-xs-12" >Save </button> 
+                                          </div>
+                  </form>                        
+                                          <div >
+                                                <input type="button" class="showdata<?php echo $row['s_id'];?> btn-danger form-control col-lg-12 col-xs-12" value="Delete" onclick="deleteData(<?php echo $row['s_id'];?>)">
+                                          </div>
                                     </div>
                                 </div>
                                 <br>
@@ -148,6 +191,23 @@
                         ?>
 
                   </div>
+                  <script>
+                  // hide edit
+                  $(".showedit<?php echo $row['s_id'];?>").hide();
+                  // set image 
+                  function readURL<?php echo $row['s_id'];?>(input) {
+                        if (input.files && input.files[0]) {
+                              var reader = new FileReader();
+                              reader.onload = function(e) {
+                              $('#blah<?php echo $row['s_id'];?>').attr('src', e.target.result);
+                              }
+                              reader.readAsDataURL(input.files[0]);
+                        }
+                  }
+                  $("#image<?php echo $row['s_id'];?>").change(function() {
+                        readURL<?php echo $row['s_id'];?>(this);
+                  });
+                  </script>
             
             <?php       }
                   }else{
@@ -167,6 +227,23 @@
       </div>
    </footer>
    <script>
+      function deleteData(getid) {
+
+            swal({
+            title: "Are you sure?", 
+            text: "You want to Delete this Symptoms." , 
+            type: "warning",
+            confirmButtonText: 'Yes.',
+            confirmButtonColor: '#DD6B55',
+
+            showCancelButton: true ,
+            }, function() {
+            window.location.href='../ConnData/DeleteSymptoms.php?getID='+getid;
+            });
+
+      }
+
+
         function readURL(input) {
 
             if (input.files && input.files[0]) {
