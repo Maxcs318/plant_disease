@@ -142,14 +142,14 @@
                   <div class="col-xs-12 col-md-3">
                         <h3 class="detail-header">
                         <div class="showedit<?php echo $row['s_id'];?>">
-                              <input type="text" class="form-control " name="symptomsname" maxlength="50" value="<?php echo $row['s_name']; ?>" >
+                              <input type="text" class="form-control " name="symptomsname" maxlength="50" value="<?php echo $row['s_name']; ?>" required>
                         </div>
                         <div class="showdata<?php echo $row['s_id'];?>">
                                     <?php echo $row['s_name'] ?>
                         </div>
                         </h3>
                         <div class="showedit<?php echo $row['s_id'];?>">
-                            <textarea class="form-control" rows="3" type="text" name="symptomsdetail" ><?php echo $row['s_detail'];?></textarea>
+                            <textarea class="form-control" rows="3" type="text" name="symptomsdetail" required><?php echo $row['s_detail'];?></textarea>
                             <br>
                         </div>
                         <div class="showdata<?php echo $row['s_id'];?>">
@@ -158,7 +158,7 @@
                               </p>
                         </div>
                         <div class="showedit<?php echo $row['s_id'];?>">
-                              <input type="text" class="form-control " name="symptomsdisease" maxlength="50" value="<?php echo $row['s_disease']; ?>" ><br>
+                              <input type="text" class="form-control " name="symptomsdisease" maxlength="50" value="<?php echo $row['s_disease']; ?>" required><br>
                         </div>
                         <div class="showdata<?php echo $row['s_id'];?>">
                               <b>Disease : <?php echo $row['s_disease'] ?></b><br><br>

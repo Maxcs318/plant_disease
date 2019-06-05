@@ -137,12 +137,12 @@
                     <div class="col-xs-12 col-md-8">
                         <h2 class="detail-header">
                             <div class="showedit<?php echo $row['d_id'];?>">
-                                <input type="text" class="form-control col-lg-8 col-xs-12" name="diseasename" maxlength="50" value="<?php echo $row['d_name']; ?>" ><br>
+                                <input type="text" class="form-control col-lg-8 col-xs-12" name="diseasename" maxlength="50" value="<?php echo $row['d_name']; ?>" required><br>
                             </div>
                             <div class="showdata<?php echo $row['d_id'];?>">
                                 <?php echo $row['d_name']; ?>
                             </div>
-                        </h2> <input type="hidden" name="diseaseid" value="<?php echo $row['d_id']; ?>">
+                        </h2> <input type="hidden" name="diseaseid" value="<?php echo $row['d_id']; ?>" required>
                         <p class="showdata<?php echo $row['d_id'];?> detail" style="text-indent: 2.5em;">
                             <?php echo $row['d_detail']; ?>
                         </p>
