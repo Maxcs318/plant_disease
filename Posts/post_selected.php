@@ -172,10 +172,28 @@
                 <div class="row">
                     <div class="col-12">
                         <select class="form-control col-3" name="commentconfirm" style="float: right;">
-                            <option value="Anthracnose">Disease Anthracnose</option>
+                            <?php require("../ConnData/connectDB.php"); ?>
+                            <?php 
+                            $sql = " SELECT * FROM disease ";
+
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) { 
+                                while ($row = $result->fetch_assoc()) { 
+                                ?>
+                                    <option value="<?php echo $row["d_name"]; ?>" selected>Disease <?php echo $row["d_name"]; ?></option>
+                                <?php
+                                }
+
+                            }else {
+                                echo "0 Comment .";
+                            }     
+                            $conn->close();         
+                            ?>
+                            <!-- <option value="Anthracnose">Disease Anthracnose</option>
                             <option value="Algol Spot">Disease Algol Spot</option>
-                            <option value="Normal">Not a Disease</option>
+                            <option value="Normal">Not a Disease</option> -->
                             <option value="" selected>Choose</option>
+                        
                         </select>
                     </div>
                 </div><br>
