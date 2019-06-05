@@ -92,6 +92,24 @@
                         }
                   ?> 
       </div>
+      <!-- // find disease all in database -->
+      <?php 
+            $diseaseSelect= array();  
+            
+            require("../ConnData/connectDB.php"); 
+                            $sql = " SELECT * FROM disease ";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) { 
+                                while ($row = $result->fetch_assoc()) { 
+                                    array_push($diseaseSelect,$row["d_name"]);
+                                }
+                            }else {
+                                echo "0 Comment .";
+                            }     
+                            $conn->close();              
+            // print_r(sizeof($diseaseSelect)); 
+      ?>
+      <!-- // end of find -->
       <div class="insertSymptoms"> <!-- Start form insert -->
       <form action="../ConnData/InsertSymptoms.php" method="post" enctype="multipart/form-data">
             <div class="row box-disease">
@@ -104,7 +122,17 @@
                         <h3> Name of Symptoms </h3>
                         <input type="text" class="form-control col-lg-8 col-xs-12" name="symptomsname" maxlength="50" required><br>
                         <h3> Disease of Symptoms </h3>
-                        <input type="text" class="form-control col-lg-8 col-xs-12" name="symptomsofdisease" maxlength="50" required><br>
+                        <select class="form-control col-lg-8 col-xs-12" name="symptomsofdisease" style="float: left;">
+                              <?php
+                              for($i=0;$i<sizeof($diseaseSelect);$i++){
+                                    ?>
+                                    <option value="<?php echo $diseaseSelect[$i]; ?>"><?php echo $diseaseSelect[$i]; ?></option>
+                                    <?php
+                              }
+                              ?>
+                                    <option value="" selected disabled>Choose</option>
+                        </select><br>
+                        <!-- <input type="text" class="form-control col-lg-8 col-xs-12" name="symptomsofdisease" maxlength="50" required><br> -->
                         <h3> Detail </h3>
                         <textarea class="form-control" rows="5" type="text" name="symptomsdetail" required></textarea>
                         <br>
@@ -158,10 +186,25 @@
                               </p>
                         </div>
                         <div class="showedit<?php echo $row['s_id'];?>">
-                              <input type="text" class="form-control " name="symptomsdisease" maxlength="50" value="<?php echo $row['s_disease']; ?>" required><br>
+                              <select class="form-control" name="symptomsdisease" style="float: left;">
+                                    <?php
+                                    for($i=0;$i<sizeof($diseaseSelect);$i++){
+                                          if($row['s_disease'] == $diseaseSelect[$i]){
+                                          ?>
+                                                <option value="<?php echo $diseaseSelect[$i]; ?>" selected><?php echo $diseaseSelect[$i]; ?></option>
+                                          <?php
+                                          }else{
+                                          ?>
+                                                <option value="<?php echo $diseaseSelect[$i]; ?>" ><?php echo $diseaseSelect[$i]; ?></option>
+                                          <?php
+                                          }
+                                    }
+                                    ?>
+                              </select> <br><br><br>
+                              <!-- <input type="text" class="form-control " name="symptomsdisease" maxlength="50" value="<?php echo $row['s_disease']; ?>" required><br> -->
                         </div>
                         <div class="showdata<?php echo $row['s_id'];?>">
-                              <b>Disease : <?php echo $row['s_disease'] ?></b><br><br>
+                              <b>Disease : <?php echo $row['s_disease']; ?></b><br><br>
                         </div> 
                         <?php 
                             if($_SESSION['m_status']=='admin'){
