@@ -305,11 +305,10 @@
 
                     <div class="col-lg-4 col-xs-12">
                     <?php } else { ?>
-                        <div class="col-lg-4 col-xs-12"></div>
-                        <div class="col-lg-4 col-xs-12">
+                        <div class="col-lg-3 col-xs-0"></div>
+                        <div class="col-lg-6 col-xs-12">
                         <?php } ?>
                         <x class="S15">
-
                             <img src="../Image/image_classification/S15.jpg">
                             s15 : Yellow margins around a lesion.<br>
                             <div class="row S15">
@@ -320,7 +319,6 @@
                             </div>
                         </x>
                         <x class="S9">
-
                             <img src="../Image/image_classification/S9.jpg">
                             s9 : Greenish-gray spot on leaf.<br>
                             <div class="row S9">
@@ -507,15 +505,16 @@
                                 <div class="col-12">
                                     <br>
                                     <h1>
-                                        Anthracnose .
-                                    </h1><br><br>
+                                    Disease : Anthracnose .
+                                    </h1><br>
                                     <button type="submit" class="form-control btn-primary" name="disease" value="Anthracnose">
                                         <?php if ($_SESSION["imagefront"] == '' && $_SESSION["imageback"] == '') { ?>
                                             view detail
                                         <?php } else { ?>
                                             Save.
                                         <?php } ?>
-                                    </button> <br><br>
+                                    </button> 
+                                    <br>
                                     <button type="reset" class="form-control  btn-danger" onClick="window.location.reload();">
                                         Check Again.</button>
                                 </div>
@@ -527,15 +526,20 @@
                                 <div class="col-12">
                                     <br>
                                     <h1>
-                                        Algol Spot .
-                                    </h1><br><br>
+                                    Disease : Algol Spot .
+                                    </h1><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
                                     <button type="submit" class="form-control btn-primary" name="disease" value="Algol Spot">
                                         <?php if ($_SESSION["imagefront"] == '' && $_SESSION["imageback"] == '') { ?>
                                             view detail
                                         <?php } else { ?>
                                             Save.
                                         <?php } ?>
-                                    </button> <br><br>
+                                    </button> 
+                                    <br>    
                                     <button type="reset" class="form-control  btn-danger" onClick="window.location.reload();">
                                         Check Again.</button>
                                 </div>
@@ -555,7 +559,8 @@
                                         <?php } else { ?>
                                             Save.
                                         <?php } ?>
-                                    </button> <br><br>
+                                    </button> 
+                                    <br>
                                     <button type="reset" class="form-control  btn-danger" onClick="window.location.reload();">
                                         Check Again.</button>
                                 </div>
@@ -563,7 +568,7 @@
                         </x>
 
                     </div>
-
+<div class="col-xs-0 col-md-3"></div>
                 </div>
                 <div style="margin-bottom: 30px;"></div>
 

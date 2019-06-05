@@ -27,14 +27,13 @@
 
     <!-- slide text -->
     <div class="row">
-        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
-        <p class="item-2 ">Some Text for [item-2]</p>
-        <p class="item-3 ">Some Text for [item-3]</p>
+        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION</p>
+        <!-- <p class="item-2 ">Some Text for [item-2]</p>
+        <p class="item-3 ">Some Text for [item-3]</p> -->
     </div>
     <!-- end slide text -->
 
     <div class="container box-post">
-
         <form action="../ConnData/InsertPost.php" method="post" enctype="multipart/form-data">
 
             <div class="row" style="margin: 0px;">
@@ -51,12 +50,12 @@
 
                     <div class="row">
                         <div class="col-xs-12 col-md-6">
-                            <img id="blah" src="../img/leafpreview.png" width="250px;" /><br>
+                            <img id="blah" src="../img/leafpreview.png" width="250px;" style="border: 2px solid green; border-radius: 5%;" /><br>
                             <label id="first" style="margin-top: 20px;">Upload Font leaf :</label><br />
                             <input type="file" name="image[]" id="image">
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <img id="blah2" src="../img/leafpreview.png" width="250px;" /><br>
+                            <img id="blah2" src="../img/leafpreview.png" width="250px;" style="border: 2px solid green; border-radius: 5%;" /><br>
                             <label id="first" style="margin-top: 20px;">Upload Back leaf :</label><br />
                             <input type="file" name="image[]" id="image2"><br>
                         </div>
