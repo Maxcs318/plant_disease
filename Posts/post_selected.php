@@ -189,10 +189,7 @@
                             }     
                             $conn->close();         
                             ?>
-                            <!-- <option value="Anthracnose">Disease Anthracnose</option>
-                            <option value="Algol Spot">Disease Algol Spot</option>
-                            <option value="Normal">Not a Disease</option> -->
-                            <option value="" selected>Choose</option>
+                            <option value="" selected disabled>Choose</option>
                         
                         </select>
                     </div>

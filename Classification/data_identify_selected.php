@@ -220,6 +220,14 @@
                             <br>
                     </div>
                 </div><!-- end row -->
+        <?php
+            }
+        ?> <?php
+        } else {
+            echo "0 results";
+        }
+        $conn->close();
+        ?>
                 <hr class="border-line">
                 <div class="row">
                     <div class="col-md-4">
@@ -229,9 +237,23 @@
                     <div class="col-md-4">
                         <h5 style="margin-top:20px; text-align:center;">Identify The Disease</h5>
                         <select class="form-control" type="text" name="newDisease">
-                            <option value="Anthracnose">Anthracnose</option>
-                            <option value="Algol Spot">Algol Spot</option>
-                            <option value="Normol">Normal</option>
+                            <?php require("../ConnData/connectDB.php"); ?>
+                            <?php 
+                                $sql = " SELECT * FROM disease ";
+
+                                $result = $conn->query($sql);
+                                if ($result->num_rows > 0) { 
+                                    while ($row = $result->fetch_assoc()) { 
+                                    ?>
+                                        <option value="<?php echo $row["d_name"]; ?>" selected>Disease <?php echo $row["d_name"]; ?></option>
+                                    <?php
+                                    }
+
+                                }else {
+                                    echo "0 Comment .";
+                                }     
+                                $conn->close();         
+                            ?>
                             <option value="" selected disabled>Choose</option>
                         </select>
                         <div class="row">
@@ -249,18 +271,8 @@
             </div>
             </div><!--  end container -->
             </form>
-
             </div>
-
-        <?php
-    }
-    ?> <?php
-    } else {
-        echo "0 results";
-    }
-    ?>
     </div>
-    <?php $conn->close(); ?>
 
     <footer style="margin-bottom:50px;">
 
