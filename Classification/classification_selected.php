@@ -20,13 +20,13 @@ $conn->close();
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap/css/main.css">
-    <script src="../bootstrap/js/zoom_img.js"></script>
     <script type="text/javascript" src="../bootstrap/js/zoom_img.js"></script>
     <link rel="shortcut icon" href="../img/leaficon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    
     <!-- user id top -->
     <div style="text-align:right;" class="usertop">
         Username :
@@ -80,47 +80,58 @@ $conn->close();
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     ?>
-                    <div class="col-lg-12 col-xs-12">
+
+
+
+                    <div class="col-lg-12 col-md-12 col-xs-12">
                         <div class="row" style="margin-left:auto; margin-right: auto;">
 
-
-
-                            <div class="col-xs-6 col-md-6">
-
-                                <!-- The Modal -->
-                                <div id="myModal" class="modal">
-                                    <span class="close">&times;</span>
-                                    <img class="modal-content" id="img01">
-                                    <div id="caption"></div>
-                                </div>
-
-                                <img id="myImg" style="display: block; margin-left: auto; margin-right: auto; width: 70%;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>">
+                            <div class="col-lg-6 col-md-6 col-xs-12">
+                                <img style="width: 100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>">
                                 <center>Front Leaf</center>
                             </div>
 
-                            <div class="col-xs-6 col-md-6">
 
-                                <!-- The Modal -->
-                                <div id="myModal2" class="modal2">
-                                    <span class="close2">&times;</span>
-                                    <img class="modal-content" id="img02">
-                                    <div id="caption2"></div>
-                                </div>
 
-                                <img id="myImg2" style="display: block; margin-left: auto; margin-right: auto; width: 70%;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>">
+
+                            <div class="col-lg-6 col-md-6 col-xs-12">
+                                <img style="width: 100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor" src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>">
                                 <center>Back Leaf</center>
                             </div>
-                        </div>
+
+
+                            <!-- image active -->
+                            <div id="myModal" class="modal">
+                                <span class="close cursor" onclick="closeModal()">&times;</span>
+                                <div class="modal-content">
+
+                                    <!-- font pic -->
+                                    <div class="mySlides">
+                                        <img src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" style="max-width:700px; width:100%; margin-left:auto; margin-right:auto; display: block;">
+                                    </div>
+
+                                    <!-- back pic -->
+                                    <div class="mySlides">
+                                        <img src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>" style="max-width:700px; width:100%; margin-left:auto; margin-right:auto; display: block;">
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div> <!-- end row -->
+
 
                         <br><br>
-                        <b>The Disease you detected </b>
+                        <b>The Disease you detected :</b>
                         <?php echo $row["cl_disease"]; ?><br><br>
                         <b>Expert Confirm Disease :</b>
                         <?php
                         if ($row["cl_confirm"] != '') {
                             echo $row["cl_confirm"];
                         } else {
+                            '<div style="color: yellow;">';
                             echo 'Waiting to be confirmed';
+                            '</div>';
                         }
                         ?><br><br>
                     </div>
@@ -208,64 +219,24 @@ $conn->close();
                                                         } else {
                                                             echo '&#x2717';
                                                         } ?> ]<br>
-                    </div>
 
-                <?php
+
+                    <?php
+                }
             }
-        }
 
-        ?>
+            ?>
+                <a class="btn btn-danger float-right" onclick="window.history.go(-1); return false;" style="color: white; width:80px; margin: 10px;">Back</a>
+            </div>
+
         </div>
-        <a class="btn btn-danger float-right" onclick="window.history.go(-1); return false;" style="width:80px; margin: 10px;">Back</a>
+    </div> <!-- end container -->
 
-    </div>
     <footer style="margin-bottom: 50px;">
 
     </footer>
 
 </body>
-<script> 
-    // // Img 1
-    var modal = document.getElementById("myModal");
 
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById("myImg");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    img.onclick = function() {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-    }
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // Img 2
-    var modal2 = document.getElementById("myModal2");
-
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img2 = document.getElementById("myImg2");
-    var modalImg2 = document.getElementById("img02");
-    var captionText2 = document.getElementById("caption2");
-    img2.onclick = function() {
-        modal2.style.display = "block";
-        modalImg2.src = this.src;
-        captionText2.innerHTML = this.alt;
-    }
-
-    // Get the <span> element that closes the modal
-    var span2 = document.getElementsByClassName("close2")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span2.onclick = function() {
-        modal2.style.display = "none";
-    }
-</script>
 
 </html>
