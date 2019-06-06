@@ -135,13 +135,14 @@
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) { 
                         $i=0;
-                        $dateold='a';
                         while ($row = $result->fetch_assoc()) { 
                             $row['cl_confirm'];
                             for($y=0;$y<sizeof($dateDisease);$y++){
-                                if(substr($row["cl_date"],0,7)==$disease2[$y][0]&&$row['cl_confirm']!='') {
-                                    // array_push($dateDisease[$y][1],[$row['cl_confirm'],+1]);
-                                    $disease2[$y][0]=$disease2[$y][0]+1;
+                                if(substr($row["cl_date"],0,7)==$dateDisease[$y][0]&&$row['cl_confirm']!='') {
+                                    // for($p=0;$p<sizeof($dateDisease);$p++){
+                                        array_push($dateDisease[$y][1],[$row['cl_confirm'],1]);
+                                    // }
+                                    
                                 } 
                             }
                         }
@@ -245,7 +246,7 @@
                 tooltip: {
                     formatter: function () {
                         return '<b>' + 'Found ' + this.point.name +' '+
-                        this.point.y/persen*100 + ' % </b>' ;
+                        (this.point.y/persen*100).toFixed(2) + ' % </b>' ;
                     }
                 }
             });
