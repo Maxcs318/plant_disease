@@ -12,22 +12,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> <!-- sweetalert-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- sweetalert-->
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> <!-- chart -->
 
 </head>
 <body>
     <div class="container"><br>
         <div class="row">
             <div class="col-lg-6 col-xs-12">
-
+                <div id="ChartPie" style="min-width: 100%; margin: 0 auto"></div>
             </div> 
             <div class="col-lg-6 col-xs-12">
             
             </div> 
         </div>
+        <br>
         <div class="row">
             <div class="col-lg-12 col-xs-12">
-                <div id="Chartscolumn" style="min-width: 100%; margin: 0 auto"></div>
+                <div id="ChartColumn" style="width: 100%; margin: 0 auto"></div>
             </div> 
             <div class="col-lg-6 col-xs-12"> <br>
 
@@ -73,11 +74,16 @@
                     // for($j=0;$j<sizeof($disease);$j++){
                     //     echo $disease[$j][0];
                     //     echo $disease[$j][1];
-                    // }       
+                    // }  
+                    $sumAll=0;
+                    for($j=0;$j<sizeof($disease);$j++){
+                        $sumAll=$sumAll+$disease[$j][1];
+                    }       
+                    // echo $sumAll;
                     ?>
                         
                 <!-- // -->
-                <table id="datatable">
+                <table id="datatable" > <!-- start write Data -->
                     <thead>
                         <tr>
                             <th>Disease</th>
@@ -96,7 +102,7 @@
                         }
                         ?>
                     </tbody>
-                </table>
+                </table> <!-- End -->
             </div>
         </div>
     
@@ -105,16 +111,17 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
     <script>
-    
+        var persen="<?php echo $sumAll; ?>";
         $(function () {
-                    
-            $('#Chartscolumn').highcharts({
+            // ----- Chart Column   
+            $('#ChartColumn').highcharts({
                 data: {
                     //กำหนดให้ ตรงกับ id ของ table ที่จะแสดงข้อมูล
                     table: 'datatable'
                 },
                 chart: {
-                    type: 'pie'
+                    backgroundColor: 'rgba(255, 255, 255, 0.50)',
+                    type: 'column'
                 },
                 title: {
                     text: ' Confirmation information of all experts '
@@ -125,11 +132,42 @@
                         text: ' '
                     }
                 },
-                
+                credits: { // hide credits Highchart.com
+                    enabled: false
+                }, 
                 tooltip: {
                     formatter: function () {
-                        return '<b>' + this.series.name + ' </b> ' +
-                            this.point.y; + ' ' + this.point.name.toLowerCase();
+                        return '<b>' + this.series.name + '  ' +
+                            this.point.y + ' time </b>' ;
+                    }
+                }
+            });
+            // ----- Chart Pie
+            $('#ChartPie').highcharts({
+                data: {
+                    //กำหนดให้ ตรงกับ id ของ table ที่จะแสดงข้อมูล
+                    table: 'datatable'
+                },
+                chart: {
+                    backgroundColor: 'rgba(255, 255, 255, 0.50)',
+                    type: 'pie'
+                },
+                title: {
+                    text: ' Confirmation results As a percentage ( 100% ) '
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: ' '
+                    }
+                },
+                credits: { // hide credits Highchart.com
+                    enabled: false
+                },         
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + 'Found ' + this.point.name +' '+
+                        this.point.y/persen*100 + ' % </b>' ;
                     }
                 }
             });
@@ -138,8 +176,9 @@
 
     </script>
     <style>
-        tr ,td{
-            text-align: center
+        table, tr ,td{
+            text-align: center;
+            visibility: show;
         }
     </style>
 </body>

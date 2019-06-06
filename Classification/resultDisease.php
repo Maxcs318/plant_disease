@@ -69,7 +69,7 @@
                 while ($row = $result->fetch_assoc()) {
                     ?>
                     <div class="col-lg-3 col-xs-4" style="text-align:center;">
-                        <img src="../Image/image_classification/<?php echo $row["s_image"]; ?>" style="border: 1px solid green;" width="100%">
+                        <img src="../Image/image_symptoms/<?php echo $row["s_image"]; ?>" style="border: 1px solid green;" width="100%">
                         <?php echo $row["s_name"]; ?>
                     </div>
                 <?php
