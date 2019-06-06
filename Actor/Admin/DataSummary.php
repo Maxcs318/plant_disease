@@ -19,21 +19,19 @@
     <div class="container"><br>
         <div class="row">
             <div class="col-lg-6 col-xs-12">
-                <div id="ChartPie" style="min-width: 100%; margin: 0 auto"></div>
-            </div> 
+                <div id="ChartPie" style="width: 100%; margin: 0 auto"></div><br>
+            </div>
             <div class="col-lg-6 col-xs-12">
-            
+                <div id="ChartColumn" style="width: 100%; margin: 0 auto"></div>
             </div> 
         </div>
         <br>
         <div class="row">
             <div class="col-lg-12 col-xs-12">
-                <div id="ChartColumn" style="width: 100%; margin: 0 auto"></div>
+                <div id="ChartColumn2" style="width: 100%; margin: 0 auto"></div>
             </div> 
-            <div class="col-lg-6 col-xs-12"> <br>
-
+            <div class="col-lg-6 col-xs-12"> <br> <!--div show data Result Start-->
                 <!-- // -->
-                
                     <?php 
                     require("../../ConnData/connectDB.php"); 
                     $diseaseSelect= array(); 
@@ -83,7 +81,7 @@
                     ?>
                         
                 <!-- // -->
-                <table id="datatable" > <!-- start write Data -->
+                <table id="datatable" > <!-- Start write Data -->
                     <thead>
                         <tr>
                             <th>Disease</th>
@@ -102,8 +100,8 @@
                         }
                         ?>
                     </tbody>
-                </table> <!-- End -->
-            </div>
+                </table> <!-- End write Data -->
+            </div> <!--div show data Result End-->
         </div>
     
     </div>
@@ -171,6 +169,36 @@
                     }
                 }
             });
+            // ----- Chart Column2   
+            $('#ChartColumn2').highcharts({
+                data: {
+                    //กำหนดให้ ตรงกับ id ของ table ที่จะแสดงข้อมูล
+                    table: 'datatable'
+                },
+                chart: {
+                    backgroundColor: 'rgba(255, 255, 255, 0.50)',
+                    type: 'column'
+                },
+                title: {
+                    text: ' Period of disease '
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: ' '
+                    }
+                },
+                credits: { // hide credits Highchart.com
+                    enabled: false
+                }, 
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.series.name + '  ' +
+                            this.point.y + ' time </b>' ;
+                    }
+                }
+            });
+            // 
         });
     //
 
@@ -178,7 +206,7 @@
     <style>
         table, tr ,td{
             text-align: center;
-            visibility: show;
+            visibility: hidden; /* :hidden or :show */
         }
     </style>
 </body>
