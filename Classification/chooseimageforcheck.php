@@ -19,6 +19,7 @@
 
             $(".showselectimage").click(function() {
                 $(".checkbyimage").toggle();
+                $(".hideselect").hide();
             });
         });
     </script>
@@ -73,10 +74,10 @@
         </div>
         <div class="row">
             <div class="col-lg-6 col-xs-12">
-                <button class="form-control btn-primary showselectimage"> Check By Upload Image</button>
+                <button class="hideselect form-control btn-primary showselectimage"> Check By Upload Image</button>
             </div><br><br><br>
             <div class="col-lg-6 col-xs-12">
-                <button class="form-control btn-primary" onclick="location.href='../ConnData/InsertClasscification.php' "> Check Real Time </button>
+                <button class="hideselect form-control btn-primary" onclick="location.href='../ConnData/InsertClasscification.php' "> Check Real Time </button>
             </div>
         </div>
 
