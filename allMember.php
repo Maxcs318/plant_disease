@@ -26,22 +26,6 @@
         <?php echo $_SESSION["m_status"]; ?>
     </div>
     <!--end user id top -->
-    <?php
-    if ($_POST["checkUp"] == 'success') {
-        ?>
-        <script>
-            swal({
-                title: "Up status User to Expert Success",
-                type: "success",
-                confirmButtonText: 'OK',
-                confirmButtonColor: '',
-            }, function() {
-                <?php $_POST["checkUp"] = 0 ?>
-            });
-        </script>
-    <?php
-}
-?>
 
     <!-- slide text -->
     <div class="row">
@@ -145,7 +129,17 @@
         </div> <!-- end row table -->
         <br>
     </div> <!-- end container -->
-
+    <!-- Alert Edit Start -->
+    <?php if( $_SESSION["checkAlert"]=='UpdateStatusSuccess'){ ?>
+        <script>
+            swal({
+            title: "Update Status Success", 
+            text: "" , 
+            type: "success",              
+            });
+        </script>
+    <?php } ?>
+    <!-- Alert Edit Stop -->
 </body>
 <script>
     function UpStatus(m_id, m_username) {
@@ -188,3 +182,4 @@
 </style>
 
 </html>
+<?php $_SESSION["checkAlert"]='' ?>
