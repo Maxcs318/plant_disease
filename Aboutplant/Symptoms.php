@@ -304,7 +304,19 @@
             readURL(this);
         });
     </script>   
+    <!-- Alert Edit Start -->
+    <?php if( $_SESSION["checkAlert"]=='EidtSymptomsSuccess'){ ?>
+        <script>
+            swal({
+            title: "Edit Symptoms Success", 
+            text: "" , 
+            type: "success",              
+            });
+        </script>
+    <?php } ?>
+    <!-- Alert Edit Stop -->
 
 </body>
 
 </html>
+<?php $_SESSION["checkAlert"]='' ?>

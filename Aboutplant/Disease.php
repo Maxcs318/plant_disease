@@ -1,4 +1,5 @@
 <?php error_reporting (E_ALL ^ E_NOTICE); ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,8 +14,9 @@
     <link rel="shortcut icon" href="../img/leaficon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> <!-- sweetalert-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- sweetalert-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> 
+
     <script>
         $(document).ready(function() {
             $(".insertDisease").hide();
@@ -36,7 +38,6 @@
 </head>
 
 <body>
-    <?php session_start(); ?>
     <div style="text-align:right" class="usertop">
         Username :
         <?php echo $_SESSION["m_username"]; ?>
@@ -243,7 +244,19 @@
 
         
     </script>
+    <!-- Alert Edit Start -->
+    <?php if( $_SESSION["checkAlert"]=='EidtDiseassSuccess'){ ?>
+        <script>
+            swal({
+            title: "Edit Disease Success", 
+            text: "" , 
+            type: "success",              
+            });
+        </script>
+    <?php } ?>
+    <!-- Alert Edit Stop -->
 
 </body>
 
 </html>
+<?php $_SESSION["checkAlert"]='' ?>
