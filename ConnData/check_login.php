@@ -89,7 +89,7 @@ $row = $result->fetch_assoc();
 				}
 				$conn->close();
 			}else{ 
-				$_SESSION["m_status"] = 'HaHaHa';
+				$_SESSION["checkAlert"] = 'HaHaHa';
 				header("location:../login.php");
 			}
 

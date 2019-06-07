@@ -32,7 +32,7 @@ if(isset($_SESSION["m_status"])){
             <div class="col-xs-4 col-sm-4 col-md-4 box">
                 <form action="ConnData/check_login.php" method="post" autocomplete="off">
                     <h1>LOGIN</h1>
-                        <?php if($_SESSION["m_status"] =='HaHaHa'){ ?>
+                        <?php if($_SESSION["checkAlert"] =='HaHaHa'){ ?>
                         <font color="red"><?php echo 'Username or Password is Incorrect'; ?></font>
                         <?php } ?>                    
                     <p>User Name</p>
@@ -54,4 +54,4 @@ if(isset($_SESSION["m_status"])){
 </body>
 
 </html>
-<?php $_SESSION["m_status"]='' ?>
+<?php $_SESSION["checkAlert"]='' ?>
