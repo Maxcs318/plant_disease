@@ -36,7 +36,7 @@
     <div class="container" style="margin-top: 70px;">
         <div class="col-md-4 col-xs-4">
             <!-- home button -->
-            <a href="../index.php">
+            <a href="../../index.php">
                 <button type="submit" style="border: 0; background: transparent">
                     <img src="../../img/home.png" class="imgabout">
                     <p class="text-img-detail">Home</p>
@@ -150,14 +150,16 @@
                     if ($result->num_rows > 0) { 
                         $i=0;
                         $dateold='a';
+                        $countTime=0;
                         while ($row = $result->fetch_assoc()) { 
                             $row['cl_confirm'];
                             if(substr($row["cl_date"],0,7)!=$dateold){
-                                $dateDisease[]=[substr($row["cl_date"],0,7),[]];
+                                $dateDisease[]=substr($row["cl_date"],0,7);
                                 $dateold=substr($row["cl_date"],0,7);
                             }else{
                                 
                             }        
+                            $countTime=$countTime+1;
                         }
                     }else {
                         echo "0 Comment .";
@@ -167,20 +169,21 @@
                 <?php 
                     require("../../ConnData/connectDB.php"); 
                         for($e=0;$e<sizeof($dateDisease);$e++){
-                            $disease3[$dateDisease[$e][0]]=$disease2;
+                            $disease3[$dateDisease[$e]]=$disease2;
                         }
                     $sql = " SELECT * FROM classification ";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) { 
                         $i=0;
                         while ($row = $result->fetch_assoc()) { 
-                            $row['cl_confirm'];
-                            // $disease3[substr($row["cl_date"],0,7)]=$disease2;
-                            for($y=0;$y<sizeof($dateDisease);$y++){
-                                if(substr($row["cl_date"],0,7)==$dateDisease[$y][0]){
-                                    for($k=0;$k<sizeof($dateDisease);$k++){
-                                        if($row["cl_confirm"]==$disease3[substr($row["cl_date"],0,7)][$k][0]){
-                                            $disease3[substr($row["cl_date"],0,7)][$k][1]=$disease3[substr($row["cl_date"],0,7)][$k][1]+1;
+                            if($row['cl_confirm']!=''){
+                                // $disease3[substr($row["cl_date"],0,7)]=$disease2;
+                                for($y=0;$y<$countTime;$y++){ // $y< ...
+                                    if(substr($row["cl_date"],0,7)==$dateDisease[$y]){
+                                        for($k=0;$k<10;$k++){
+                                            if($row["cl_confirm"]==$disease3[substr($row["cl_date"],0,7)][$k][0]){
+                                                $disease3[$dateDisease[$y]][$k][1]=$disease3[$dateDisease[$y]][$k][1]+1;
+                                            }
                                         }
                                     }
                                 }
@@ -193,7 +196,7 @@
                 ?>
 
                 <script>
-                    console.log(<?= json_encode($disease2); ?>);
+                    console.log(<?= sizeof($disease2); ?>);
                     console.log(<?= json_encode($disease3); ?>);
                     console.log(<?= json_encode($dateDisease); ?>);
                 </script>
@@ -214,7 +217,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Start<?php echo substr($dateDisease[0][0],0,4); ?></td>
+                            <td>Start<?php echo substr($dateDisease[0],0,4); ?></td>
                             <?php 
                                 for($z=0;$z<sizeof($disease);$z++){
                                     ?>
@@ -231,37 +234,37 @@
                             <td>
                             <?php 
                             // substr($row["cl_date"],0,7)
-                                if(substr($dateDisease[$k][0],5,7)==1){
-                                    echo 'January  '.substr($dateDisease[$k][0],0,4);
-                                }else if(substr($dateDisease[$k][0],5,7)==2){
-                                    echo 'February   '.substr($dateDisease[$k][0],0,4);
-                                }else if(substr($dateDisease[$k][0],5,7)==3){
-                                    echo 'March   '.substr($dateDisease[$k][0],0,4);
-                                }else if(substr($dateDisease[$k][0],5,7)==4){
-                                    echo 'April   '.substr($dateDisease[$k][0],0,4);
-                                }else if(substr($dateDisease[$k][0],5,7)==5){
-                                    echo 'May   '.substr($dateDisease[$k][0],0,4);
-                                }else if(substr($dateDisease[$k][0],5,7)==6){
-                                    echo 'June   '.substr($dateDisease[$k][0],0,4);
-                                }else if(substr($dateDisease[$k][0],5,7)==7){
-                                    echo 'July   '.substr($dateDisease[$k][0],0,4);
-                                }else if(substr($dateDisease[$k][0],5,7)==8){
-                                    echo 'August   '.substr($dateDisease[$k][0],0,4);
-                                }else if(substr($dateDisease[$k][0],5,7)==9){
-                                    echo 'September   '.substr($dateDisease[$k][0],0,4);
-                                }else if(substr($dateDisease[$k][0],5,7)==10){
-                                    echo 'October   '.substr($dateDisease[$k][0],0,4);
-                                }else if(substr($dateDisease[$k][0],5,7)==11){
-                                    echo 'November   '.substr($dateDisease[$k][0],0,4);
-                                }else if(substr($dateDisease[$k][0],5,7)==12){
-                                    echo 'December   '.substr($dateDisease[$k][0],0,4);
+                                if(substr($dateDisease[$k],5,7)==1){
+                                    echo 'January  '.substr($dateDisease[$k],0,4);
+                                }else if(substr($dateDisease[$k],5,7)==2){
+                                    echo 'February   '.substr($dateDisease[$k],0,4);
+                                }else if(substr($dateDisease[$k],5,7)==3){
+                                    echo 'March   '.substr($dateDisease[$k],0,4);
+                                }else if(substr($dateDisease[$k],5,7)==4){
+                                    echo 'April   '.substr($dateDisease[$k],0,4);
+                                }else if(substr($dateDisease[$k],5,7)==5){
+                                    echo 'May   '.substr($dateDisease[$k],0,4);
+                                }else if(substr($dateDisease[$k],5,7)==6){
+                                    echo 'June   '.substr($dateDisease[$k],0,4);
+                                }else if(substr($dateDisease[$k],5,7)==7){
+                                    echo 'July   '.substr($dateDisease[$k],0,4);
+                                }else if(substr($dateDisease[$k],5,7)==8){
+                                    echo 'August   '.substr($dateDisease[$k],0,4);
+                                }else if(substr($dateDisease[$k],5,7)==9){
+                                    echo 'September   '.substr($dateDisease[$k],0,4);
+                                }else if(substr($dateDisease[$k],5,7)==10){
+                                    echo 'October   '.substr($dateDisease[$k],0,4);
+                                }else if(substr($dateDisease[$k],5,7)==11){
+                                    echo 'November   '.substr($dateDisease[$k],0,4);
+                                }else if(substr($dateDisease[$k],5,7)==12){
+                                    echo 'December   '.substr($dateDisease[$k],0,4);
                                 }
                             ?>
                             </td>
                             <?php 
                                 for($z=0;$z<sizeof($disease);$z++){
                                     ?>
-                                        <td><?php echo $disease3[$dateDisease[$k][0]][$z][1];?></td>  
+                                        <td><?php echo $disease3[$dateDisease[$k]][$z][1];?></td>  
                                     <?php
                                 }
                             ?>
