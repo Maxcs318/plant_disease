@@ -179,10 +179,13 @@
                     <tbody>
                         <tr>
                             <td>Start<?php echo substr($dateDisease[0][0],0,4); ?></td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
+                            <?php 
+                                for($z=0;$z<sizeof($disease);$z++){
+                                    ?>
+                                    <td>0</td>  
+                                    <?php
+                                }
+                            ?>
                         </tr>
                         
                         <?php
