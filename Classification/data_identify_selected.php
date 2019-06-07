@@ -73,10 +73,19 @@
                 ?>
                 <div class="row">
                     <div class="col-lg-4 col-xs-12">
-                    <center> Front Leaf : </center>
-                    <img style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" width="70%" >
-                    <br> <center> Back Leaf : </center>
-                    <img style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>" width="70%" >
+                        <center> Front Leaf : </center>
+                        <img class="myImages" id="myImg" alt="Font Leaf" style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" width="70%">
+                        <br>
+                        <center> Back Leaf : </center>
+                        <img class="myImages" id="myImg" alt="Back Leaf" style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>" width="70%">
+
+                        <!-- zoom img click -->
+                        <div id="myModal" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img01">
+                            <div id="caption"></div>
+                        </div>
+
                     </div>
                     <div class="col-lg-8 col-xs-612">
                         <form action="../ConnData/EditClassificationDisease.php" method="post">
@@ -220,63 +229,89 @@
                             <br>
                     </div>
                 </div><!-- end row -->
-        <?php
-            }
+            <?php
+        }
         ?> <?php
         } else {
             echo "0 results";
         }
         $conn->close();
         ?>
-                <hr class="border-line">
-                <div class="row">
-                    <div class="col-md-4">
+        <hr class="border-line">
+        <div class="row">
+            <div class="col-md-4">
 
-                    </div>
+            </div>
 
-                    <div class="col-md-4">
-                        <h5 style="margin-top:20px; text-align:center;">Identify The Disease</h5>
-                        <select class="form-control" type="text" name="newDisease">
-                            <?php require("../ConnData/connectDB.php"); ?>
-                            <?php 
-                                $sql = " SELECT * FROM disease ";
+            <div class="col-md-4">
+                <h5 style="margin-top:20px; text-align:center;">Identify The Disease</h5>
+                <select class="form-control" type="text" name="newDisease">
+                    <?php require("../ConnData/connectDB.php"); ?>
+                    <?php
+                    $sql = " SELECT * FROM disease ";
 
-                                $result = $conn->query($sql);
-                                if ($result->num_rows > 0) { 
-                                    while ($row = $result->fetch_assoc()) { 
-                                    ?>
-                                        <option value="<?php echo $row["d_name"]; ?>" selected>Disease <?php echo $row["d_name"]; ?></option>
-                                    <?php
-                                    }
-
-                                }else {
-                                    echo "0 Comment .";
-                                }     
-                                $conn->close();         
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
                             ?>
-                            <option value="" selected disabled>Choose</option>
-                        </select>
-                        <div class="row">
-                            <button class="form-control btn-primary" style="margin: 10px;"> Save </button>
-                        </div>
-                        <div class="row">
-                            <button class="btn btn-danger form-control" onclick="window.history.go(-1); return false;" style="color:white; margin: 10px;">Back</button>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-
-                    </div>
+                            <option value="<?php echo $row["d_name"]; ?>" selected>Disease <?php echo $row["d_name"]; ?></option>
+                        <?php
+                    }
+                } else {
+                    echo "0 Comment .";
+                }
+                $conn->close();
+                ?>
+                    <option value="" selected disabled>Choose</option>
+                </select>
+                <div class="row">
+                    <button class="form-control btn-primary" style="margin: 10px;"> Save </button>
                 </div>
+                <div class="row">
+                    <button class="btn btn-danger form-control" onclick="window.history.go(-1); return false;" style="color:white; margin: 10px;">Back</button>
+                </div>
+            </div>
+            <div class="col-md-4">
 
             </div>
-            </div><!--  end container -->
-            </form>
-            </div>
+        </div>
+
+    </div>
+    </div><!--  end container -->
+    </form>
+    </div>
     </div>
 
     <footer style="margin-bottom:50px;">
 
     </footer>
 </body>
+<script>
+    // create references to the modal...
+    var modal = document.getElementById('myModal');
+    // to all images -- note I'm using a class!
+    var images = document.getElementsByClassName('myImages');
+    // the image in the modal
+    var modalImg = document.getElementById("img01");
+    // and the caption in the modal
+    var captionText = document.getElementById("caption");
+
+    // Go through all of the images with our custom class
+    for (var i = 0; i < images.length; i++) {
+        var img = images[i];
+        // and attach our click listener for this image.
+        img.onclick = function(evt) {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+    }
+
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+</script>
 
 </html>

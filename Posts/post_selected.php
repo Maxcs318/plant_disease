@@ -1,14 +1,12 @@
 <?php session_start(); ?>
 <?php require("../ConnData/connectDB.php"); ?>
 <?php
-    $sql = "UPDATE posts SET p_status_comment = '' ,p_status_confirm = ''
-    WHERE p_own= '".$_SESSION["m_id"]."' AND p_id='" . $_GET["getPostID"] . "' ";
-    if ($conn->query($sql) === TRUE) { 
-		
-    } else {
-        // echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-    $conn->close();
+$sql = "UPDATE posts SET p_status_comment = '' ,p_status_confirm = ''
+    WHERE p_own= '" . $_SESSION["m_id"] . "' AND p_id='" . $_GET["getPostID"] . "' ";
+if ($conn->query($sql) === TRUE) { } else {
+    // echo "Error: " . $sql . "<br>" . $conn->error;
+}
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +20,7 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap/css/main.css">
+    <script src="../bootstrap/js/zoom_img.js"></script>
     <link rel="shortcut icon" href="../img/leaficon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
 </head>
@@ -67,16 +66,21 @@
                 if ($row["iop_name"] != '') {
                     ?>
                     <div class="col-md-4 imgpost">
-                        
-                            <img src="../Image/image_file_post/<?php echo $row["iop_name"]; ?>" style="width:100%; border: 4px solid green;">
-                        
+
+                        <img style="width: 100%" class="myImages" id="myImg" src="../Image/image_file_post/<?php echo $row["iop_name"]; ?>" style="width:100%; border: 4px solid green;">
+
+                        <div id="myModal" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img01">
+                            <div id="caption"></div>
+                        </div>
+
                     </div>
                     <br>
                 <?php
             }
         }
         echo ' </div> ';
-        
     } else {
         echo "0 results";
     }
@@ -98,11 +102,11 @@
             while ($row = $result->fetch_assoc()) {
 
                 echo ' <div> ';
-                echo ' <h3> '.$row["p_header"] . "</h3>";
+                echo ' <h3> ' . $row["p_header"] . "</h3>";
                 echo '</div>';
 
                 echo ' <div>  ';
-                echo ' <p style="text-indent: 2.5em;">'.$row["p_detail"]."</p>";
+                echo ' <p style="text-indent: 2.5em;">' . $row["p_detail"] . "</p>";
                 echo '</div>';
 
                 echo ' <div style="text-align: right"> Date : ';
@@ -140,7 +144,7 @@
                                 <div class="col-12">';
 
                 echo ' <div> ';
-                echo $row["m_username"] . " : ".$row["c_detail"];
+                echo $row["m_username"] . " : " . $row["c_detail"];
                 echo '<br></div>';
 
                 if ($row["c_confirm"] != '') {
@@ -157,7 +161,6 @@
 
                 echo '  </div>
                             </div> <hr class="border-comment">';
-                            
             }
         } else {
             echo "0 Comment .";
@@ -173,30 +176,29 @@
                     <div class="col-12">
                         <select class="form-control col-3" name="commentconfirm" style="float: right;">
                             <?php require("../ConnData/connectDB.php"); ?>
-                            <?php 
+                            <?php
                             $sql = " SELECT * FROM disease ";
 
                             $result = $conn->query($sql);
-                            if ($result->num_rows > 0) { 
-                                while ($row = $result->fetch_assoc()) { 
-                                ?>
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    ?>
                                     <option value="<?php echo $row["d_name"]; ?>" selected>Disease <?php echo $row["d_name"]; ?></option>
                                 <?php
-                                }
-
-                            }else {
-                                echo "0 Comment .";
-                            }     
-                            $conn->close();         
-                            ?>
+                            }
+                        } else {
+                            echo "0 Comment .";
+                        }
+                        $conn->close();
+                        ?>
                             <option value="" selected disabled>Choose</option>
-                        
+
                         </select>
                     </div>
                 </div><br>
                 <div class="row">
                     <div class="col-12">
-                        <input type="hidden" name="id_linkpost" value="<?php echo $_GET["getPostID"];?>">
+                        <input type="hidden" name="id_linkpost" value="<?php echo $_GET["getPostID"]; ?>">
                         <input type="hidden" name="commentown" value="<?php echo $_SESSION["m_id"]; ?>">
                         <input type="hidden" name="commentdate" value="<?php echo date("Y-m-d H:i:s", time() + (60 * 60) * 5); ?>">
                         <textarea rows="4" class="form-control" name="commentdetail"> </textarea>
@@ -212,12 +214,42 @@
     }
     ?>
         <br>
-        <a class="btn btn-danger float-right" onclick="window.history.go(-1); return false;"  style="color: white;width: 90px; margin:30px 0px 10px">Back</a>
+        <a class="btn btn-danger float-right" onclick="window.history.go(-1); return false;" style="color: white;width: 90px; margin:30px 0px 10px">Back</a>
         <br>
     </div>
-<footer style="margin-bottom: 70px;">
+    <footer style="margin-bottom: 70px;">
 
-</footer>
+    </footer>
+    <style>
+        
+    </style>
+    <script>
+        // create references to the modal...
+        var modal = document.getElementById('myModal');
+        // to all images -- note I'm using a class!
+        var images = document.getElementsByClassName('myImages');
+        // the image in the modal
+        var modalImg = document.getElementById("img01");
+        // and the caption in the modal
+        var captionText = document.getElementById("caption");
+
+        // Go through all of the images with our custom class
+        for (var i = 0; i < images.length; i++) {
+            var img = images[i];
+            // and attach our click listener for this image.
+            img.onclick = function(evt) {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            }
+        }
+
+        var span = document.getElementsByClassName("close")[0];
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    </script>
 </body>
 
 </html>

@@ -20,13 +20,13 @@ $conn->close();
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap/css/main.css">
-    <script type="text/javascript" src="../bootstrap/js/zoom_img.js"></script>
+    <script src="../bootstrap/js/zoom_img.js"></script>
     <link rel="shortcut icon" href="../img/leaficon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    
+
     <!-- user id top -->
     <div style="text-align:right;" class="usertop">
         Username :
@@ -87,37 +87,22 @@ $conn->close();
                         <div class="row" style="margin-left:auto; margin-right: auto;">
 
                             <div class="col-lg-6 col-md-6 col-xs-12">
-                                <img style="width: 100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>">
+                                <img style="width: 100%" class="myImages" id="myImg" alt="Font Leaf" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>">
                                 <center>Front Leaf</center>
                             </div>
 
-
-
-
                             <div class="col-lg-6 col-md-6 col-xs-12">
-                                <img style="width: 100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor" src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>">
+                                <img style="width: 100%" class="myImages" id="myImg" alt="Back Leaf" src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>">
                                 <center>Back Leaf</center>
                             </div>
 
-
-                            <!-- image active -->
+                            <!-- zoom img click -->
                             <div id="myModal" class="modal">
-                                <span class="close cursor" onclick="closeModal()">&times;</span>
-                                <div class="modal-content">
-
-                                    <!-- font pic -->
-                                    <div class="mySlides">
-                                        <img src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" style="max-width:700px; width:100%; margin-left:auto; margin-right:auto; display: block;">
-                                    </div>
-
-                                    <!-- back pic -->
-                                    <div class="mySlides">
-                                        <img src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>" style="max-width:700px; width:100%; margin-left:auto; margin-right:auto; display: block;">
-                                    </div>
-
-                                </div>
-
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img01">
+                                <div id="caption"></div>
                             </div>
+
                         </div> <!-- end row -->
 
 
@@ -237,6 +222,32 @@ $conn->close();
     </footer>
 
 </body>
+<script>
+    // create references to the modal...
+    var modal = document.getElementById('myModal');
+    // to all images -- note I'm using a class!
+    var images = document.getElementsByClassName('myImages');
+    // the image in the modal
+    var modalImg = document.getElementById("img01");
+    // and the caption in the modal
+    var captionText = document.getElementById("caption");
 
+    // Go through all of the images with our custom class
+    for (var i = 0; i < images.length; i++) {
+        var img = images[i];
+        // and attach our click listener for this image.
+        img.onclick = function(evt) {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+    }
+
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+</script>
 
 </html>
