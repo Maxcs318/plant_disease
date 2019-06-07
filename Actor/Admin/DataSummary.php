@@ -16,6 +16,42 @@
 
 </head>
 <body>
+    <!-- user id top -->
+    <div style="text-align:right;" class="usertop">
+        Username :
+        <?php echo $_SESSION["m_username"]; ?>
+        | Status :
+        <?php echo $_SESSION["m_status"]; ?>
+    </div>
+    <!--end user id top -->
+
+    <!-- slide text -->
+    <div class="row">
+        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
+        <p class="item-2 ">Some Text for [item-2]</p>
+        <p class="item-3 ">Some Text for [item-3]</p>
+    </div>
+    <!-- end slide text -->
+
+    <div class="container" style="margin-top: 70px;">
+        <div class="col-md-4 col-xs-4">
+            <!-- home button -->
+            <a href="../index.php">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../../img/home.png" class="imgabout">
+                    <p class="text-img-detail">Home</p>
+                </button></a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+            <!-- home button -->
+            <a href="#" onclick="window.history.go(-1); return false;">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../../img/back.svg" class="imgabout">
+                    <p class="text-img-detail">Back</p>
+                </button></a>
+        </div>
+    </div>
+
     <div class="container"><br>
         <div class="row">
             <div class="col-lg-6 col-xs-12">
@@ -140,9 +176,9 @@
                         while ($row = $result->fetch_assoc()) { 
                             $row['cl_confirm'];
                             // $disease3[substr($row["cl_date"],0,7)]=$disease2;
-                            for($y=0;$y<sizeof($disease2);$y++){
+                            for($y=0;$y<sizeof($dateDisease);$y++){
                                 if(substr($row["cl_date"],0,7)==$dateDisease[$y][0]){
-                                    for($k=0;$k<sizeof($disease3);$k++){
+                                    for($k=0;$k<sizeof($dateDisease);$k++){
                                         if($row["cl_confirm"]==$disease3[substr($row["cl_date"],0,7)][$k][0]){
                                             $disease3[substr($row["cl_date"],0,7)][$k][1]=$disease3[substr($row["cl_date"],0,7)][$k][1]+1;
                                         }
@@ -182,7 +218,7 @@
                             <?php 
                                 for($z=0;$z<sizeof($disease);$z++){
                                     ?>
-                                    <td>0</td>  
+                                    <td></td>  
                                     <?php
                                 }
                             ?>
@@ -225,7 +261,7 @@
                             <?php 
                                 for($z=0;$z<sizeof($disease);$z++){
                                     ?>
-                                    <td><?php echo $disease3[$dateDisease[$k][0]][$z][1];?></td>  
+                                        <td><?php echo $disease3[$dateDisease[$k][0]][$z][1];?></td>  
                                     <?php
                                 }
                             ?>
