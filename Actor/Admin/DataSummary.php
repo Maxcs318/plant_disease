@@ -1,4 +1,5 @@
 <?php error_reporting(E_ALL ^ E_NOTICE); ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -380,7 +381,7 @@
     <style>
         table, tr ,td{
             text-align: center;
-            visibility: show; /* :hidden or :show */
+            visibility: hidden; /* :hidden or :show */
         }
     </style>
 </body>

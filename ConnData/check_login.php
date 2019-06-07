@@ -89,19 +89,8 @@ $row = $result->fetch_assoc();
 				}
 				$conn->close();
 			}else{ 
-				?>
-				<!DOCTYPE html>
-				<html>
-				<head>    
-				</head>
-				<body onload="setTimeout(function() { document.frm1.submit() },10)">
-					<form action="../login.php" name="frm1" method="POST">
-						<input type="hidden" name="checkLogin" value="Username or Password is Incorrect" />
-					</form>
-				</body>
-				</html>
-				<?php	
-
+				$_SESSION["m_status"] = 'HaHaHa';
+				header("location:../login.php");
 			}
 
 		}
@@ -111,5 +100,3 @@ $row = $result->fetch_assoc();
 
     
 ?>
-
-
