@@ -34,10 +34,10 @@ if(isset($_SESSION["m_status"])){
                     <h1>LOGIN</h1>
                     <font color="red"><?php echo $_POST['checkLogin']; ?></font>
                     <p>User Name</p>
-                    <input class="form-control" type="text" name="username" placeholder="username" required>
+                    <input class="form-control" type="text" name="username" maxlength="20" placeholder="username" required>
 
                     <p>Password</p>
-                    <input class="form-control" type="password" name="password" placeholder="password" required>
+                    <input class="form-control" type="password" name="password" maxlength="20" placeholder="password" required>
 
                     <button id="insert" type="submit" name="save">sign in</button>
                     <br>
