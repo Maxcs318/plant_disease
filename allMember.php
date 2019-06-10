@@ -140,6 +140,11 @@
         </script>
     <?php } ?>
     <!-- Alert Edit Stop -->
+
+<footer style="margin-bottom: 50px;">
+
+</footer>
+
 </body>
 <script>
     function UpStatus(m_id, m_username) {
