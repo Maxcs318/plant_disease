@@ -305,10 +305,14 @@
         });
     </script>   
     <!-- Alert Edit Start -->
-    <?php if( $_SESSION["checkAlert"]=='EidtSymptomsSuccess'){ ?>
+    <?php if( $_SESSION["checkAlert"]!=''){ ?>
         <script>
             swal({
-            title: "Edit Symptoms Success", 
+            <?php if( $_SESSION["checkAlert"]=='EidtSymptomsSuccess'){ ?>
+                  title: "Edit Symptoms Success", 
+            <?php }else if( $_SESSION["checkAlert"]=='InsertSymptomsSuccess'){ ?>
+                  title: "Insert Symptoms Success", //2
+            <?php } ?>
             text: "" , 
             type: "success",              
             });

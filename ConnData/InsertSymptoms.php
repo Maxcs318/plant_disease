@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,19 +27,8 @@ for($i=0;$i<count($_FILES["imagesymptoms"]["name"]);$i++)
                 $sql = "INSERT INTO symptoms (s_name, s_detail,s_image,s_disease) 
                 VALUES ('".$_POST['symptomsname']."','".$_POST['symptomsdetail']."','$newfilename','".$_POST['symptomsofdisease']."')";
                 if ($conn->query($sql) === TRUE) {
-                    ?>
-                    <script language="javascript">
-                        swal({
-                        title: "Insert Symptoms Success", 
-                        text: "" , 
-                        type: "success",
-                        confirmButtonText: 'Yes.',
-                        confirmButtonColor: '#64e986',
-                        }, function() {
-                            window.location.href = "../Aboutplant/Symptoms.php";
-                        });        
-                    </script>
-                    <?php      
+                    $_SESSION["checkAlert"]='InsertSymptomsSuccess' ;  
+                    header("location:../Aboutplant/Symptoms.php");
                 } else {
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }
