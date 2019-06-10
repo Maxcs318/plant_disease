@@ -54,7 +54,7 @@ require_once("../ConnData/connectDB.php");
                         <input id="input-field" onkeyup="validate();" class="form-control" type="text" name="firstname" value="<?php echo $row["m_firstname"]; ?>" maxlength="25" required>
 
                         <label>Last Name</label>
-                        <input id="input-field" onkeyup="validate();" class="form-control" type="text" name="lastname" value="<?php echo $row["m_lastname"]; ?>" maxlength="25" required>
+                        <input id="input-field2" onkeyup="validate();" class="form-control" type="text" name="lastname" value="<?php echo $row["m_lastname"]; ?>" maxlength="25" required>
 
                         <label>Career</label>
                         <input class="form-control" type="text" name="career" value="<?php echo $row["m_career"]; ?>" maxlength="50" required>
@@ -95,7 +95,7 @@ require_once("../ConnData/connectDB.php");
     <script language="JavaScript">
         function chkNumber(ele) {
             var vchar = String.fromCharCode(event.keyCode);
-            if ((vchar < '0' || vchar > '9') && (vchar != '.')) return false;
+            if ((vchar < '0' || vchar > '9') && (vchar != '-')) return false;
             ele.onKeyPress = vchar;
         }
     </script>
