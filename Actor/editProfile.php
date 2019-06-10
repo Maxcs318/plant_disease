@@ -38,23 +38,23 @@ require_once("../ConnData/connectDB.php");
                 if ($result->num_rows > 0) { // Open IF
                     $row = $result->fetch_assoc();
                     ?>
-                    <form action="../ConnData/EditProfile.php" method="post" enctype="multipart/form-data"  id="form1" runat="server">
+                    <form action="../ConnData/EditProfile.php" method="post" enctype="multipart/form-data" id="form1" runat="server">
                         <center>
-                        <?php if($_SESSION['m_imageprofile']==''){ ?>
-                            <img id="blah" class="pf-img" src="../img/pageicon/aboutme.png" class="about-img">
-                        <?php }else{ ?>
-                            <img id="blah" class="pf-img" src="../Image/image_profile/<?php echo $row["m_imageprofile"]; ?>" >
-                        <?php } ?>
+                            <?php if ($_SESSION['m_imageprofile'] == '') { ?>
+                                <img id="blah" class="pf-img" src="../img/pageicon/aboutme.png" class="about-img">
+                            <?php } else { ?>
+                                <img id="blah" class="pf-img" src="../Image/image_profile/<?php echo $row["m_imageprofile"]; ?>">
+                            <?php } ?>
                         </center>
                         <br>
                         <label>Profile :</label>
                         <input type="file" id="image" name="imageprofile[]"> <br><br>
 
                         <label>First Name</label>
-                        <input class="form-control" type="text" name="firstname" value="<?php echo $row["m_firstname"]; ?>" maxlength="25" required>
+                        <input id="input-field" onkeyup="validate();" class="form-control" type="text" name="firstname" value="<?php echo $row["m_firstname"]; ?>" maxlength="25" required>
 
                         <label>Last Name</label>
-                        <input class="form-control" type="text" name="lastname" value="<?php echo $row["m_lastname"]; ?>" maxlength="25" required>
+                        <input id="input-field" onkeyup="validate();" class="form-control" type="text" name="lastname" value="<?php echo $row["m_lastname"]; ?>" maxlength="25" required>
 
                         <label>Career</label>
                         <input class="form-control" type="text" name="career" value="<?php echo $row["m_career"]; ?>" maxlength="50" required>
@@ -72,7 +72,7 @@ require_once("../ConnData/connectDB.php");
                         <input class="form-control" type="text" name="password" value="<?php echo $row["m_password"]; ?>" maxlength="10" disabled="disabled">
 
                         <label>New Password</label>
-                        <input class="form-control" type="text" name="password" value="<?php echo $row["m_password"]; ?>"  maxlength="10" >
+                        <input class="form-control" type="text" name="password" value="<?php echo $row["m_password"]; ?>" maxlength="10">
                         <br>
 
                         <button class="form-control btn-primary" type="submit" name="save">Save</button>
@@ -82,7 +82,7 @@ require_once("../ConnData/connectDB.php");
                     </form>
                 </div>
                 <div class="col-lg-4 col-xs-1"></div>
-                <footer >
+                <footer>
 
                 </footer>
             <?php // Close IF
@@ -91,6 +91,7 @@ require_once("../ConnData/connectDB.php");
         ?>
         </div>
     </div>
+    <!-- phone number [0-9] -->
     <script language="JavaScript">
         function chkNumber(ele) {
             var vchar = String.fromCharCode(event.keyCode);
@@ -98,6 +99,7 @@ require_once("../ConnData/connectDB.php");
             ele.onKeyPress = vchar;
         }
     </script>
+    <!-- img preview -->
     <script>
         function readURL(input) {
 
@@ -115,6 +117,13 @@ require_once("../ConnData/connectDB.php");
         $("#image").change(function() {
             readURL(this);
         });
+    </script>
+    <!-- text [a-z A-Z ก-ฮ] only -->
+    <script>
+        function validate() {
+            var element = document.getElementById('input-field');
+            element.value = element.value.replace(/[^a-zA-Zก-ฮ@]+/, '');
+        };
     </script>
 </body>
 
