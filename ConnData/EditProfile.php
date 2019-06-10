@@ -39,6 +39,7 @@ for($i=0;$i<count($_FILES["imageprofile"]["name"]);$i++)
 <?php require("connectDB.php");?>
 <?php
     $sql = "UPDATE member SET m_firstname = '".$_POST["firstname"]."',m_lastname = '".$_POST["lastname"]."',
+    m_career = '".$_POST["career"]."',
     m_email = '".$_POST["email"]."',m_phone = '".$_POST["phone"]."',
     m_username = '".$_POST["username"]."',m_password = '".$_POST["password"]."'
 

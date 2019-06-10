@@ -56,6 +56,9 @@ require_once("../ConnData/connectDB.php");
                         <label>Last Name</label>
                         <input class="form-control" type="text" name="lastname" value="<?php echo $row["m_lastname"]; ?>" maxlength="25" required>
 
+                        <label>Career</label>
+                        <input class="form-control" type="text" name="career" value="<?php echo $row["m_career"]; ?>" maxlength="50" required>
+
                         <label>E-mail</label>
                         <input class="form-control" type="email" name="email" value="<?php echo $row["m_email"]; ?>" required>
 
