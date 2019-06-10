@@ -245,10 +245,14 @@
         
     </script>
     <!-- Alert Edit Start -->
-    <?php if( $_SESSION["checkAlert"]=='EidtDiseassSuccess'){ ?>
+    <?php if( $_SESSION["checkAlert"]!=''){ ?>
         <script>
             swal({
-            title: "Edit Disease Success", 
+            <?php if( $_SESSION["checkAlert"]=='EidtDiseassSuccess'){ ?>
+                title: "Edit Disease Success",
+            <?php }else if( $_SESSION["checkAlert"]=='InsertDiseaseSuccess'){ ?>
+                title: "Insert Disease Success", // 2 
+            <?php } ?>
             text: "" , 
             type: "success",              
             });
