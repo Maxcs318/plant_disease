@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +26,7 @@ for($i=0;$i<count($_FILES["image"]["name"]);$i++)
             $sql = "INSERT INTO image_of_post (iop_name, iop_linkpost) 
             VALUES ('$newfilename','".$_POST['key_post_image']."')";
             if ($conn->query($sql) === TRUE) {
+                $_SESSION["checkAlert"]='CreatePostSuccess';
                 // header("location:../allMember.php");      
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
@@ -40,19 +42,8 @@ for($i=0;$i<count($_FILES["image"]["name"]);$i++)
     $sql = "INSERT INTO posts (p_header, p_detail, p_own, p_date, p_linkimage) 
     VALUES ('".$_POST['header']."','".$_POST['detail']."','".$_POST['own']."','".$_POST['date']."','".$_POST['key_post_image']."')";
     if ($conn->query($sql) === TRUE) {
-        ?>
-        <script language="javascript">
-            swal({
-            title: "Create Post Success", 
-            text: "" , 
-            type: "success",
-            confirmButtonText: 'Yes.',
-            confirmButtonColor: '#64e986',
-            }, function() {
-                window.location.href = "../Posts/post_list_person.php";
-            });        
-        </script>
-        <?php      
+        $_SESSION["checkAlert"]='CreatePostSuccess';
+        header("location:../Posts/post_list_person.php");
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

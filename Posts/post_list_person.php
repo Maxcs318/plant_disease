@@ -200,11 +200,21 @@
     <?php $conn->close(); ?>
 
     <?php
-    if($_SESSION["checkAlert"]=='EditProfileSuccess'){
+    if($_SESSION["checkAlert"]!=''){
     ?>
         <script language="javascript">
             swal({
-            title: "Edit Profile Success", 
+                <?php
+                if($_SESSION["checkAlert"]=='EditProfileSuccess'){
+                ?>
+                    title: "Edit Profile Success", 
+                <?php
+                }else if($_SESSION["checkAlert"]=='CreatePostSuccess'){
+                ?>
+                    title: "Create Post Success", 
+                <?php
+                }
+                ?>
             text: "" , 
             type: "success",             
             });
