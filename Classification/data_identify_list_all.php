@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> <!-- weetAlert -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- weetAlert -->
 
-
 </head>
 
 <body>
@@ -168,18 +167,16 @@
     <script>
 
         function deleteData(getid) {
-
-        swal({
-        title: "Are you sure?", 
-        text: "You want to Delete this Classification." , 
-        type: "warning",
-        confirmButtonText: 'Yes.',
-        confirmButtonColor: '#DD6B55',
-        showCancelButton: true ,
-        }, function() {
-            window.location.href='../ConnData/DeleteClassification.php?getCl_id='+getid;
-        });
-
+            swal({
+            title: "Are you sure?", 
+            text: "You want to Delete this Classification." , 
+            type: "warning",
+            confirmButtonText: 'Yes.',
+            confirmButtonColor: '#DD6B55',
+            showCancelButton: true ,
+            }, function() {
+                window.location.href='../ConnData/DeleteClassification.php?getCl_id='+getid;
+            });
         }
 
         function edit() {
@@ -193,6 +190,17 @@
             edit_save.src = "../img/a1.jpg";
         }
     </script>
+    <?php if( $_SESSION["checkAlert"]=='DeleteClassificationSuccess'){ ?>
+        <script>
+            swal({
+            title: "Delete Classification Success", 
+            text: "" , 
+            type: "success",              
+            });
+        </script>
+    <?php } 
+    $_SESSION["checkAlert"]='';
+    ?>
 </body>
 
 </html>

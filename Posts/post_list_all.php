@@ -98,6 +98,15 @@
                                 <div style="text-align: right">Date : <?php echo substr($row["p_date"], 0, 10); ?></div>
                                 <div style="text-align: right">Time : <?php echo substr($row["p_date"], 11); ?></div>
                                 <a class="float:bottom" href='post_selected.php?getPostID=<?php echo $row["p_id"]; ?>'>View Post</a>
+                                
+                                <?php if( $_SESSION["m_status"]=='admin'){ ?>
+                                <div class="row">
+                                    <div class="col-lg-9 col-xs-6"></div>
+                                    <div class="col-lg-3 col-xs-6">
+                                       <input type="button" class="btn-danger form-control col-lg-12 col-xs-6" value="Delete." onclick="deleteData(<?php echo $row['p_id'];?>)" >
+                                    </div>
+                                </div>
+                                <?php } ?>
 
                             </div>
                         </div>
@@ -118,6 +127,32 @@
     <footer style="margin-bottom: 50px;">
 
     </footer>
+    <script>
+        function deleteData(getid) {
+            swal({
+            title: "Are you sure?", 
+            text: "You want to Delete this Post." , 
+            type: "warning",
+            confirmButtonText: 'Yes.',
+            confirmButtonColor: '#DD6B55',
+            showCancelButton: true ,
+            }, function() {
+                window.location.href='../ConnData/DeletePost.php?getp_id='+getid;
+            });
+        }
+    </script>
+    <?php if( $_SESSION["checkAlert"]=='DeletePostSuccess'){ ?>
+        <script>
+            swal({
+            title: "Delete Post Success", 
+            text: "" , 
+            type: "success",              
+            });
+        </script>
+    <?php } 
+    $_SESSION["checkAlert"]='';
+    ?>
+    
 </body>
 
 <style>
