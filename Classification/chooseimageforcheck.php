@@ -105,7 +105,7 @@
                         <div class="col-lg-6 col-xs-10">
                             <div class="row">
                                 <div class="col-6">
-                                    <a class="btn btn-danger col-12" href="../index.php">Back</a>
+                                    <a class="btn btn-danger col-12" href="chooseimageforcheck.php">Back</a>
                                 </div>
                                 <div class="col-6">
                                     <button class="btn-primary form-control col-12" type="submit" name="save">Next</button>
