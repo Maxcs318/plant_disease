@@ -252,6 +252,8 @@
                 title: "Edit Disease Success",
             <?php }else if( $_SESSION["checkAlert"]=='InsertDiseaseSuccess'){ ?>
                 title: "Insert Disease Success", // 2 
+            <?php }else if( $_SESSION["checkAlert"]=='DeleteDiseaseSuccess'){ ?>
+                title: "Delete Disease Success", // 3
             <?php } ?>
             text: "" , 
             type: "success",              
@@ -259,8 +261,6 @@
         </script>
     <?php } ?>
     <!-- Alert Edit Stop -->
-
 </body>
-
 </html>
 <?php $_SESSION["checkAlert"]='' ?>

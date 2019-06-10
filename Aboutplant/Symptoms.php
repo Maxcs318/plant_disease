@@ -312,6 +312,8 @@
                   title: "Edit Symptoms Success", 
             <?php }else if( $_SESSION["checkAlert"]=='InsertSymptomsSuccess'){ ?>
                   title: "Insert Symptoms Success", //2
+            <?php }else if( $_SESSION["checkAlert"]=='DeleteSymptomsSuccess'){ ?>
+                  title: "Delete Symptoms Success", //3
             <?php } ?>
             text: "" , 
             type: "success",              
