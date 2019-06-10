@@ -31,6 +31,20 @@ body {
   font-size: 30px;
   margin: 20px auto;
 }
+.box select{
+  border: 0;
+  background: none;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  border: 2px solid green;
+  padding: 5px 10px;
+  width: 80%;
+  outline: none;
+  border-radius: 50px;
+  transition: 0.25s;
+  font-weight: 500;
+}
 
 /* input */
 .box input[type="text"],

@@ -34,34 +34,54 @@ if (isset($_SESSION["m_status"])) {
             <div id="user" class="box col-xs-4 col-sm-4 col-md-4">
 
                 <h1>User Register</h1>
-                    <p>กรุณากรอกข้อมูลใน * ให้ครบถ้วน</p>
+                <p>กรุณากรอกข้อมูลใน * ให้ครบถ้วน</p>
+                <br>
+                <form action="ConnData/InsertRegister.php" method="post">
+
+                    <p>First Name *</p>
+                    <input class="form-control" type="text" name="firstname" placeholder="first name" maxlength="25" required>
+
+                    <p>Last Name *</p>
+                    <input class="form-control" type="text" name="lastname" placeholder="last name" maxlength="25" required>
+
+                    <p>Career</p>
+                    <select name="" id="">
+                        <option selected="true" disabled="disabled" value="">-- Choose --</option>
+                        <option value="">เกษตรกร</option>
+                        <option value="">ผู้เชี่ยวชาญด้านการเกษตร/นักวิจัย</option>
+                        <option value="">อาจารย์</option>
+                        <option value="">ธุรกิจส่วนตัว</option>
+                        <option value="">ข้าราชการ</option>
+                        <option value="">นักเรียน/นักศึกษา</option>
+                        <option value="">อื่นๆ</option>
+                    </select>
+
+                    <style>
+                        select {
+                            text-align: center;
+                            text-align-last: center;
+                        }
+                        
+                    </style>
+
+
+                    <p>Username *</p>
+                    <input class="form-control" type="text" name="username" placeholder="username" maxlength="20" required>
+
+                    <p>Password *</p>
+                    <input class="form-control" type="password" name="password" placeholder="password" maxlength="20" required>
+
+                    <p>Phone *</p>
+                    <input class="form-control" name='phone' type='text' placeholder="number 0-9" value="" OnKeyPress="return chkNumber(this)" required="" maxlength="10">
+
+                    <p>E-mail</p>
+                    <input class="form-control" type="email" name="email" placeholder="example@plant.com">
+
+                    <input type="hidden" name="status" value="user">
+                    <button type="submit" name="save">Save</button>
                     <br>
-                    <form action="ConnData/InsertRegister.php" method="post">
-
-                        <p>First Name *</p>
-                        <input class="form-control" type="text" name="firstname" placeholder="first name" maxlength="25" required>
-
-                        <p>Last Name *</p>
-                        <input class="form-control" type="text" name="lastname" placeholder="last name" maxlength="25" required>
-
-
-                        <p>Username *</p>
-                        <input class="form-control" type="text" name="username" placeholder="username" maxlength="20" required>
-
-                        <p>Password *</p>
-                        <input class="form-control" type="password" name="password" placeholder="password" maxlength="20" required>
-
-                        <p>Phone *</p>
-                        <input class="form-control" name='phone' type='text' placeholder="number 0-9" value="" OnKeyPress="return chkNumber(this)" required="" maxlength="10">
-
-                        <p>E-mail</p>
-                        <input class="form-control" type="email" name="email" placeholder="example@plant.com">
-
-                        <input type="hidden" name="status" value="user">
-                        <button type="submit" name="save">Save</button>
-                        <br>
-                        <a href="index.php">Back</a> |
-                        <a href="login.php">Login</a>
+                    <a href="index.php">Back</a> |
+                    <a href="login.php">Login</a>
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4"></div>
         </div>
