@@ -48,19 +48,12 @@ for($i=0;$i<count($_FILES["imageprofile"]["name"]);$i++)
 		$_SESSION["m_lastname"] = $_POST["lastname"];
 		// $_SESSION["m_email"] = $_POST["email"];
 		// $_SESSION["m_phone"] = $_POST["phone"];
-        $_SESSION["m_username"] = $_POST["username"];    
-        ?>
-        <script language="javascript">
-            swal({
-            title: "Edit Profile Success", 
-            text: "" , 
-            type: "success",
-            // confirmButtonText: 'Yes.',
-            // confirmButtonColor: '#64e986',                
-            });
-            setTimeout("location.href = '../Posts/post_list_person.php';", 1500);
-        </script>
-        <?php
+        $_SESSION["m_username"] = $_POST["username"];  
+        
+        $_SESSION["checkAlert"]='EditProfileSuccess';
+        
+        header("location:../Posts/post_list_person.php"); 
+
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

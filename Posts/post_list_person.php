@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="../bootstrap/css/main.css">
     <link rel="shortcut icon" href="../img/leaficon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> <!-- sweetalert-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- sweetalert-->
+
 </head>
 
 <body>
@@ -195,6 +198,21 @@
     </footer>
 
     <?php $conn->close(); ?>
+
+    <?php
+    if($_SESSION["checkAlert"]=='EditProfileSuccess'){
+    ?>
+        <script language="javascript">
+            swal({
+            title: "Edit Profile Success", 
+            text: "" , 
+            type: "success",             
+            });
+        </script>
+    <?php
+    }
+    $_SESSION["checkAlert"]='';
+    ?>
 </body>
 
 </html>
