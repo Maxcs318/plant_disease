@@ -114,11 +114,22 @@
 
     </div>
     <?php $conn->close(); ?>
-    <footer>
-        <div class="row" style="margin: 30px;">
 
-        </div>
+    <footer style="margin-bottom: 50px;">
+
     </footer>
 </body>
+
+<style>
+    @media screen and (max-width: 500px) {
+        h4 {
+            font-size: 15px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+    }
+</style>
 
 </html>
