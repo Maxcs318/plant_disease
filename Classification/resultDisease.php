@@ -57,8 +57,8 @@
                 <br>
             </div>
         </div>
-        <h3>The picture of the disease leaves </h3>
         <?php if($_SESSION["disease"]!='Normal'){ ?>
+        <h3>The picture of the disease leaves </h3>
         <div class="row">
             
             <?php require("../ConnData/connectDB.php"); ?>
