@@ -129,6 +129,11 @@ error_reporting(E_ALL ^ E_NOTICE); ?>
                     ?><br><br>
     </div>
     <?php $conn->close(); ?>
+
+<footer style="margin-bottom: 50px;">
+
+</footer>
+
 </body>
 
 </html>
