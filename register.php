@@ -45,15 +45,15 @@ if (isset($_SESSION["m_status"])) {
                     <input class="form-control" type="text" name="lastname" placeholder="last name" maxlength="25" required>
 
                     <p>Career</p>
-                    <select name="" id="">
+                    <select name="career" id="">
                         <option selected="true" disabled="disabled" value="">-- Choose --</option>
-                        <option value="">เกษตรกร</option>
-                        <option value="">ผู้เชี่ยวชาญด้านการเกษตร/นักวิจัย</option>
-                        <option value="">อาจารย์</option>
-                        <option value="">ธุรกิจส่วนตัว</option>
-                        <option value="">ข้าราชการ</option>
-                        <option value="">นักเรียน/นักศึกษา</option>
-                        <option value="">อื่นๆ</option>
+                        <option value="เกษตรกร">เกษตรกร</option>
+                        <option value="ผู้เชี่ยวชาญด้านการเกษตร/นักวิจัย">ผู้เชี่ยวชาญด้านการเกษตร/นักวิจัย</option>
+                        <option value="อาจารย์">อาจารย์</option>
+                        <option value="ธุรกิจส่วนตัว">ธุรกิจส่วนตัว</option>
+                        <option value="ข้าราชการ">ข้าราชการ</option>
+                        <option value="นักเรียน/นักศึกษา">นักเรียน/นักศึกษา</option>
+                        <option value="อื่นๆ">อื่นๆ</option>
                     </select>
 
                     <style>

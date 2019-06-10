@@ -23,6 +23,8 @@ if(isset($_SESSION["m_status"])){
     <link rel="stylesheet" href="bootstrap/css/style.css">
     <link rel="shortcut icon" href="img/leaficon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Prompt|Sriracha&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> <!-- sweetalert-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- sweetalert-->
 </head>
 
 <body>
@@ -51,6 +53,18 @@ if(isset($_SESSION["m_status"])){
         </div>
         <!--end row -->
     </div>
+    <?php if($_SESSION["checkAlert"]=='RegisterSuccess'){ ?>
+        <script language="javascript">
+            swal({
+            title: "Register Success", 
+            text: "Thank you For register." , 
+            type: "success",
+            confirmButtonText: 'Yes.',
+            confirmButtonColor: '#64e986',
+            
+            });        
+        </script>
+    <?php } ?>
 </body>
 
 </html>
