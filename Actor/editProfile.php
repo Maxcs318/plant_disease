@@ -74,7 +74,7 @@ require_once("../ConnData/connectDB.php");
 
                         <button class="form-control btn-primary" type="submit" name="save">Save</button>
                         <br>
-                        <a class="btn btn-danger float-right" href="../index.php" style="width:100%;">Back</a>
+                        <a class="btn btn-danger float-right" href="../Posts/post_list_person.php" style="width:100%;">Back</a>
 
                     </form>
                 </div>
