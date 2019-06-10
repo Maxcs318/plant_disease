@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="../bootstrap/css/main.css">
     <link rel="shortcut icon" href="../img/leaficon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> <!-- weetAlert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- weetAlert -->
+
 
 </head>
 
@@ -106,7 +109,6 @@
                     <div class="col-md-2 col-lg-2 col-xs-6">
                         <h4>Date</h4>
                         <h5><?php echo substr($row["cl_date"], 0, 10);  ?></h5>
-                        <a href="#" onclick="location.href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'">Identify Post</a> 
                     </div>
 
                     <div class="col-md-2 col-lg-2 col-xs-6">
@@ -124,10 +126,21 @@
                         <h5>
                             <?php if ($row["cl_confirm"] == '') {
                                 echo 'None';
+                                ?><br><br><br>
+                                <a href="#" onclick="location.href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'">Confirm Classification</a> 
+                                <?php
                             } else {
                                 echo 'Confirm : ' . $row["cl_confirm"];
+                                ?><br><br><br>
+                                <a href="#" onclick="location.href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'">Confirm Again</a> 
+                                <?php
                             }
-                            ?>
+                            ?><br><br><br>
+                            <?php if( $_SESSION["m_status"]=='admin'){ ?>
+
+                            <input type="button" class="btn-danger form-control col-lg-12 col-xs-12" value="Delete." onclick="deleteData(<?php echo $row['cl_id'];?>)" >
+                            
+                            <?php } ?>
                         </h5>
                     </div>
                    
@@ -153,6 +166,22 @@
         }
     </style>
     <script>
+
+        function deleteData(getid) {
+
+        swal({
+        title: "Are you sure?", 
+        text: "You want to Delete this Classification." , 
+        type: "warning",
+        confirmButtonText: 'Yes.',
+        confirmButtonColor: '#DD6B55',
+        showCancelButton: true ,
+        }, function() {
+            window.location.href='../ConnData/DeleteClassification.php?getCl_id='+getid;
+        });
+
+        }
+
         function edit() {
             var inputs = document.myform;
             for (var i = 0; i < inputs.length; i++) {
