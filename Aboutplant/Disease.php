@@ -145,7 +145,8 @@
                             </div>
                         </h2> <input type="hidden" name="diseaseid" value="<?php echo $row['d_id']; ?>" >
                         <p class="showdata<?php echo $row['d_id'];?> detail" style="text-indent: 2.5em;">
-                            <?php echo $row['d_detail']; ?>
+                            <?php echo substr($row['d_detail'],0,250); ?>
+                            <a href="../Aboutplant/DiseaseSelected.php?getd_id=<?php echo $row['d_id']; ?>" > ...See More</a>
                         </p>
                         <div class="showedit<?php echo $row['d_id'];?>">
                             <textarea class="form-control" rows="7" type="text" name="diseasedetail" required><?php echo $row['d_detail'];?></textarea>
