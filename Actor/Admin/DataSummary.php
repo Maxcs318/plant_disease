@@ -17,6 +17,11 @@
 
 </head>
 <body>
+    <?php
+    if($_SESSION["m_status"]!="admin") {
+        header("location:../../index.php"); //to redirect back to "index.php" after logging out
+    }
+    ?>
     <!-- user id top -->
     <div style="text-align:right;" class="usertop">
         Username :
