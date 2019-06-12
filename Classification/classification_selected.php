@@ -222,6 +222,7 @@ $conn->close();
     </footer>
 
 </body>
+
 <script>
     // create references to the modal...
     var modal = document.getElementById('myModal');

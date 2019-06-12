@@ -47,15 +47,16 @@ if (isset($_SESSION["m_status"])) {
                     <p>Career</p>
                     <select name="career" id="">
                         <option selected="true" disabled="disabled" value="">-- Choose --</option>
-                        <option value="เกษตรกร">เกษตรกร</option>
-                        <option value="ผู้เชี่ยวชาญด้านการเกษตร/นักวิจัย">ผู้เชี่ยวชาญด้านการเกษตร/นักวิจัย</option>
-                        <option value="อาจารย์">อาจารย์</option>
-                        <option value="ธุรกิจส่วนตัว">ธุรกิจส่วนตัว</option>
-                        <option value="ข้าราชการ">ข้าราชการ</option>
-                        <option value="นักเรียน/นักศึกษา">นักเรียน/นักศึกษา</option>
-                        <option value="อื่นๆ">อื่นๆ</option>
+                            <option value="เกษตรกร">Farmer (เกษตรกร)</option>
+                            <option value="ผู้เชี่ยวชาญด้านการเกษตร">Agricultural experts (ผู้เชี่ยวชาญด้านการเกษตร)</option>
+                            <option value="นักวิจัย">Researchers (นักวิจัย)</option>
+                            <option value="อาจารย์">Professor (อาจารย์)</option>
+                            <option value="ธุรกิจส่วนตัว">Private business (ธุรกิจส่วนตัว)</option>
+                            <option value="ข้าราชการ">Public servant (ข้าราชการ)</option>
+                            <option value="นักเรียน/นักศึกษา">Student (นักเรียน/นักศึกษา)</option>
+                            <option value="อื่นๆ">Other (อื่นๆ)</option>
                     </select>
-
+                            
                     <style>
                         select {
                             text-align: center;

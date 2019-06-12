@@ -54,10 +54,30 @@ require_once("../ConnData/connectDB.php");
                         <input id="input-field" onkeyup="validate();" class="form-control" type="text" name="firstname" value="<?php echo $row["m_firstname"]; ?>" maxlength="25" required>
 
                         <label>Last Name</label>
-                        <input id="input-field2" onkeyup="validate();" class="form-control" type="text" name="lastname" value="<?php echo $row["m_lastname"]; ?>" maxlength="25" required>
+                        <input id="input-field" onkeyup="validate();" class="form-control" type="text" name="lastname" value="<?php echo $row["m_lastname"]; ?>" maxlength="25" required>
 
-                        <label>Career</label>
-                        <input class="form-control" type="text" name="career" value="<?php echo $row["m_career"]; ?>" maxlength="50" required>
+                        <!-- <label>Career</label>
+                        <input class="form-control" type="text" name="career" value="<?php echo $row["m_career"]; ?>" maxlength="50" required> -->
+
+                        <label>Career</label><br>
+                        <select name="career" id="" style="width:100%">
+                            <option selected="true" disabled="disabled" value="<?php echo $row["m_career"]; ?>"><?php echo $row["m_career"]; ?></option>
+                            <option value="เกษตรกร">Farmer (เกษตรกร)</option>
+                            <option value="ผู้เชี่ยวชาญด้านการเกษตร">Agricultural experts (ผู้เชี่ยวชาญด้านการเกษตร)</option>
+                            <option value="นักวิจัย">Researchers (นักวิจัย)</option>
+                            <option value="อาจารย์">Professor (อาจารย์)</option>
+                            <option value="ธุรกิจส่วนตัว">Private business (ธุรกิจส่วนตัว)</option>
+                            <option value="ข้าราชการ">Public servant (ข้าราชการ)</option>
+                            <option value="นักเรียน/นักศึกษา">Student (นักเรียน/นักศึกษา)</option>
+                            <option value="อื่นๆ">Other (อื่นๆ)</option>
+                        </select>
+                        <br>
+                        <style>
+                            select {
+                                text-align: center;
+                                text-align-last: center;
+                            }
+                        </style>
 
                         <label>E-mail</label>
                         <input class="form-control" type="email" name="email" value="<?php echo $row["m_email"]; ?>" required>
@@ -123,6 +143,8 @@ require_once("../ConnData/connectDB.php");
         function validate() {
             var element = document.getElementById('input-field');
             element.value = element.value.replace(/[^a-zA-Zก-ฮ@]+/, '');
+            var chktext = document.getElementByclassName('check');
+            chktext.value = chktext.value.replace(/[^a-zA-Zก-ฮ@]+/, '');
         };
     </script>
 </body>
