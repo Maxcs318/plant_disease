@@ -74,10 +74,10 @@
                 <div class="row">
                     <div class="col-lg-4 col-xs-12">
                         <center> Front Leaf : </center>
-                        <img class="myImages" id="myImg" alt="Font Leaf" style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" width="70%">
+                        <img class="myImages" id="myImg" alt="Font Leaf" style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>" width="100%">
                         <br>
                         <center> Back Leaf : </center>
-                        <img class="myImages" id="myImg" alt="Back Leaf" style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>" width="70%">
+                        <img class="myImages" id="myImg" alt="Back Leaf" style="display: block; margin: 0 auto;" src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>" width="100%">
 
                         <!-- zoom img click -->
                         <div id="myModal" class="modal">

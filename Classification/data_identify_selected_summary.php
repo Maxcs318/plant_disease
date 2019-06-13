@@ -4,13 +4,21 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Summary Classification <?php echo $_GET["getCl_id"]; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap/css/main.css">
     <link rel="shortcut icon" href="../img/leaficon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(".t1").hide();
+            
+        });
+    </script>
 </head>
 
 <body>
@@ -32,14 +40,14 @@
                     </div><!-- end row 1-->
                     <div class="row" style="margin-left:auto; margin-right: auto;"> <!-- start row 2-->
 
-                        <div class="col-lg-3 col-md-3 col-xs-12">
+                        <div class="col-lg-4 col-md-3 col-xs-12">
                             <img style="width: 100%" class="myImages" id="myImg" alt="Font Leaf" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>">
                             <center>Front Leaf</center>
                             <img style="width: 100%" class="myImages" id="myImg" alt="Back Leaf" src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>">
                             <center>Back Leaf</center>
                         </div>
 
-                        <div class="col-lg-9 col-md-9 col-xs-12">
+                        <div class="col-lg-8 col-md-9 col-xs-12">
                         <h2>Owner Classification results</h2>
                         S1 : Leaf become a lesion [ <?php if ($row['cl_S1'] == 1) {
                                                         echo '&#x2713';
@@ -145,17 +153,16 @@
          ?>
          <hr>
         <div class="row">
-            <div class="col-lg-6 col-xs-12">
+            <div class="col-lg-4 col-xs-12">
                 <div id="ChartPie" style="width: 100%; margin: 0 auto"></div><br>
             </div>
-            <div class="col-lg-6 col-xs-12">
+            <div class="col-lg-8 col-xs-12">
                 <div id="ChartColumn" style="width: 100%; margin: 0 auto"></div><br>
             </div>
         </div><br><br>
-        <div class="row"> <!-- create table for check data and insert data to chart  -->
-            <div class="col-lg-6 col-xs-12"> <br> <!--div show data Result Start-->
+        <div class="row t1"> <!-- create table for check data and insert data to chart  -->
+            <div class=" col-lg-6 col-xs-12"> <br> <!--div show data Result Start-->
                 <!-- // -->
-                <?php // echo substr($row["p_date"], 0, 10); ?>
                     <?php 
                     require("../ConnData/connectDB.php"); 
                     
@@ -173,16 +180,15 @@
                     ?>
 
                     <?php 
+                    $confirmTime=0;
                     require("../ConnData/connectDB.php"); 
-                    
-                    $sql = " SELECT * FROM classification ";
+                    $sql = " SELECT * FROM classification_confirm WHERE cc_link_class = '".$_GET["getCl_id"]."' ";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) { 
-                        $i=0;
                         while ($row = $result->fetch_assoc()) { 
-                            $row['cl_confirm'];
+                            $confirmTime=$confirmTime+1;
                             for($j=0;$j<sizeof($disease);$j++){
-                                if($disease[$j][0]==$row['cl_confirm']){
+                                if($disease[$j][0]==$row['cc_disease']){
                                     $disease[$j][1]=$disease[$j][1]+1;                                    
                                 }
                             } 
@@ -191,15 +197,11 @@
                         echo "0 Comment .";
                     }     
                     $conn->close();  
-                    // for($j=0;$j<sizeof($disease);$j++){
-                    //     echo $disease[$j][0];
-                    //     echo $disease[$j][1];
-                    // }  
-                    $sumAll=0;
+                    
+                    $sumAll=0; // use for fine persen of chart pie
                     for($j=0;$j<sizeof($disease);$j++){
                         $sumAll=$sumAll+$disease[$j][1];
-                    }       
-                    // echo $sumAll;
+                    }
                     ?>
                         
                 <!-- // -->
@@ -224,19 +226,68 @@
                     </tbody>
                 </table> <!-- End write Data -->
             </div> <!--div show data Result End-->
+            <div class="col-lg-6 col-xs-12"> <br> <!--div show data Result Start-->
+                <!-- // -->
+                    <?php 
+                    for($a=0;$a<16;$a++){
+                        $symptoms[] = ['S'.($a+1),0];
+                    }
+                    require("../ConnData/connectDB.php"); 
+                    $sql = " SELECT * FROM classification_confirm WHERE cc_link_class = '".$_GET["getCl_id"]."' ";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) { 
+                        while ($row = $result->fetch_assoc()) { 
+                            for($b=0;$b<16;$b++){
+                                if($row['cc_S'.($b+1)]==1){
+                                    $symptoms[$b][1]=$symptoms[$b][1]+1; 
+                                }
+                            }
+                        }
+                    }else {
+                        echo "0 Comment .";
+                    }     
+                    $conn->close();  
+                    ?>
+                        
+                <!-- // -->
+                <table id="datatable2" > <!-- Start write Data -->
+                    <thead>
+                        <tr>
+                            <th>Symptoms</th>
+                            <th>Confirm By Expert</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        for($j=0;$j<16;$j++){
+                        ?>
+                        <tr>
+                            <th><?php echo $symptoms[$j][0];?></th>
+                            <td><?php echo $symptoms[$j][1];?></td>
+                        </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table> <!-- End write Data -->
+            </div> <!--div show data Result End-->
         </div>
     </div>
+    
 <!-- // Script Create Chart -->
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
     <script>
+        var persen="<?php echo $sumAll; ?>";
+        var person="<?php echo $confirmTime; ?>";
+
         $(function () {
             // ----- Chart Column   
             $('#ChartColumn').highcharts({
                 data: {
                     //กำหนดให้ ตรงกับ id ของ table ที่จะแสดงข้อมูล
-                    table: 'datatable'
+                    table: 'datatable2'
                 },
                 chart: {
                     backgroundColor: 'rgba(255, 255, 255, 0.50)',
@@ -272,7 +323,7 @@
                     type: 'pie'
                 },
                 title: {
-                    text: ' Confirmation results As a percentage ( 100% ) '
+                    text: ' Confirm Disease Rate ( 100% ) By '+person+' Expert'
                 },
                 yAxis: {
                     allowDecimals: false,

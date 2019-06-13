@@ -13,7 +13,15 @@
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> <!-- sweetalert-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- sweetalert-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
+    
+    <script>
+        $(document).ready(function() {
+            $("table").hide();
+            
+        });
+    </script>
 </head>
 <body>
     <?php
@@ -172,6 +180,7 @@
                     $conn->close();  
                 ?>
                 <?php 
+                    $confirmTime=0;
                     require("../../ConnData/connectDB.php"); 
                         for($e=0;$e<sizeof($dateDisease);$e++){
                             $disease3[$dateDisease[$e]]=$disease2;
@@ -181,6 +190,7 @@
                     if ($result->num_rows > 0) { 
                         $i=0;
                         while ($row = $result->fetch_assoc()) { 
+                            $confirmTime=$confirmTime+1;
                             if($row['cl_confirm']!=''){
                                 // $disease3[substr($row["cl_date"],0,7)]=$disease2;
                                 for($y=0;$y<$countTime;$y++){ // $y< ...
@@ -289,6 +299,7 @@
     <script src="https://code.highcharts.com/modules/data.js"></script>
     <script>
         var persen="<?php echo $sumAll; ?>";
+        var person="<?php echo $confirmTime; ?>";
         $(function () {
             // ----- Chart Column   
             $('#ChartColumn').highcharts({
@@ -301,7 +312,7 @@
                     type: 'column'
                 },
                 title: {
-                    text: ' Confirmation information of all experts '
+                    text: ' Confirmation information of all experts '+ '<br>( classification all '+person+' )'
                 },
                 yAxis: {
                     allowDecimals: false,
@@ -382,11 +393,5 @@
     //
 
     </script>
-    <style>
-        table, tr ,td{
-            text-align: center;
-            visibility: hidden; /* :hidden or :show */
-        }
-    </style>
 </body>
 </html>
