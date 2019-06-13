@@ -294,7 +294,7 @@
                     type: 'column'
                 },
                 title: {
-                    text: ' Confirmation information of all experts '
+                    text: ' Symptoms Found S1 - S16 By '+person+' Expert'
                 },
                 yAxis: {
                     allowDecimals: false,
@@ -307,8 +307,8 @@
                 }, 
                 tooltip: {
                     formatter: function () {
-                        return '<b>' + this.series.name + '  ' +
-                            this.point.y + ' time </b>' ;
+                        return '<b>' + ' Found ' +
+                            this.point.y + ' time By '+person+' Expert</b>' ;
                     }
                 }
             });
