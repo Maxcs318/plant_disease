@@ -117,7 +117,7 @@
 
     <?php require("../ConnData/connectDB.php");?>
     <?php 
-        $sql = "SELECT * FROM disease WHERE d_name != 'normal'";
+        $sql = "SELECT * FROM disease INNER JOIN image_of_disease ON disease.d_link_image = image_of_disease.iod_link_disease WHERE d_name != 'normal'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
@@ -126,12 +126,12 @@
                 <div class="row box-disease">
                     <div class="col-xs-12 col-md-4"><br>
                         <div class="showedit<?php echo $row['d_id'];?>">
-                            <img style="display: block; margin: 0 auto;" id="blah<?php echo $row['d_id'];?>" src="../Image/image_disease/<?php echo $row['d_image']; ?>" width="100%" alt="">
+                            <img style="display: block; margin: 0 auto;" id="blah<?php echo $row['d_id'];?>" src="../Image/image_disease/<?php echo $row['iod_image']; ?>" width="100%" alt="">
                             <br>
                             <input type="file" id="image<?php echo $row['d_id'];?>" name="imagedisease[]" > <br>
                         </div>
                         <div class="showdata<?php echo $row['d_id'];?>">
-                            <img src="../Image/image_disease/<?php echo $row['d_image']; ?>" width="100%" alt="">
+                            <img src="../Image/image_disease/<?php echo $row['iod_image']; ?>" width="100%" alt="">
                             <br><br>
                         </div>
                     </div>

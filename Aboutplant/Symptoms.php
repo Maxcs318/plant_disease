@@ -147,7 +147,7 @@
 
       <?php require("../ConnData/connectDB.php");?>
       <?php 
-            $sql = "SELECT * FROM symptoms ";
+            $sql = "SELECT * FROM symptoms INNER JOIN image_of_symptoms ON symptoms.s_link_image = image_of_symptoms.ios_link_symptoms ";
             $result = $conn->query($sql);
                   if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {            
@@ -158,12 +158,12 @@
                   <form action="../ConnData/EditSymptoms.php" method="post" enctype="multipart/form-data" >
                         <input type="hidden" name="symptomsid" value="<?php echo $row['s_id']; ?>">
                         <div class="showedit<?php echo $row['s_id'];?>">
-                            <img style="display: block; margin: 0 auto;" id="blah<?php echo $row['s_id'];?>" src="../Image/image_symptoms/<?php echo $row['s_image']; ?>" width="80%" alt="">
+                            <img style="display: block; margin: 0 auto;" id="blah<?php echo $row['s_id'];?>" src="../Image/image_symptoms/<?php echo $row['ios_image']; ?>" width="80%" alt="">
                             <br>
                             <input type="file" id="image<?php echo $row['s_id'];?>" name="imagesymptoms[]" > <br>
                         </div>
                         <div class="showdata<?php echo $row['s_id'];?>">
-                              <img style="display: block; margin: 0 auto;" src="../Image/image_symptoms/<?php echo $row['s_image'] ?>" width="80%" alt="">
+                              <img style="display: block; margin: 0 auto;" src="../Image/image_symptoms/<?php echo $row['ios_image'] ?>" width="80%" alt="">
                         </div>
                         <br>
                   </div>
