@@ -59,7 +59,7 @@
         <div class="row">
 
             <?php
-            $sql = "SELECT * FROM disease WHERE d_id= " . $_GET['getd_id'] . " ";
+            $sql = "SELECT * FROM disease INNER JOIN image_of_disease ON disease.d_link_image=image_of_disease.iod_link_disease WHERE d_id= " . $_GET['getd_id'] . " ";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -74,7 +74,7 @@
                     <!-- img row -->
                     <div class="col-lg-2 col-xs-2"></div>
                     <div class="col-lg-8 col-xs-8">
-                        <img class="myImages" id="myImg" alt="<?php echo $row['d_name']; ?>" src="../Image/image_disease/<?php echo $row['d_image']; ?>" width="100%" alt="">
+                        <img class="myImages" id="myImg" alt="<?php echo $row['d_name']; ?>" src="../Image/image_disease/<?php echo $row['iod_image']; ?>" width="100%" alt="">
                         <!-- zoom img click -->
                         <div id="myModal" class="modal">
                             <span class="close">&times;</span>
