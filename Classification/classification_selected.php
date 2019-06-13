@@ -123,7 +123,7 @@ $conn->close();
 
                     <div class="col-lg-12 col-xs-12">
                         <hr class="border-line">
-                        <h2>Latest results</h2>
+                        <h2>My Classification results</h2>
                         S1 : Leaf become a lesion [ <?php if ($row['cl_S1'] == 1) {
                                                         echo '&#x2713';
                                                     } else {

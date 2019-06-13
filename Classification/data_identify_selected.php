@@ -89,6 +89,26 @@
                     </div>
                     <div class="col-lg-8 col-xs-612">
                         <form action="../ConnData/EditClassificationDisease.php" method="post">
+
+                            <!-- // Hide value start-->
+                            <input type="hidden" name="S1" value="0">
+                            <input type="hidden" name="S2" value="0">
+                            <input type="hidden" name="S3" value="0">
+                            <input type="hidden" name="S4" value="0">
+                            <input type="hidden" name="S5" value="0">
+                            <input type="hidden" name="S6" value="0">
+                            <input type="hidden" name="S7" value="0">
+                            <input type="hidden" name="S8" value="0">
+                            <input type="hidden" name="S9" value="0">
+                            <input type="hidden" name="S10" value="0">
+                            <input type="hidden" name="S11" value="0">
+                            <input type="hidden" name="S12" value="0">
+                            <input type="hidden" name="S13" value="0">
+                            <input type="hidden" name="S14" value="0">
+                            <input type="hidden" name="S15" value="0">
+                            <input type="hidden" name="S16" value="0">
+                            <!-- // Hide value end -->
+
                             <input type="hidden" name="Cl_id" value="<?php echo $_GET["getCl_id"]; ?>">
                             <br>
                             <div class="col-md-8 col-xs-8">
@@ -245,7 +265,7 @@
 
             <div class="col-md-4">
                 <h5 style="margin-top:20px; text-align:center;">Identify The Disease</h5>
-                <select class="form-control" type="text" name="newDisease">
+                <select class="form-control" type="text" name="newDisease" required>
                     <?php require("../ConnData/connectDB.php"); ?>
                     <?php
                     $sql = " SELECT * FROM disease ";
