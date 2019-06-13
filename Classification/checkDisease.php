@@ -526,13 +526,13 @@
                                 <div class="col-12">
                                     <br>
                                     <h1>
-                                    Disease : Algol Spot .
+                                    Disease : Algal Spot .
                                     </h1><br>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <button type="submit" class="form-control btn-primary" name="disease" value="Algol Spot">
+                                    <button type="submit" class="form-control btn-primary" name="disease" value="Algal Spot">
                                         <?php if ($_SESSION["imagefront"] == '' && $_SESSION["imageback"] == '') { ?>
                                             view detail
                                         <?php } else { ?>
