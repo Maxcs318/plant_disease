@@ -134,9 +134,10 @@
                                 <a href="#" onclick="location.href='data_identify_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'">Confirm Again</a> 
                                 <?php
                             }
-                            ?><br><br><br>
+                            ?><br><br>
                             <?php if( $_SESSION["m_status"]=='admin'){ ?>
-
+                            <a href="#" onclick="location.href='data_identify_selected_summary.php?getCl_id=<?php echo $row["cl_id"]; ?>'"> classification summary</a> 
+                            <br><br>
                             <input type="button" class="btn-danger form-control col-lg-12 col-xs-12" value="Delete." onclick="deleteData(<?php echo $row['cl_id'];?>)" >
                             
                             <?php } ?>
