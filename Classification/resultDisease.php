@@ -63,13 +63,13 @@
             
             <?php require("../ConnData/connectDB.php"); ?>
             <?php
-            $sql = "SELECT * FROM symptoms WHERE s_disease ='" . $_SESSION["disease"] . "' ";
+            $sql = "SELECT * FROM symptoms INNER JOIN image_of_symptoms ON symptoms.s_link_image=image_of_symptoms.ios_link_symptoms WHERE s_disease ='" . $_SESSION["disease"] . "' ";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     ?>
                     <div class="col-lg-3 col-xs-4" style="text-align:center;">
-                        <img src="../Image/image_symptoms/<?php echo $row["s_image"]; ?>" style="border: 1px solid green;" width="100%">
+                        <img src="../Image/image_symptoms/<?php echo $row["ios_image"]; ?>" style="border: 1px solid green;" width="100%">
                         <?php echo $row["s_name"]; ?>
                     </div>
                 <?php
