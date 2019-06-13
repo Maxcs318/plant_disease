@@ -25,28 +25,22 @@
                     <div class="row"><!-- start row 1-->
                         <div class="col-lg-12 col-xs-12"><br>
                             <center>
-                                <h4 class="header">Classification ID : <?php echo $_GET["getCl_id"]; ?> </h4>
+                                <h4 class="header">Summary Classification ID : <?php echo $_GET["getCl_id"]; ?> </h4>
                             </center>
                             <hr class="border-line">
                         </div>
                     </div><!-- end row 1-->
                     <div class="row" style="margin-left:auto; margin-right: auto;"> <!-- start row 2-->
 
-                        <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="col-lg-3 col-md-3 col-xs-12">
                             <img style="width: 100%" class="myImages" id="myImg" alt="Font Leaf" src="../Image/image_for_checkdisease/<?php echo $row["cl_image"]; ?>">
                             <center>Front Leaf</center>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-xs-12">
                             <img style="width: 100%" class="myImages" id="myImg" alt="Back Leaf" src="../Image/image_for_checkdisease/<?php echo $row["cl_image2"]; ?>">
                             <center>Back Leaf</center>
                         </div>
 
-                    </div> <!-- end row 2-->
-                    <div class="row">
-                    <div class="col-lg-12 col-xs-12">
-                        <hr class="border-line">
-                        <h2>Results Of Owner </h2>
+                        <div class="col-lg-9 col-md-9 col-xs-12">
+                        <h2>Owner Classification results</h2>
                         S1 : Leaf become a lesion [ <?php if ($row['cl_S1'] == 1) {
                                                         echo '&#x2713';
                                                     } else {
@@ -126,23 +120,179 @@
                                                             echo '&#x2713 ';
                                                         } else {
                                                             echo '&#x2717';
-                                                        } ?> ]<br>
-                        </div> 
-                    </div><br><br>
+                                                        } ?> ]<br><br>
+                            <b>The Disease Owner detected :</b>
+                            <?php echo $row["cl_disease"]; ?>
+                            <br>
+                            <b>Expert Confirm Disease :</b>
+                            <?php
+                            if ($row["cl_confirm"] != '') {
+                                echo $row["cl_confirm"];
+                            } else {
+                                '<div style="color: yellow;">';
+                                echo 'Waiting to be confirmed';
+                                '</div>';
+                            }
+                            ?>
+                        </div>
+
+                    </div> <!-- end row 2-->
                 <?php } 
                 }else{
                     echo 'error';
                 }
                 $conn->close();
          ?>
+         <hr>
         <div class="row">
-        <div class="col-lg-6 col-xs-12">
-                Chart 1
+            <div class="col-lg-6 col-xs-12">
+                <div id="ChartPie" style="width: 100%; margin: 0 auto"></div><br>
             </div>
             <div class="col-lg-6 col-xs-12">
-                Chart 2
+                <div id="ChartColumn" style="width: 100%; margin: 0 auto"></div><br>
             </div>
+        </div><br><br>
+        <div class="row"> <!-- create table for check data and insert data to chart  -->
+            <div class="col-lg-6 col-xs-12"> <br> <!--div show data Result Start-->
+                <!-- // -->
+                <?php // echo substr($row["p_date"], 0, 10); ?>
+                    <?php 
+                    require("../ConnData/connectDB.php"); 
+                    
+                    $sql = " SELECT * FROM disease ";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) { 
+                        $i=0;
+                        while ($row = $result->fetch_assoc()) { 
+                            $disease[] = [$row['d_name'],0];
+                        }
+                    }else {
+                        echo "0 Comment .";
+                    }     
+                    $conn->close();         
+                    ?>
+
+                    <?php 
+                    require("../ConnData/connectDB.php"); 
+                    
+                    $sql = " SELECT * FROM classification ";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) { 
+                        $i=0;
+                        while ($row = $result->fetch_assoc()) { 
+                            $row['cl_confirm'];
+                            for($j=0;$j<sizeof($disease);$j++){
+                                if($disease[$j][0]==$row['cl_confirm']){
+                                    $disease[$j][1]=$disease[$j][1]+1;                                    
+                                }
+                            } 
+                        }
+                    }else {
+                        echo "0 Comment .";
+                    }     
+                    $conn->close();  
+                    // for($j=0;$j<sizeof($disease);$j++){
+                    //     echo $disease[$j][0];
+                    //     echo $disease[$j][1];
+                    // }  
+                    $sumAll=0;
+                    for($j=0;$j<sizeof($disease);$j++){
+                        $sumAll=$sumAll+$disease[$j][1];
+                    }       
+                    // echo $sumAll;
+                    ?>
+                        
+                <!-- // -->
+                <table id="datatable" > <!-- Start write Data -->
+                    <thead>
+                        <tr>
+                            <th>Disease</th>
+                            <th>Confirm By Expert</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        for($j=0;$j<sizeof($disease);$j++){
+                        ?>
+                        <tr>
+                            <th><?php echo $disease[$j][0];?></th>
+                            <td><?php echo $disease[$j][1];?></td>
+                        </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table> <!-- End write Data -->
+            </div> <!--div show data Result End-->
         </div>
     </div>
+<!-- // Script Create Chart -->
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script>
+        $(function () {
+            // ----- Chart Column   
+            $('#ChartColumn').highcharts({
+                data: {
+                    //กำหนดให้ ตรงกับ id ของ table ที่จะแสดงข้อมูล
+                    table: 'datatable'
+                },
+                chart: {
+                    backgroundColor: 'rgba(255, 255, 255, 0.50)',
+                    type: 'column'
+                },
+                title: {
+                    text: ' Confirmation information of all experts '
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: ' '
+                    }
+                },
+                credits: { // hide credits Highchart.com
+                    enabled: false
+                }, 
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.series.name + '  ' +
+                            this.point.y + ' time </b>' ;
+                    }
+                }
+            });
+            // ----- Chart Pie
+            $('#ChartPie').highcharts({
+                data: {
+                    //กำหนดให้ ตรงกับ id ของ table ที่จะแสดงข้อมูล
+                    table: 'datatable'
+                },
+                chart: {
+                    backgroundColor: 'rgba(255, 255, 255, 0.50)',
+                    type: 'pie'
+                },
+                title: {
+                    text: ' Confirmation results As a percentage ( 100% ) '
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: ' '
+                    }
+                },
+                credits: { // hide credits Highchart.com
+                    enabled: false
+                },         
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + 'Found ' + this.point.name +' '+
+                        (this.point.y/persen*100).toFixed(2) + ' % </b>' ;
+                    }
+                }
+            });
+        });
+    //
+
+    </script>
 </body>
 </html>

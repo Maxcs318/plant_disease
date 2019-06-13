@@ -9,11 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../bootstrap/css/main.css">
+    <link rel="shortcut icon" href="../../img/leaficon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> <!-- sweetalert-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- sweetalert-->
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> <!-- chart -->
 
 </head>
 <body>
@@ -202,9 +201,9 @@
                 ?>
 
                 <script>
-                    console.log(<?= sizeof($disease2); ?>);
-                    console.log(<?= json_encode($disease3); ?>);
-                    console.log(<?= json_encode($dateDisease); ?>);
+                    // console.log(<?= sizeof($disease2); ?>);
+                    // console.log(<?= json_encode($disease3); ?>);
+                    // console.log(<?= json_encode($dateDisease); ?>);
                 </script>
 
                 <table id="datatable2" > <!-- Start write Data -->
