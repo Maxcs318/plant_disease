@@ -144,6 +144,7 @@
                         <div class="showedit<?php echo $row['d_id'];?>">
                             <img style="display: block; margin: 0 auto;" id="blah<?php echo $row['d_id'];?>" src="../Image/image_disease/<?php echo $row['iod_image']; ?>" width="100%" alt="">
                             <br>
+                            <input type="hidden" name="key_disease" value="<?php echo $row['iod_link_disease']; ?>">
                             <input type="file" id="image<?php echo $row['d_id'];?>" name="imagedisease[]" > <br>
                         </div>
                         <div class="showdata<?php echo $row['d_id'];?>">
@@ -188,7 +189,7 @@
                                         </div>
                 </form>
                                         <div class="showdata<?php echo $row['d_id'];?>">
-                                            <input type="button" class="btn-danger form-control col-lg-12 col-xs-12" value="Delete Disease" onclick="deleteData(<?php echo $row['d_id'];?>)" >
+                                            <input type="button" class="btn-danger form-control col-lg-12 col-xs-12" value="Delete Disease" onclick="deleteData('<?php echo $row['d_link_image'];?>')" >
                                         </div>
                                     </div>
                                 </div>
@@ -230,7 +231,7 @@
         
     </footer>
     <script>
-        function deleteData(getid) {
+        function deleteData(getKey) {
 
             swal({
             title: "Are you sure?", 
@@ -241,7 +242,7 @@
             
             showCancelButton: true ,
             }, function() {
-                window.location.href='../ConnData/DeleteDisease.php?getID='+getid;
+                window.location.href='../ConnData/DeleteDisease.php?getKeylink='+getKey;
             });
             
         }
