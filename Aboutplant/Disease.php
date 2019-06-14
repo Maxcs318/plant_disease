@@ -161,7 +161,7 @@
                                 <?php echo $row['d_name']; ?>
                             </div>
                         </h2> <input type="hidden" name="diseaseid" value="<?php echo $row['d_id']; ?>" >
-                        <p class="showdata<?php echo $row['d_id'];?> detail" style="text-indent: 2.5em;">
+                        <p class="showdata<?php echo $row['d_id'];?> detail" >
                             <?php echo substr($row['d_detail'],0,650); ?>
                             <a href="../Aboutplant/DiseaseSelected.php?getd_id=<?php echo $row['d_id']; ?>" > . . . See More</a>
                         </p>

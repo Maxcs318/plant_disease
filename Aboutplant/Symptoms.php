@@ -14,14 +14,23 @@
    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> <!-- sweetalert-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- sweetalert-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- sweetalert-->
    <script>
         $(document).ready(function() {
-            $(".insertSymptoms").hide();
+            $(".insertSymptoms").show();
+            // $(".insertSymptoms").hide();
 
             $(".insertNewSymptoms").click(function() {
                 $(".insertSymptoms").toggle();
             });
+            var count = 0;
+            $('#add_image1').click(function() {
+                  count = count-1;
+                  $('xyz').append('<img style="display: block; margin: 0 auto;"  src="../Image/image_disease/choose.png" width="100%" alt="">'
+                  +'<input type="file" name="imagesymptoms[]" ><br><br>'
+                  );
+            });
+        
         });
             function EditThisSymptoms(s_id){                
                 $(".showedit"+s_id).toggle();
@@ -97,7 +106,7 @@
             $diseaseSelect= array();  
             
             require("../ConnData/connectDB.php"); 
-                            $sql = " SELECT * FROM disease ";
+                            $sql = " SELECT * FROM disease WHERE d_name !='Normal' ";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) { 
                                 while ($row = $result->fetch_assoc()) { 
@@ -115,10 +124,29 @@
             <div class="row box-disease">
                   <div class="col-xs-12 col-md-4"><br>
                               <img style="display: block; margin: 0 auto;" id="blah" src="../Image/image_disease/choose.png" width="100%" alt="">
+                              <br>
+                              <input type="file" id="image" name="imagesymptoms[]" required> <br>
+                              <xyz></xyz><br>
+                              <input type="button" value="Add Image" id="add_image1">
                               <br><br>
-                              <input type="file" id="image" name="imagesymptoms[]" required> <br><br><br>
                   </div>
                   <div class="col-xs-12 col-md-8">
+                        <!-- //Key start-->
+                        <?php
+                        function generateRandomString($length = 40)
+                        {
+                              $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                              $charactersLength = strlen($characters);
+                              $randomString = '';
+                              for ($i = 0; $i < $length; $i++) {
+                              $randomString .= $characters[rand(0, $charactersLength - 1)];
+                              }
+                              return $randomString;
+                        }
+                        // echo generateRandomString();
+                        ?>
+                        <input type="hidden" name="key_symptoms_image" value="<?php echo generateRandomString(); ?>">
+                        <!-- //Key end -->
                         <h3> Name of Symptoms </h3>
                         <input type="text" class="form-control col-lg-8 col-xs-12" name="symptomsname" maxlength="50" required><br>
                         <h3> Disease of Symptoms </h3>
@@ -293,7 +321,7 @@
                 var reader = new FileReader();
 
                 reader.onload = function(e) {
-                    $('#blah').attr('src', e.target.result);
+                    $("#blah").attr("src", e.target.result);
                 }
 
                 reader.readAsDataURL(input.files[0]);
