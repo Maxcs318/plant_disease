@@ -22,6 +22,27 @@ for($i=0;$i<count($_FILES["imagesymptoms"]["name"]);$i++)
 	}
 }
 ?>
+<?php //insert image symptoms
+for($i=0;$i<count($_FILES["insertimagesymptoms"]["name"]);$i++)
+{
+	if($_FILES["insertimagesymptoms"]["name"][$i] != "")
+	{   
+        $newfilename2= date('dmYHis').str_replace(" ", "", basename($_FILES["insertimagesymptoms"]["name"][$i]));
+		if(move_uploaded_file($_FILES["insertimagesymptoms"]["tmp_name"][$i],"../Image/image_symptoms/".$newfilename2))
+		{
+            require("connectDB.php");
+            $sql = "INSERT INTO image_of_symptoms (ios_image, ios_link_symptoms) 
+            VALUES ('$newfilename2','".$_POST['key_image']."')";
+            if ($conn->query($sql) === TRUE) {
+                   
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+            $conn->close();
+        }
+	}
+}
+?>
 
 <?php require("connectDB.php");?>
 <?php
