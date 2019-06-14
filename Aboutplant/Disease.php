@@ -103,6 +103,22 @@
                         <input type="file" id="image" name="imagedisease[]" required> <br><br><br>
                 </div>
                 <div class="col-xs-12 col-md-8">
+                    <!-- //Key start-->
+                    <?php
+                    function generateRandomString($length = 40)
+                    {
+                        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                        $charactersLength = strlen($characters);
+                        $randomString = '';
+                        for ($i = 0; $i < $length; $i++) {
+                            $randomString .= $characters[rand(0, $charactersLength - 1)];
+                        }
+                        return $randomString;
+                    }
+                    // echo generateRandomString();
+                    ?>
+                    <input type="hidden" name="key_disease_image" value="<?php echo generateRandomString(); ?>">
+                    <!-- //Key end -->
                     <h3> Name of Disease </h3>
                     <input type="text" class="form-control col-lg-8 col-xs-12" name="diseasename" maxlength="50" required><br>
                     <h3> Detail </h3>
@@ -117,7 +133,7 @@
 
     <?php require("../ConnData/connectDB.php");?>
     <?php 
-        $sql = "SELECT * FROM disease INNER JOIN image_of_disease ON disease.d_link_image = image_of_disease.iod_link_disease WHERE d_name != 'normal'";
+        $sql = "SELECT * FROM disease LEFT JOIN image_of_disease ON disease.d_link_image = image_of_disease.iod_link_disease WHERE d_name != 'normal'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {

@@ -1,5 +1,4 @@
 <?php session_start(); ?>
-<?php require("../ConnData/connectDB.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,9 +56,38 @@
 
     <div class="container box-list">
         <div class="row">
-
-            <?php
+            <div class="col-lg-12 col-xs-12"><br></div>
+        </div>
+        <?php require("../ConnData/connectDB.php"); ?>
+        <div class="row">
+        <?php
             $sql = "SELECT * FROM disease INNER JOIN image_of_disease ON disease.d_link_image=image_of_disease.iod_link_disease WHERE d_id= " . $_GET['getd_id'] . " ";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                    <div class="col-lg-<?php if($result->num_rows==1){echo '6';}else{echo '4';} ?> col-xs-12" style="margin: auto;"><br>
+                        <img class="myImages" id="myImg" alt="<?php echo $row['d_name']; ?>" src="../Image/image_disease/<?php echo $row['iod_image']; ?>" width="100%" alt="">
+                    </div>
+                    <!-- zoom img click -->
+                    <div id="myModal" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img01">
+                            <div id="caption"></div>
+                    </div>
+                        <!-- end zoom img -->
+                    <?php
+                }
+            }else{
+                echo 'error';
+            }
+            $conn->close();
+        ?>
+        </div>
+        <div class="row">
+            <?php require("../ConnData/connectDB.php"); ?>
+            <?php
+            $sql = "SELECT * FROM disease LEFT JOIN image_of_disease ON disease.d_link_image=image_of_disease.iod_link_disease WHERE d_id= " . $_GET['getd_id'] . " ";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -71,21 +99,6 @@
                             </center>
                         </h3>
                     </div>
-                    <!-- img row -->
-                    <div class="col-lg-2 col-xs-2"></div>
-                    <div class="col-lg-8 col-xs-8">
-                        <img class="myImages" id="myImg" alt="<?php echo $row['d_name']; ?>" src="../Image/image_disease/<?php echo $row['iod_image']; ?>" width="100%" alt="">
-                        <!-- zoom img click -->
-                        <div id="myModal" class="modal">
-                            <span class="close">&times;</span>
-                            <img class="modal-content" id="img01">
-                            <div id="caption"></div>
-                        </div>
-                        <!-- end zoom img -->
-                    </div>
-                    <div class="col-lg-2 col-xs-2"></div>
-                    <!-- detail row -->
-
                     <div class="col-lg-12 col-xs-12" style="margin-top: 50px;">
                         <h4><?php echo $row['d_detail'];
                             ?></h4>

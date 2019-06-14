@@ -147,7 +147,7 @@
 
       <?php require("../ConnData/connectDB.php");?>
       <?php 
-            $sql = "SELECT * FROM symptoms INNER JOIN image_of_symptoms ON symptoms.s_link_image = image_of_symptoms.ios_link_symptoms ";
+            $sql = "SELECT * FROM symptoms LEFT JOIN image_of_symptoms ON symptoms.s_link_image = image_of_symptoms.ios_link_symptoms ";
             $result = $conn->query($sql);
                   if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {            
