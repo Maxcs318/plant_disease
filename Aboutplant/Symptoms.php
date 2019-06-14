@@ -178,9 +178,11 @@
             $sql = "SELECT * FROM symptoms LEFT JOIN image_of_symptoms ON symptoms.s_link_image = image_of_symptoms.ios_link_symptoms ";
             $result = $conn->query($sql);
                   if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {            
+                        $cutIt='Z00';
+                        while($row = $result->fetch_assoc()) {
+                              if($row['s_id']!=$cutIt){
+                                    $cutIt=$row['s_id']; 
             ?>
-                  
                   <div class="col-xs-12 col-md-3">
                         <br>
                   <form action="../ConnData/EditSymptoms.php" method="post" enctype="multipart/form-data" >
@@ -279,8 +281,9 @@
                         readURL<?php echo $row['s_id'];?>(this);
                   });
                   </script>
-            
-            <?php       }
+                              
+            <?php             }
+                        }
                   }else{
 
             }

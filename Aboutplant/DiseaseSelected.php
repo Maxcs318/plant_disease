@@ -87,7 +87,7 @@
         <div class="row">
             <?php require("../ConnData/connectDB.php"); ?>
             <?php
-            $sql = "SELECT * FROM disease LEFT JOIN image_of_disease ON disease.d_link_image=image_of_disease.iod_link_disease WHERE d_id= " . $_GET['getd_id'] . " ";
+            $sql = "SELECT * FROM disease WHERE d_id= " . $_GET['getd_id'] . " ";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {

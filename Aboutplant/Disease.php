@@ -136,7 +136,10 @@
         $sql = "SELECT * FROM disease LEFT JOIN image_of_disease ON disease.d_link_image = image_of_disease.iod_link_disease WHERE d_name != 'normal'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
+            $cutIt='X00';
             while($row = $result->fetch_assoc()) {
+                if($row['d_id']!=$cutIt){
+                    $cutIt=$row['d_id']
             ?>
                 <form action="../ConnData/EditDisease.php" method="post" enctype="multipart/form-data" >
                 <div class="row box-disease">
@@ -218,6 +221,7 @@
                 </div><br>
             
             <?php
+                }
             }
         }else{
 
