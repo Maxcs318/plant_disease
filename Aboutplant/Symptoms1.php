@@ -32,6 +32,14 @@
             });
         
         });
+            function EditThisSymptoms(s_id){                
+                $(".showedit"+s_id).toggle();
+                $(".showdata"+s_id).toggle();
+            }
+            function CancelThisSymptoms(s_id){                
+                $(".showedit"+s_id).toggle();
+                $(".showdata"+s_id).toggle();
+            }
     </script>
 </head>
 
@@ -55,7 +63,7 @@
 
    <div class="container" style="margin-top: 50px;">
       <!-- home button -->
-      <div class="col-xs-4 col-lg-4">
+      <div class="col-xs-4 col-md-4">
 
          <a href="../index.php">
             <button type="submit" style="border: 0; background: transparent">
@@ -64,7 +72,7 @@
             </button></a>
       </div>
       <!-- Disease button -->
-      <div class="col-xs-4 col-lg-4">
+      <div class="col-xs-4 col-md-4">
          <a href="Disease.php">
             <button type="submit" style="border: 0; background: transparent">
                <img src="../img/pageicon/classification.png" class="imgabout">
@@ -93,9 +101,10 @@
                         }
                   ?> 
       </div>
-      <!-- // find disease all in database Use For Insert Symptoms-->
+      <!-- // find disease all in database -->
       <?php 
             $diseaseSelect= array();  
+            
             require("../ConnData/connectDB.php"); 
                             $sql = " SELECT * FROM disease WHERE d_name !='Normal' ";
                             $result = $conn->query($sql);
@@ -174,49 +183,116 @@
                               if($row['s_id']!=$cutIt){
                                     $cutIt=$row['s_id']; 
             ?>
-                  <div class="col-xs-12 col-lg-6"><br>
-                        <div class="row showallimage<?php echo $row['s_id'];?>" style="margin: auto;">                       
-                            <div class="col-lg-4 col-xs-6" style="margin: auto;">
-                                <img style="display: block; margin: auto;" src="../Image/image_symptoms/<?php echo $row['ios_image'] ?>" width="100%" alt="">
-                                <br>
-                            </div>
+                  <div class="col-xs-12 col-md-3">
+                        <br>
+                  <form action="../ConnData/EditSymptoms.php" method="post" enctype="multipart/form-data" >
+                        <input type="hidden" name="symptomsid" value="<?php echo $row['s_id']; ?>">
+                        <div class="showedit<?php echo $row['s_id'];?>">
+                            <img style="display: block; margin: 0 auto;" id="blah<?php echo $row['s_id'];?>" src="../Image/image_symptoms/<?php echo $row['ios_image']; ?>" width="80%" alt="">
+                            <br>
+                            <input type="file" id="image<?php echo $row['s_id'];?>" name="imagesymptoms[]" > <br>
                         </div>
+                        <div class="showdata<?php echo $row['s_id'];?>">
+                              <img style="display: block; margin: 0 auto;" src="../Image/image_symptoms/<?php echo $row['ios_image'] ?>" width="80%" alt="">
+                        </div>
+                        <br>
                   </div>
-                  <div class="col-xs-12 col-lg-6">
+                  <div>
+                  <x class="showallimage<?php echo $row['s_id'];?>"></x>
+                  </div>
+                  <div class="col-xs-12 col-md-3">
                         <h3 class="detail-header">
+                        <div class="showedit<?php echo $row['s_id'];?>">
+                              <input type="text" class="form-control " name="symptomsname" maxlength="50" value="<?php echo $row['s_name']; ?>" required>
+                        </div>
+                        <div class="showdata<?php echo $row['s_id'];?>">
                                     <?php echo $row['s_name'] ?>
+                        </div>
                         </h3>
+                        <div class="showedit<?php echo $row['s_id'];?>">
+                            <textarea class="form-control" rows="3" type="text" name="symptomsdetail" required><?php echo $row['s_detail'];?></textarea>
+                            <br>
+                        </div>
+                        <div class="showdata<?php echo $row['s_id'];?>">
                               <p class="detail">
                                     <?php echo $row['s_detail'] ?>
                               </p>
+                        </div>
+                        <div class="showedit<?php echo $row['s_id'];?>">
+                              <select class="form-control" name="symptomsdisease" style="float: left;">
+                                    <?php
+                                    for($i=0;$i<sizeof($diseaseSelect);$i++){
+                                          if($row['s_disease'] == $diseaseSelect[$i]){
+                                          ?>
+                                                <option value="<?php echo $diseaseSelect[$i]; ?>" selected><?php echo $diseaseSelect[$i]; ?></option>
+                                          <?php
+                                          }else{
+                                          ?>
+                                                <option value="<?php echo $diseaseSelect[$i]; ?>" ><?php echo $diseaseSelect[$i]; ?></option>
+                                          <?php
+                                          }
+                                    }
+                                    ?>
+                              </select> <br><br><br>
+                              <!-- <input type="text" class="form-control " name="symptomsdisease" maxlength="50" value="<?php echo $row['s_disease']; ?>" required><br> -->
+                        </div>
+                        <div class="showdata<?php echo $row['s_id'];?>">
                               <b>Disease : <?php echo $row['s_disease']; ?></b><br><br>
+                        </div> 
                         <?php 
                             if($_SESSION['m_status']=='admin'){
                             ?>  
                                 <div class="row">
                                     <div class="col-6">
-                                          <input type="button" class="btn-primary form-control col-lg-12 col-xs-12" value="Edit" onclick="EditThisSymptoms('<?php echo $row['s_link_image'];?>')">
+                                          <div >
+                                                <input type="button" class="showdata<?php echo $row['s_id'];?> btn-primary form-control col-lg-12 col-xs-12" value="Edit" onclick="EditThisSymptoms(<?php echo $row['s_id'];?>)">
+                                          </div>
+                                          <div >
+                                                <input type="button" class="showedit<?php echo $row['s_id'];?> btn-danger form-control col-lg-12 col-xs-12" value="Cancel" onclick="CancelThisSymptoms(<?php echo $row['s_id'];?>)">
+                                          </div>
                                     </div>
                                     <div class="col-6">
-                                          <input type="button" class="btn-danger form-control col-lg-12 col-xs-12" value="Delete" onclick="deleteData('<?php echo $row['s_link_image'];?>')">
+                                          <div >
+                                                <button class="showedit<?php echo $row['s_id'];?> btn-primary form-control col-lg-12 col-xs-12" >Save </button> 
+                                          </div>
+                  </form>                        
+                                          <div >
+                                                <input type="button" class="showdata<?php echo $row['s_id'];?> btn-danger form-control col-lg-12 col-xs-12" value="Delete" onclick="deleteData(<?php echo $row['s_id'];?>)">
+                                          </div>
                                     </div>
                                 </div>
                                 <br>
                             <?php
                             }
-                        ?> 
-                            
-                  </div>    
-                  <div class="col-lg-12 col-xs-12">
-                        <hr>
-                  </div>        
-            <?php            }else if($cutIt==$row['s_id']){
-                                ?>
-                                <script>
-                                      $('.showallimage'+<?php echo $row["s_id"];?>).append('<div class="col-xs-6 col-lg-4" ><img style="display: block; margin: 0 auto;" src="../Image/image_symptoms/<?php echo $row['ios_image'] ?>" width="100%" alt=""><br></div>');
-                                </script>
-                                <?php
-                            }
+                        ?>
+
+                  </div>
+                  <script>
+                  // hide edit
+                  $(".showedit<?php echo $row['s_id'];?>").hide();
+                  // set image 
+                  function readURL<?php echo $row['s_id'];?>(input) {
+                        if (input.files && input.files[0]) {
+                              var reader = new FileReader();
+                              reader.onload = function(e) {
+                              $('#blah<?php echo $row['s_id'];?>').attr('src', e.target.result);
+                              }
+                              reader.readAsDataURL(input.files[0]);
+                        }
+                  }
+                  $("#image<?php echo $row['s_id'];?>").change(function() {
+                        readURL<?php echo $row['s_id'];?>(this);
+                  });
+                  </script>
+                              
+            <?php             }
+                              else if($cutIt==$row['s_id']){
+                                    ?>
+                                    <script>
+                                          $('.showallimage'+<?php echo $row['s_id'];?>).append('<img class="col-xs-12 col-md-3" style="display: block; margin: 0 auto;" src="../Image/image_symptoms/<?php echo $row['ios_image'] ?>" width="80%" alt="">');
+                                    </script>
+                                    <?php
+                              }
                         }
                   }else{
 
@@ -250,9 +326,7 @@
             });
 
       }
-        function EditThisSymptoms(s_key){                
-            window.location.href='SymptomsFormEdit.php?getKey='+s_key;
-        }
+
 
         function readURL(input) {
 
