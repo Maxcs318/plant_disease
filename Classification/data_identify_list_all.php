@@ -154,7 +154,7 @@
     ?>
     
         <a class=" btn btn-danger float-right" href="../index.php" style="width: 90px; margin-bottom:10px ">Back</a>
-        <a class="float-right" style="margin-right: 10px;" href="#top">Back to top</a>
+
     </div>
     <?php $conn->close(); ?>
     <footer style="margin: 50px;">
