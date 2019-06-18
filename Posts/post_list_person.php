@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My Post All </title>
+    <title>บัญชีผู้ใช้งาน</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -21,9 +21,9 @@
 
     <!-- user id top -->
     <div style="text-align:right;" class="usertop">
-        Username :
+        ชื่อผู้ใช้ :
         <?php echo $_SESSION["m_username"]; ?>
-        | Status :
+        | สถานะ :
         <?php echo $_SESSION["m_status"]; ?>
     </div>
     <!--end user id top -->
@@ -49,14 +49,14 @@
             <div class="col-xs-9 col-md-6 about-header">
                 <div class="about-box">
                     <div class="about-text-id">
-                        My Profile <br>
-                        Username :
+                        บัญชีของฉัน <br>
+                        ชื่อผู้ใช้งาน :
                         <?php echo $_SESSION["m_username"]; ?> <br>
-                        Status :
+                        สถานะผู้ใช้งาน :
                         <?php echo $_SESSION["m_status"]; ?> <br>
-                        <a href="../index.php">Home</a> |
-                        <a href="../Actor/editProfile.php">Edit profile</a> |
-                        <a href="../classification/classification_list_person.php">Classification</a>
+                        <a href="../index.php">เมนูหลัก</a> |
+                        <a href="../Actor/editProfile.php">แก้ไขโปรไฟล์</a> |
+                        <a href="../classification/classification_list_person.php">การตรวจโรคของฉัน</a>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                 ?>
                 <div class="col-lg-6 col-xs-12">
                     <center>
-                        <h4>Posts that have been comments.</h4>
+                        <h4>กระทู้ของคุฯได้รับการยืนยันแล้ว</h4>
                     </center>
                     <hr>
                     <div class="row">
@@ -87,7 +87,7 @@
                             ?>
                             <div class="col-lg-12 col-xs-12">
                                 <a class="float:bottom" href='post_selected.php?getPostID=<?php echo $row["p_id"]; ?>'>
-                                    Post ID: <?php echo $row["p_id"]; ?> Have been Comments.
+                                    กระทู้หมายเลข : <?php echo $row["p_id"]; ?> ได้รับการยืนยัน
                                 </a>
                             </div>
                         <?php
@@ -111,7 +111,7 @@
                 ?>
                 <div class="col-lg-6 col-xs-12">
                     <center>
-                        <h4>Classification that have been confirm.</h4>
+                        <h4>การตรวจโรคของคุณได้รับการยืนยันแล้ว</h4>
                     </center>
                     <hr>
                     <div class="row">
@@ -121,7 +121,7 @@
                             ?>
                             <div class="col-lg-12 col-xs-12">
                                 <a class="float:bottom" href='../Classification/classification_selected.php?getCl_id=<?php echo $row["cl_id"]; ?>'>
-                                    Classification : ID <?php echo $row['cl_id']; ?> Have been Confirm.
+                                    การตรวจโรคหมายเลข : <?php echo $row['cl_id']; ?> ได้รับการยืนยัน
                                 </a>
                             </div>
                         <?php
@@ -142,7 +142,7 @@
     <div class="container box-list" style="margin: auto; margin-top: 30px;">
         <div class="row">
             <div class="col-xs-12 col-md-12"><br>
-                <h4 class=" list-header">My Post All </h4>
+                <h4 class=" list-header">กระทู้ทั้งหมดของฉัน </h4>
             </div>
         </div>
         <?php require("../ConnData/connectDB.php"); ?>
