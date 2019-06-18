@@ -50,6 +50,7 @@
             <p class="item-3 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION</p>
         </div>
         <!-- end slide text -->
+        
         <div class="container" style="margin-top: 70px;">
             <div class="col-md-4 col-xs-4">
                 <!-- home button -->
