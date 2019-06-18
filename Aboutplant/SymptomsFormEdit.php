@@ -21,18 +21,12 @@
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <script>
         $(document).ready(function() {
-            var count = 1000;
-            var c = 1000;
-            // var name=[];
-
+            var count = 0;
+            
             $('#add_image1').click(function() {
                 count = count+1;                
-                name.push(count);
-                    document.getElementById("ClickCount").innerHTML = count;
-
-
-                $('.xyz').append('<div class="col-lg-4 col-xs-12"><img src="../Image/image_disease/choose.png" width="100%" alt=""><br>' +
-                    '<br><input type="file" name="insertimagesymptoms[]" > <br></div>'
+                $('.xyz').append('<div class="col-lg-4 col-xs-12"><img id="'+count+'" src="../Image/image_disease/choose.png" width="100%" alt=""><br>' +
+                    '<br> <input type="file" onchange="document.getElementById('+count+').src = window.URL.createObjectURL(this.files[0])" name="insertimagesymptoms[]"> <br></div>'
                 );
 
             });
@@ -79,8 +73,7 @@
             </div>
         </div>
         <div class="container box-list">
-        <!-- dadaadadadadadadadadadadadadadasdadasdasdadsadasdasdsadsadadadasdadadasdasdasdasdasdasd -->
-        <div class="row" id="ClickCount"></div>
+        
             <form action="../ConnData/EditSymptoms.php" method="post" enctype="multipart/form-data">
 
                 <!-- // find disease all in database -->
