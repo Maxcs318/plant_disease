@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../bootstrap/css/main.css">
+    <link rel="st   ylesheet" href="../bootstrap/css/main.css">
     <link rel="shortcut icon" href="../img/leaficon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -21,13 +21,22 @@
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> 
     <script>
         $(document).ready(function() {
-            // var count = 0;
+            var count = 1000;
+            var c = 1000;
+            // var name=[];
+
             $('#add_image1').click(function() {
-                //   count = count-1;
+                count = count+1;                
+                name.push(count);
+                    document.getElementById("ClickCount").innerHTML = count;
+
+
                 $('.xyz').append('<div class="col-lg-4 col-xs-12"><img src="../Image/image_disease/choose.png" width="100%" alt=""><br>' +
                     '<br><input type="file" name="insertimagesymptoms[]" > <br></div>'
                 );
+
             });
+        
         });
     </script>
 
@@ -69,6 +78,8 @@
             </div>
         </div>
         <div class="container box-list">
+        <!-- dadaadadadadadadadadadadadadadasdadasdasdadsadasdasdsadsadadadasdadadasdasdasdasdasdasd -->
+        <div class="row" id="ClickCount"></div>
             <form action="../ConnData/EditSymptoms.php" method="post" enctype="multipart/form-data">
 
                 <!-- // find disease all in database -->
