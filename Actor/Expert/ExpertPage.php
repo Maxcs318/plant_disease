@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Expert home</title>
+    <title>เมนูหลัก</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -25,18 +25,18 @@
 
     <!-- user id top -->
     <div style="text-align:right;" class="usertop">
-        Username :
+        ชื่อผู้ใช้ :
         <?php echo $_SESSION["m_username"]; ?>
-        | Status :
+        | สถานะ :
         <?php echo $_SESSION["m_status"]; ?>
     </div>
     <!--end user id top -->
 
     <!-- slide text -->
     <div class="row">
-        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
-        <p class="item-2 ">Some Text for [item-2]</p>
-        <p class="item-3 ">Some Text for [item-3]</p>
+        <p class="item-1 ">ยินดีต้อนรับ คุณ <?php echo $_SESSION["m_username"]; ?></p>
+        <p class="item-2 ">เข้าสู่ระบบคัดแยกโรคพืชของมะม่วง</p>
+        <p class="item-3 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION</p>
     </div>
     <!-- end slide text -->
 
@@ -47,7 +47,7 @@
                 <a href="../../Posts/post_list_person.php">
                     <button type="submit" class="imgcenter" style="border:0; background: transparent; ">
                         <img src="../../img/pageicon/aboutme.png" class="imgcenter">
-                        <p class="textimg">About me 
+                        <p class="textimg">About me<br>เกี่ยวกับฉัน 
                         <font color="red"> <?php 
                         if($countpost>0){
                             echo 'p+'.$countpost;
@@ -68,7 +68,7 @@
                 <a href="../../Posts/post_form.php">
                     <button type="submit" class="imgcenter" style="border: 0; background: transparent">
                         <img src="../../img/pageicon/post.png" class="imgcenter">
-                        <p class="textimg">Create Post</p>
+                        <p class="textimg">Create Post<br>สร้างกระทู้</p>
                     </button></a>
             </div>
 
@@ -76,7 +76,7 @@
                 <a href="../../Classification/chooseimageforcheck.php">
                     <button type="submit" class="imgcenter" style="border: 0; background: transparent">
                         <img src="../../img/pageicon/classification.png" class="imgcenter">
-                        <p class="textimg">Disease <br> Classification</p>
+                        <p class="textimg">Classification<br>ตรวจโรค</p>
                     </button></a>
             </div>
 
@@ -84,7 +84,7 @@
                 <a href="../../Aboutplant/AboutPlant.php">
                     <button type="submit" class="imgcenter" style="border: 0; background: transparent">
                         <img src="../../img/pageicon/aboutplant.png" class="imgcenter">
-                        <p class="textimg">About Plant's <br> Disease in Mango</p>
+                        <p class="textimg">Plant Disease<br>ข้อมูลโรค</p>
                     </button></a>
             </div>
 
@@ -92,14 +92,14 @@
                 <a href="../../Posts/post_list_all.php">
                     <button type="submit" class="imgcenter" style="border: 0; background: transparent">
                         <img src="../../img/pageicon/dataidentify.png" class="imgcenter">
-                        <p class="textimg">Data Identify</p>
+                        <p class="textimg">Data Identify<br>วิเคราะห์โรค</p>
                     </button></a>
             </div>
 
             <div class="col-xs-6 col-md-4">
                 <button type="submit" class="imgcenter" style="border: 0; background: transparent" onclick="logout()">
                     <img src="../../img/pageicon/logout.png" class="imgcenter">
-                    <p class="textimg">Log out</p>
+                    <p class="textimg">Log out<br>ออกจากระบบ</p>
                 </button>
             </div>
         </div>

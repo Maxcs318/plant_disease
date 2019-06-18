@@ -47,9 +47,9 @@
     </div>
     <!-- slide text -->
     <div class="row">
-        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
-        <p class="item-2 ">Some Text for [item-2]</p>
-        <p class="item-3 ">Some Text for [item-3]</p>
+        <p class="item-1 ">ยินดีต้อนรับ คุณ <?php echo $_SESSION["m_username"]; ?></p>
+        <p class="item-2 ">เข้าสู่ระบบคัดแยกโรคพืชของมะม่วง</p>
+        <p class="item-3 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION</p>
     </div>
     <!-- end slide text -->
 
