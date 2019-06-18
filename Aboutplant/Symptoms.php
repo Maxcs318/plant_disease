@@ -26,10 +26,9 @@
                   });
                   var count = 0;
                   $('#add_image1').click(function() {
-                        count = count - 1;
-                        $('xyz').append('<img style="display: block; margin: 0 auto;" src="#" width="100%" alt="">' +
-                              '<input type="file" name="imagesymptoms[]"> <br><br>'
-
+                        count = count + 1;
+                        $('xyz').append('<br><img id="'+count+'" style="display: block; margin: 0 auto;" src="../Image/image_disease/choose.png" width="100%" alt=""><br>' +
+                              '<input type="file" onchange="document.getElementById('+count+').src = window.URL.createObjectURL(this.files[0])" name="imagesymptoms[]">'
                         );
                   });
 
@@ -120,10 +119,10 @@
                         <form action="../ConnData/InsertSymptoms.php" method="post" enctype="multipart/form-data">
                               <div class="row box-disease">
                                     <div class="col-xs-12 col-md-4"><br>
-                                          <img style="display: block; margin: 0 auto;" src="#" width="100%" alt="">
+                                          <img id="thisfirstimage" style="display: block; margin: 0 auto;" src="#" width="100%" alt="">
                                           <br>
-                                          <input type="file" name="imagesymptoms[]" required>
-                                          <br>
+                                          <input type="file" onchange="document.getElementById('thisfirstimage').src = window.URL.createObjectURL(this.files[0])" name="imagesymptoms[]"> <br>                                          
+                                          
                                           <xyz></xyz><br>
                                           <input type="button" value="Add Image" id="add_image1">
                                           <br><br>
