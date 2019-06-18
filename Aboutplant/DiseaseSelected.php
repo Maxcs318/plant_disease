@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Symptoms in Mango</title>
+    <title>โรคของมะม่วง</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -20,9 +20,9 @@
 
     <!-- user id top -->
     <div style="text-align:right;" class="usertop">
-        Username :
+        ชื่อผู้ใช้ :
         <?php echo $_SESSION["m_username"]; ?>
-        | Status :
+        | สถานะ :
         <?php echo $_SESSION["m_status"]; ?>
     </div>
     <!--end user id top -->
@@ -41,7 +41,7 @@
             <a href="../index.php">
                 <button type="submit" style="border: 0; background: transparent">
                     <img src="../img/home.png" class="imgabout">
-                    <p class="text-img-detail">Home</p>
+                    <p class="text-img-detail">เมนูหลัก</p>
                 </button></a>
         </div>
         <div class="col-md-4 col-xs-4">
@@ -49,7 +49,7 @@
             <a href="#" onclick="window.history.go(-1); return false;">
                 <button type="submit" style="border: 0; background: transparent">
                     <img src="../img/back.svg" class="imgabout">
-                    <p class="text-img-detail">Back</p>
+                    <p class="text-img-detail">ย้อนกลับ</p>
                 </button></a>
         </div>
     </div>
@@ -103,7 +103,7 @@
                         <h4><?php echo $row['d_detail'];
                             ?></h4>
                     </div>
-                    <button class="btn btn-danger form-control" onclick="window.history.go(-1); return false;" style="width: 80px; color:white; margin: 10px; margin-left: auto;">Back</button>
+                    <button class="btn btn-danger form-control" onclick="window.history.go(-1); return false;" style="width: 80px; color:white; margin: 10px; margin-left: auto;">ย้อนกลับ</button>
                 <?php
             }
         }

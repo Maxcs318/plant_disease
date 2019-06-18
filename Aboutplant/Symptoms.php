@@ -5,7 +5,7 @@
 <head>
       <meta charset="utf-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Symptoms in Mango</title>
+      <title>อาการของโรคพืชในมะม่วง</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -42,9 +42,9 @@
 
       <?php session_start(); ?>
       <div style="text-align:right" class="usertop">
-            Username :
+            ชื่อผู้ใช้ :
             <?php echo $_SESSION["m_username"]; ?>
-            | Status :
+            | สถานะ :
             <?php echo $_SESSION["m_status"]; ?>
 
       </div>
@@ -63,7 +63,7 @@
                   <a href="../index.php">
                         <button type="submit" style="border: 0; background: transparent">
                               <img src="../img/home.png" class="imgabout">
-                              <p class="text-img-detail">Home</p>
+                              <p class="text-img-detail">เมนู</p>
                         </button></a>
             </div>
             <!-- Disease button -->
@@ -71,7 +71,7 @@
                   <a href="Disease.php">
                         <button type="submit" style="border: 0; background: transparent">
                               <img src="../img/pageicon/classification.png" class="imgabout">
-                              <p class="text-img-detail">Disease Detail</p>
+                              <p class="text-img-detail">โรคในมะม่วง</p>
                         </button></a>
             </div>
 
@@ -84,12 +84,12 @@
                         <?php } else { ?>
                               <div class="col-lg-12 col-xs-12">
                               <?php } ?>
-                              <p class="textabout">Symptoms in Mango</p>
+                              <p class="textabout">อาการของโรคที่พบในมะม่วง</p>
                         </div>
                         <?php
                         if ($_SESSION['m_status'] == 'admin') {
                               ?> <div class="col-lg-4 col-xs-12"><br>
-                                    <button class="insertNewSymptoms btn-primary form-control col-lg-12 col-xs-12">Insert Symptoms</button>
+                                    <button class="insertNewSymptoms btn-primary form-control col-lg-12 col-xs-12">เพิ่มอาการที่พบในโรคของมะม่วง</button>
                                     <br><br><br>
                               </div>
                         <?php
@@ -144,9 +144,9 @@
                                           ?>
                                           <input type="hidden" name="key_symptoms_image" value="<?php echo generateRandomString(); ?>">
                                           <!-- //Key end -->
-                                          <h3> Name of Symptoms </h3>
+                                          <h3> ชื่อของอาการ </h3>
                                           <input type="text" class="form-control col-lg-8 col-xs-12" name="symptomsname" maxlength="50" required><br>
-                                          <h3> Disease of Symptoms </h3>
+                                          <h3> โรคที่พบอาการ </h3>
                                           <select required class="form-control col-lg-8 col-xs-12" name="symptomsofdisease" style="float: left;" >
                                                 <?php
                                                 for ($i = 0; $i < sizeof($diseaseSelect); $i++) {
@@ -155,13 +155,13 @@
                                                 <?php
                                           }
                                           ?>
-                                                <option value="" selected disabled>Choose</option>
+                                                <option value="" selected disabled>เลือก</option>
                                           </select><br>
                                           <!-- <input type="text" class="form-control col-lg-8 col-xs-12" name="symptomsofdisease" maxlength="50" required><br> -->
-                                          <h3> Detail </h3>
+                                          <h3> รายละเอียด </h3>
                                           <textarea class="form-control" rows="5" type="text" name="symptomsdetail" required></textarea>
                                           <br>
-                                          <button type="submit" class="form-control col-lg-4 col-xs-12 btn-primary"> Save </button>
+                                          <button type="submit" class="form-control col-lg-4 col-xs-12 btn-primary"> บันทึก </button>
                                           <br><br><br>
                                     </div>
                               </div>
@@ -260,7 +260,7 @@
                   }
                   ?>
 
-                        <a style="margin-left: auto;margin-right: 30px" href="#top">Back to top</a>
+                        <a style="margin-left: auto;margin-right: 30px" href="#top">กลับสู่ด้านบน</a>
                         <br><br>
 
                   </div>

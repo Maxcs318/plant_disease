@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Edit Symptoms </title>
+    <title>แก้ไขอาการของโรคในมะม่วง </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -40,9 +40,9 @@
         <?php session_start(); ?>
 
         <div style="text-align:right" class="usertop">
-            Username :
+            ชื่อผู้ใช้ :
             <?php echo $_SESSION["m_username"]; ?>
-            | Status :
+            | สถานะ :
             <?php echo $_SESSION["m_status"]; ?>
         </div>
 
@@ -60,7 +60,7 @@
                 <a href="../index.php">
                     <button type="submit" style="border: 0; background: transparent">
                         <img src="../img/home.png" class="imgabout">
-                        <p class="text-img-detail">Home</p>
+                        <p class="text-img-detail">เมนูหลัก</p>
                     </button></a>
             </div>
             <div class="col-md-4 col-xs-4">
@@ -68,7 +68,7 @@
                 <a href="#" onclick="window.history.go(-1); return false;">
                     <button type="submit" style="border: 0; background: transparent">
                         <img src="../img/back.svg" class="imgabout">
-                        <p class="text-img-detail">Back</p>
+                        <p class="text-img-detail">ย้อนกลับ</p>
                     </button></a>
             </div>
         </div>
@@ -170,13 +170,13 @@
                             </div>
                             <div class="col-lg-6 col-xs-12"> <br>
 
-                                <h4>Name of Symptoms</h4>
+                                <h4>ชื่อของอาการ</h4>
                                 <input type="text" class="form-control " name="symptomsname" maxlength="50" value="<?php echo $row['s_name']; ?>" required>
                                 <br>
-                                <h4>Detail</h4>
+                                <h4>รายละเอียด</h4>
                                 <textarea class="form-control" rows="4" type="text" name="symptomsdetail" required><?php echo $row['s_detail']; ?></textarea>
                                 <br>
-                                <h4>Disease of Symptoms</h4>
+                                <h4>โรคที่พบอาการ</h4>
                                 <select class="form-control" name="symptomsdisease" style="float: left;">
                                     <?php
                                     for ($i = 0; $i < sizeof($diseaseSelect); $i++) {
@@ -192,7 +192,7 @@
                                 }
                                 ?>
                                 </select> <br><br><br>
-                                <button type="submit" class="btn-primary form-control col-lg-4 col-xs-12" style="float: right;"> Save </button>
+                                <button type="submit" class="btn-primary form-control col-lg-4 col-xs-12" style="float: right;"> บันทึก </button>
                                 <br><br><br><br>
                                 </from>
                             </div>
