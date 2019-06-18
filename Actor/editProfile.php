@@ -7,7 +7,7 @@ require_once("../ConnData/connectDB.php");
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Edit Profile</title>
+    <title>แก้ไขโปรไฟล์</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -24,7 +24,7 @@ require_once("../ConnData/connectDB.php");
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4 col-xs-12"><br>
-                <h4 class="header">Edit Profile</h4>
+                <h4 class="header">แก้ไขโปรไฟล์</h4>
                 <hr class="border-line" style="margin-top: 0px;">
             </div>
             <div class="col-md-4"></div>
@@ -47,19 +47,19 @@ require_once("../ConnData/connectDB.php");
                             <?php } ?>
                         </center>
                         <br>
-                        <label>Profile :</label>
+                        <label>รูปโปรไฟล์ :</label>
                         <input type="file" id="image" name="imageprofile[]"> <br><br>
 
-                        <label>First Name</label>
+                        <label>ชื่อ</label>
                         <input id="input-field" onkeyup="validate();" class="form-control" type="text" name="firstname" value="<?php echo $row["m_firstname"]; ?>" maxlength="25" required>
 
-                        <label>Last Name</label>
+                        <label>นามสกุล</label>
                         <input id="input-field" onkeyup="validate();" class="form-control" type="text" name="lastname" value="<?php echo $row["m_lastname"]; ?>" maxlength="25" required>
 
                         <!-- <label>Career</label>
                         <input class="form-control" type="text" name="career" value="<?php echo $row["m_career"]; ?>" maxlength="50" required> -->
 
-                        <label>Career</label><br>
+                        <label>อาชีพ</label><br>
                         <select name="career" id="" style="width:100%">
                             <option selected="true" disabled="disabled" value="<?php echo $row["m_career"]; ?>"><?php echo $row["m_career"]; ?></option>
                             <option value="Farmer (เกษตรกร)">Farmer (เกษตรกร)</option>
@@ -79,25 +79,25 @@ require_once("../ConnData/connectDB.php");
                             }
                         </style>
 
-                        <label>E-mail</label>
+                        <label>อีเมลล์</label>
                         <input class="form-control" type="email" name="email" value="<?php echo $row["m_email"]; ?>" required>
 
-                        <label>Phone</label>
+                        <label>เบอร์โทรศัพท์</label>
                         <input class="form-control" type='text' name='phone' value="<?php echo $row["m_phone"]; ?>" OnKeyPress="return chkNumber(this)" required="" maxlength="10">
 
-                        <label>User Name</label>
+                        <label>Username</label>
                         <input class="form-control" type="text" name="username" value="<?php echo $row["m_username"]; ?>" maxlength="10" required>
 
-                        <label>Your Password</label>
+                        <label>รหัสผ่าน</label>
                         <input class="form-control" type="text" name="password" value="<?php echo $row["m_password"]; ?>" maxlength="10" disabled="disabled">
 
-                        <label>New Password</label>
+                        <label>รหัสผ่านใหม่</label>
                         <input class="form-control" type="text" name="password" value="<?php echo $row["m_password"]; ?>" maxlength="10" required>
                         <br>
 
-                        <button class="form-control btn-primary" type="submit" name="save">Save</button>
+                        <button class="form-control btn-primary" type="submit" name="save">บันทึก</button>
                         <br>
-                        <a class="btn btn-danger float-right" href="../Posts/post_list_person.php" style="width:100%;">Back</a>
+                        <a class="btn btn-danger float-right" href="../Posts/post_list_person.php" style="width:100%;">ย้อนกลับ</a>
 
                     </form>
                 </div>

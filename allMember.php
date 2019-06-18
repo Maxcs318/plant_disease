@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>All_Member </title>
+    <title>จัดการผู้ใช้ </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -24,9 +24,9 @@
     ?>
     <!-- user id top -->
     <div style="text-align:right;" class="usertop">
-        Username :
+        ชื่อผู้ใช้ :
         <?php echo $_SESSION["m_username"]; ?>
-        | Status :
+        | สถานะ :
         <?php echo $_SESSION["m_status"]; ?>
     </div>
     <!--end user id top -->
@@ -45,7 +45,7 @@
             <a href="index.php">
                 <button type="submit" style="border: 0; background: transparent">
                     <img src="img/home.png" class="imgabout">
-                    <p class="text-img-detail">Home</p>
+                    <p class="text-img-detail">เมนูหลัก</p>
                 </button></a>
         </div>
     </div>
@@ -54,7 +54,7 @@
         <!-- Row 1 -->
         <div class="row">
             <div class="col-lg-8 col-xs-12">
-                <h1 style="text-align:center;"> All Member .</h1>
+                <h1 style="text-align:center;"> การจัดการผู้ใช้</h1>
             </div>
             <div class="col-lg-4 col-xs-12">
                 <label>Search By Status : <?php if ($_GET['changStatus'] == '') {
@@ -64,10 +64,10 @@
                                             } ?></label>
                 <form action="" method="GET">
                     <select class="form-control col-lg-12 col-xs-12" id="selectBox" name="changStatus" onchange="this.form.submit()">
-                        <option value="" selected>Choose</option>
-                        <option value="user">User</option>
-                        <option value="expert">Expert</option>
-                        <option value="admin">Admin</option>
+                        <option value="" selected>เลือก</option>
+                        <option value="user">ผู้ใช้ทั่วไป</option>
+                        <option value="expert">ผู้เชี่ยวชาญ</option>
+                        <option value="admin">ผู้ดูแลระบบ</option>
                         <option value="">All</option>
                     </select>
             </div>

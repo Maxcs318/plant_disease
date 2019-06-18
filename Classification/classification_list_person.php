@@ -6,7 +6,7 @@ error_reporting(E_ALL ^ E_NOTICE); ?>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My Classification All </title>
+    <title>การตรวจวินิฉัยโรค</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -21,9 +21,9 @@ error_reporting(E_ALL ^ E_NOTICE); ?>
 
     <!-- user id top -->
     <div style="text-align:right;" class="usertop">
-        Username :
+        ชื่อผู้ใช้ :
         <?php echo $_SESSION["m_username"]; ?>
-        | Status :
+        | สถานะผู้ใช้ :
         <?php echo $_SESSION["m_status"]; ?>
     </div>
     <!--end user id top -->
@@ -41,7 +41,7 @@ error_reporting(E_ALL ^ E_NOTICE); ?>
             <a href="../index.php">
                 <button type="submit" style="border: 0; background: transparent">
                     <img src="../img/home.png" class="imgabout">
-                    <p class="text-img-detail">Home</p>
+                    <p class="text-img-detail">เมนูหลัก</p>
                 </button></a>
         </div>
         <div class="col-md-4 col-xs-4">
@@ -49,7 +49,7 @@ error_reporting(E_ALL ^ E_NOTICE); ?>
             <a href="#" onclick="window.history.go(-1); return false;">
                 <button type="submit" style="border: 0; background: transparent">
                     <img src="../img/back.svg" class="imgabout">
-                    <p class="text-img-detail">Back</p>
+                    <p class="text-img-detail">ย้อนกลับ</p>
                 </button></a>
         </div>
     </div>
@@ -58,18 +58,18 @@ error_reporting(E_ALL ^ E_NOTICE); ?>
         <div class="row">
             <div class="col-md-8 col-xs-12" style="text-align:center;"><br>
                 <center>
-                    <h4 class="header"> My Classification All . </h4>
+                    <h4 class="header"> การตรวจวินิฉัยโรคทั้งหมดของฉัน </h4>
                 </center>
                 
             </div>
             <div class="col-md-4 col-xs-12">
-                <label>Status <?php echo $_GET['changStatus']; ?></label>
+                <label>สถานะของโรค <?php echo $_GET['changStatus']; ?></label>
                 <form action="" method="GET">
                     <select class="form-control" id="selectBox" name="changStatus" onchange="this.form.submit()">
-                        <option value="" selected>Choose</option>
-                        <option value="none">None</option>
-                        <option value="confirm">Confirm</option>
-                        <option value="">All</option>
+                        <option value="" selected>เลือก</option>
+                        <option value="none">ไม่พบโรค</option>
+                        <option value="confirm">ได้รับการยืนยัน</option>
+                        <option value="">ทั้งหมด</option>
                     </select><br>
                 </form>
 
