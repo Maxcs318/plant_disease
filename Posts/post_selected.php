@@ -44,7 +44,26 @@ $conn->close();
     </div>
     <!-- end slide text -->
 
-    <div class="container box-list" style="margin-top: 70px;">
+    <div class="container" style="margin-top: 70px;">
+        <div class="col-md-4 col-xs-4">
+            <!-- home button -->
+            <a href="../index.php">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../img/home.png" class="imgabout">
+                    <p class="text-img-detail">Home</p>
+                </button></a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+            <!-- home button -->
+            <a href="#" onclick="window.history.go(-1); return false;">
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="../img/back.svg" class="imgabout">
+                    <p class="text-img-detail">Back</p>
+                </button></a>
+        </div>
+    </div>
+
+    <div class="container box-list">
         <div class="row">
             <div class="col-md-12">
                 <h4 class="list-header">Post ID : <?php echo $_GET["getPostID"] ?> </h4>
@@ -221,7 +240,7 @@ $conn->close();
 
     </footer>
     <style>
-        
+
     </style>
     <script>
         // create references to the modal...
