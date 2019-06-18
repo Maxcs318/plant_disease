@@ -144,8 +144,82 @@
             <div class="col-xs-12 col-md-12"><br>
                 <h4 class=" list-header">กระทู้ทั้งหมดของฉัน </h4>
             </div>
-        </div>
-        <?php require("../ConnData/connectDB.php"); ?>
+        </div> <hr>
+        <!-- WHERE p_own = " . $_SESSION['m_id'] . "  -->
+        <!-- find all post and push to array -->
+        <?php
+        $mypostAll = array();
+        require("../ConnData/connectDB.php");
+        $sql = " SELECT * FROM posts WHERE p_own = ".$_SESSION['m_id']." ORDER BY p_date DESC ";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                array_push($mypostAll, $row["p_linkimage"]);
+            }
+        }
+        $conn->close();
+        // echo sizeof($mypostAll).'<br>';
+        // echo $mypostAll[0];
+        ?>
+        <!-- end find -->
+        <!-- start row data-->
+        <?php
+        for($i=0;$i<sizeof($mypostAll);$i++){
+            ?>
+            <div class="row">
+            <?php
+            // start loop image
+            require("../ConnData/connectDB.php");
+            $sql = " SELECT * FROM image_of_post WHERE iop_linkpost ='".$mypostAll[$i]."' ";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                    <div class="col-lg-2 col-xs-6">
+                        <img src="../Image/image_file_post/<?php echo $row["iop_name"]; ?>" width="100%">
+                    </div>
+                    <?php
+                }
+            }
+            $conn->close();
+            // end loop image
+            //start data
+            require("../ConnData/connectDB.php");
+            $sql = " SELECT * FROM posts WHERE p_linkimage ='".$mypostAll[$i]."' ";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                        <div class="col-xs-8 col-xs-12">
+                            <div style="margin-top:20px;">
+                                My Post ID: <?php echo $row["p_id"] . "<br>"; ?>
+                                <h4> <?php echo $row["p_header"] . "<br>"; ?></h4>
+                                <p style="text-indent: 2.5em;">
+                                    <font color="black">
+                                        <?php echo substr($row["p_detail"], 0, 100) . "<br>"; ?>
+                                    </font>
+                                </p>
+                                <div style="text-align: right">Date : <?php echo substr($row["p_date"], 0, 10); ?></div>
+                                <div style="text-align: right">Time : <?php echo substr($row["p_date"], 11); ?></div>
+                                <a class="float:bottom" href='post_selected.php?getPostID=<?php echo $row["p_id"]; ?>'>View Post</a>
+                                
+                            </div>
+                        </div>
+                    <?php
+                }
+            }
+            $conn->close();
+            //end data
+            ?>
+            </div> <hr>
+            <?php
+        }
+        ?>
+        
+        <!-- stop row data-->
+    <!-- hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh -->
+
+        <!-- <?php require("../ConnData/connectDB.php"); ?>
         <?php
         $sql = " SELECT * FROM posts  LEFT JOIN image_of_post 
                 ON posts.p_linkimage=image_of_post.iop_linkpost
@@ -194,7 +268,8 @@
     } else {
         echo " You have no posts. ";
     }
-    ?>
+    ?> -->
+    <!-- hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh -->
         <a class=" btn btn-danger float-right" href="../index.php" style="width: 90px; margin:30px 0px 10px ">Back</a>
     </div>
 
