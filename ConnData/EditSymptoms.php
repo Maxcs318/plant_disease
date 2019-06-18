@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php
+error_reporting( error_reporting() & ~E_NOTICE );
 
 // print_r($_POST['countimage']); 
 echo $_POST['countimage']['1'];
@@ -21,6 +22,22 @@ for($i=0;$i<count($_FILES["imagesymptoms"]["name"]);$i++)
         }
 	}
 }
+?>
+<?php // delete image symptoms
+    // echo sizeof($_POST['deleteimagesymptoms']). "<br>";
+    if(sizeof($_POST['deleteimagesymptoms'])!=0){
+        for($i=0;$i<sizeof($_POST['deleteimagesymptoms']);$i++){
+            // echo $_POST['deleteimagesymptoms'][$i]."<br>";
+            require("connectDB.php");
+                $sql = "DELETE FROM image_of_symptoms WHERE ios_image='".$_POST['deleteimagesymptoms'][$i]."' ";
+                if ($conn->query($sql) === TRUE) {
+                    //
+                } else {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+                $conn->close();
+        }
+    }
 ?>
 <?php //insert image symptoms
 for($i=0;$i<count($_FILES["insertimagesymptoms"]["name"]);$i++)

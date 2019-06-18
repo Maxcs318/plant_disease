@@ -1,6 +1,4 @@
 <?php session_start(); ?>
-<?php 
-?>
 <?php error_reporting(E_ALL ^ E_NOTICE); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +16,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> <!-- sweetalert-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- sweetalert-->
+    <!-- bootstrap toggle -->
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> 
     <script>
         $(document).ready(function() {
             // var count = 0;
@@ -100,7 +101,10 @@
                             array_push($arrayImage, $row['ios_id']); //countimage
                             ?>
                             <div class="col-lg-3 col-xs-12" style="display: block; margin: 0 auto;">
-                            <br>
+                            <br> 
+                            <!-- toggle Delete -->
+                            <input  type="checkbox" data-toggle="toggle" data-on="Delete" data-off="Not Delete" data-onstyle="danger" data-offstyle="success" name="deleteimagesymptoms[]" value="<?php echo $row['ios_image']; ?>">
+                            <br><br>
                                 <img style="display: block; margin: 0 auto;" id="blah<?php echo $row['ios_id']; ?>" src="../Image/image_symptoms/<?php echo $row['ios_image']; ?>" width="100%" alt="">
                                 <br>
                                 <input type="file" id="image<?php echo $row['ios_id']; ?>" name="imagesymptoms[]"> <br>
@@ -165,7 +169,8 @@
                                 <input type="text" class="form-control " name="symptomsname" maxlength="50" value="<?php echo $row['s_name']; ?>" required>
                                 <br>
                                 <h4>Detail</h4>
-                                <textarea class="form-control" rows="3" type="text" name="symptomsdetail" required><?php echo $row['s_detail']; ?></textarea>
+                                <textarea class="form-control" rows="4" type="text" name="symptomsdetail" required><?php echo $row['s_detail']; ?></textarea>
+                                <br>
                                 <h4>Disease of Symptoms</h4>
                                 <select class="form-control" name="symptomsdisease" style="float: left;">
                                     <?php
@@ -182,7 +187,7 @@
                                 }
                                 ?>
                                 </select> <br><br><br>
-                                <button type="submit" class="btn-primary form-control col-lg-4 col-xs-12"> Save </button>
+                                <button type="submit" class="btn-primary form-control col-lg-4 col-xs-12" style="float: right;"> Save </button>
                                 <br><br><br><br>
                                 </from>
                             </div>
