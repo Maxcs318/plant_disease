@@ -164,65 +164,99 @@
       
       <div class="row box-disease">
 
-      <?php require("../ConnData/connectDB.php");?>
+      <!-- // find Symptoms all-->
       <?php 
-            $sql = "SELECT * FROM symptoms LEFT JOIN image_of_symptoms ON symptoms.s_link_image = image_of_symptoms.ios_link_symptoms ";
+            $symptomsAll= array();  
+            require("../ConnData/connectDB.php"); 
+                            $sql = " SELECT * FROM symptoms ";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) { 
+                                while ($row = $result->fetch_assoc()) { 
+                                    array_push($symptomsAll,$row["s_link_image"]);
+                                }
+                            }else {
+                                echo "0 Comment .";
+                            }     
+                            $conn->close();              
+            // print_r(sizeof($symptomsAll)); 
+      ?>
+      <!-- // end of find -->
+      <?php
+      for($i=0;$i<sizeof($symptomsAll);$i++){
+            ?>
+            <!-- <div class="row"> -->
+                  <div class="col-lg-6 col-xs-12">
+                        <div class="row">
+            <?php
+            require("../ConnData/connectDB.php");
+            $sql = "SELECT * FROM image_of_symptoms  WHERE ios_link_symptoms ='".$symptomsAll[$i]."' ";
             $result = $conn->query($sql);
                   if ($result->num_rows > 0) {
-                        $cutIt='Z00';
                         while($row = $result->fetch_assoc()) {
-                              if($row['s_id']!=$cutIt){
-                                    $cutIt=$row['s_id']; 
-            ?>
-                  <div class="col-xs-12 col-lg-6"><br>
-                        <div class="row showallimage<?php echo $row['s_id'];?>" style="margin: auto;">                       
-                            <div class="col-lg-4 col-xs-6" style="margin: auto;">
-                                <img style="display: block; margin: auto;" src="../Image/image_symptoms/<?php echo $row['ios_image'] ?>" width="100%" alt="">
-                                <br>
-                            </div>
-                        </div>
-                  </div>
-                  <div class="col-xs-12 col-lg-6">
-                        <h3 class="detail-header">
-                                    <?php echo $row['s_name'] ?>
-                        </h3>
-                              <p class="detail">
-                                    <?php echo $row['s_detail'] ?>
-                              </p>
-                              <b>Disease : <?php echo $row['s_disease']; ?></b><br><br>
-                        <?php 
-                            if($_SESSION['m_status']=='admin'){
-                            ?>  
-                                <div class="row">
-                                    <div class="col-6">
-                                          <input type="button" class="btn-primary form-control col-lg-12 col-xs-12" value="Edit" onclick="EditThisSymptoms('<?php echo $row['s_link_image'];?>')">
-                                    </div>
-                                    <div class="col-6">
-                                          <input type="button" class="btn-danger form-control col-lg-12 col-xs-12" value="Delete" onclick="deleteData('<?php echo $row['s_link_image'];?>')">
-                                    </div>
-                                </div>
-                                <br>
-                            <?php
-                            }
-                        ?> 
-                            
-                  </div>    
-                  <div class="col-lg-12 col-xs-12">
-                        <hr>
-                  </div>        
-            <?php            }else if($cutIt==$row['s_id']){
-                                ?>
-                                <script>
-                                      $('.showallimage'+<?php echo $row["s_id"];?>).append('<div class="col-xs-6 col-lg-4" ><img style="display: block; margin: 0 auto;" src="../Image/image_symptoms/<?php echo $row['ios_image'] ?>" width="100%" alt=""><br></div>');
-                                </script>
-                                <?php
-                            }
+                              ?>
+                              <div class="col-lg-4 col-xs-6" style="margin: auto;">
+                                    <br>
+                                    <img style="display: block; margin: auto;" src="../Image/image_symptoms/<?php echo $row['ios_image'] ?>" width="100%" alt="">
+                                    <br>
+                              </div>
+                              <?php
                         }
                   }else{
 
-            }
-            $conn->close();    
+                  }
+                  $conn->close(); 
             ?>
+                        </div>
+                  </div>
+                        <div class="col-lg-6 col-xs-12">
+            <?php
+            require("../ConnData/connectDB.php");
+            $sql = "SELECT * FROM symptoms  WHERE s_link_image ='".$symptomsAll[$i]."' ";
+            $result = $conn->query($sql);
+                  if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                              ?>
+                              
+                                    <h3 class="detail-header">
+                                                <?php echo $row['s_name'] ?>
+                                    </h3>
+                                          <p class="detail">
+                                                <?php echo $row['s_detail'] ?>
+                                          </p>
+                                          <b>Disease : <?php echo $row['s_disease']; ?></b><br><br>
+                                    <?php 
+                                    if($_SESSION['m_status']=='admin'){
+                                    ?>  
+                                          <div class="row">
+                                                <div class="col-6">
+                                                      <input type="button" class="btn-primary form-control col-lg-12 col-xs-12" value="Edit" onclick="EditThisSymptoms('<?php echo $row['s_link_image'];?>')">
+                                                </div>
+                                                <div class="col-6">
+                                                      <input type="button" class="btn-danger form-control col-lg-12 col-xs-12" value="Delete" onclick="deleteData('<?php echo $row['s_link_image'];?>')">
+                                                </div>
+                                          </div>
+                                    <?php
+                                    }
+                                    ?> 
+                                    
+                                 
+                              
+                              <?php
+                        }
+                  }else{
+
+                  }
+                  $conn->close(); 
+            ?>
+                        </div>
+                  <div class="col-lg-12 col-xs-12">
+                        <hr>
+                  </div> 
+            <!-- </div> -->
+            <?php
+      }
+      ?>
+      
                   
       </div>
    </div>
