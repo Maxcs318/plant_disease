@@ -62,14 +62,14 @@ require_once("../ConnData/connectDB.php");
                         <label>Career</label><br>
                         <select name="career" id="" style="width:100%">
                             <option selected="true" disabled="disabled" value="<?php echo $row["m_career"]; ?>"><?php echo $row["m_career"]; ?></option>
-                            <option value="เกษตรกร">Farmer (เกษตรกร)</option>
-                            <option value="ผู้เชี่ยวชาญด้านการเกษตร">Agricultural experts (ผู้เชี่ยวชาญด้านการเกษตร)</option>
-                            <option value="นักวิจัย">Researchers (นักวิจัย)</option>
-                            <option value="อาจารย์">Professor (อาจารย์)</option>
-                            <option value="ธุรกิจส่วนตัว">Private business (ธุรกิจส่วนตัว)</option>
-                            <option value="ข้าราชการ">Public servant (ข้าราชการ)</option>
-                            <option value="นักเรียน/นักศึกษา">Student (นักเรียน/นักศึกษา)</option>
-                            <option value="อื่นๆ">Other (อื่นๆ)</option>
+                            <option value="Farmer (เกษตรกร)">Farmer (เกษตรกร)</option>
+                            <option value="Agricultural experts (ผู้เชี่ยวชาญด้านการเกษตร)">Agricultural experts (ผู้เชี่ยวชาญด้านการเกษตร)</option>
+                            <option value="Researchers (นักวิจัย)">Researchers (นักวิจัย)</option>
+                            <option value="Professor (อาจารย์)">Professor (อาจารย์)</option>
+                            <option value="Private business (ธุรกิจส่วนตัว)">Private business (ธุรกิจส่วนตัว)</option>
+                            <option value="Public servant (ข้าราชการ)">Public servant (ข้าราชการ)</option>
+                            <option value="Student (นักเรียน/นักศึกษา)">Student (นักเรียน/นักศึกษา)</option>
+                            <option value="Other (อื่นๆ)">Other (อื่นๆ)</option>
                         </select>
                         <br>
                         <style>
@@ -92,7 +92,7 @@ require_once("../ConnData/connectDB.php");
                         <input class="form-control" type="text" name="password" value="<?php echo $row["m_password"]; ?>" maxlength="10" disabled="disabled">
 
                         <label>New Password</label>
-                        <input class="form-control" type="text" name="password" value="<?php echo $row["m_password"]; ?>" maxlength="10">
+                        <input class="form-control" type="text" name="password" value="<?php echo $row["m_password"]; ?>" maxlength="10" required>
                         <br>
 
                         <button class="form-control btn-primary" type="submit" name="save">Save</button>
