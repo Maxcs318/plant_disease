@@ -18,7 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> <!-- sweetalert-->
     <!-- bootstrap toggle -->
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> 
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <script>
         $(document).ready(function() {
             var count = 1000;
@@ -54,9 +54,9 @@
 
         <!-- slide text -->
         <div class="row">
-            <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
-            <p class="item-2 ">Some Text for [item-2]</p>
-            <p class="item-3 ">Some Text for [item-3]</p>
+            <p class="item-1 ">ยินดีต้อนรับ คุณ <?php echo $_SESSION["m_username"]; ?></p>
+            <p class="item-2 ">เข้าสู่ระบบคัดแยกโรคพืชของมะม่วง</p>
+            <p class="item-3 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION</p>
         </div>
         <!-- end slide text -->
         <div class="container" style="margin-top: 70px;">
@@ -112,10 +112,10 @@
                             array_push($arrayImage, $row['ios_id']); //countimage
                             ?>
                             <div class="col-lg-3 col-xs-12" style="display: block; margin: 0 auto;">
-                            <br> 
-                            <!-- toggle Delete -->
-                            <input  type="checkbox" data-toggle="toggle" data-on="Delete" data-off="Not Delete" data-onstyle="danger" data-offstyle="success" name="deleteimagesymptoms[]" value="<?php echo $row['ios_image']; ?>">
-                            <br><br>
+                                <br>
+                                <!-- toggle Delete -->
+                                <input type="checkbox" data-toggle="toggle" data-on="Delete" data-off="Not Delete" data-onstyle="danger" data-offstyle="success" name="deleteimagesymptoms[]" value="<?php echo $row['ios_image']; ?>">
+                                <br><br>
                                 <img style="display: block; margin: 0 auto;" id="blah<?php echo $row['ios_id']; ?>" src="../Image/image_symptoms/<?php echo $row['ios_image']; ?>" width="100%" alt="">
                                 <br>
                                 <input type="file" id="image<?php echo $row['ios_id']; ?>" name="imagesymptoms[]"> <br>
@@ -214,9 +214,9 @@
             $conn->close();
             ?>
         </div>
-<footer style="margin-bottom: 50px;">
+        <footer style="margin-bottom: 50px;">
 
-</footer>
-</body>
+        </footer>
+    </body>
 
 </html>

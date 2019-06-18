@@ -22,12 +22,18 @@
 </head>
 
 <body>
-
+    <?php session_start(); ?>
+    <div style="text-align:right" class="usertop">
+        Username :
+        <?php echo $_SESSION["m_username"]; ?>
+        | Status :
+        <?php echo $_SESSION["m_status"]; ?>
+    </div>
     <!-- slide text -->
     <div class="row">
-        <p class="item-1 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION [item-1]</p>
-        <p class="item-2 ">Some Text for [item-2]</p>
-        <p class="item-3 ">Some Text for [item-3]</p>
+        <p class="item-1 ">ยินดีต้อนรับ คุณ <?php echo $_SESSION["m_username"]; ?></p>
+        <p class="item-2 ">เข้าสู่ระบบคัดแยกโรคพืชของมะม่วง</p>
+        <p class="item-3 ">EXPERT SYSTEM FOR PLANT DISEASE CLASSIFICATION</p>
     </div>
     <!-- end slide text -->
 
@@ -83,7 +89,7 @@
                             <img class="modal-content" id="img01">
                             <div id="caption"></div>
                         </div>
-                        
+
                     </div>
 
                     <div class="col-lg-8 col-md-9 col-xs-12">
