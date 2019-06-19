@@ -118,16 +118,16 @@
                   <div class="insertSymptoms">
                         <form action="../ConnData/InsertSymptoms.php" method="post" enctype="multipart/form-data">
                               <div class="row box-disease">
-                                    <div class="col-xs-12 col-md-4"><br>
-                                          <img id="thisfirstimage" style="display: block; margin: 0 auto;" src="#" width="100%" alt="">
+                                    <div class="col-xs-12 col-lg-4"><br>
+                                          <img id="thisfirstimage" style="display: block; margin: 0 auto;" src="../Image/image_disease/choose.png" width="100%" alt="">
                                           <br>
-                                          <input type="file" onchange="document.getElementById('thisfirstimage').src = window.URL.createObjectURL(this.files[0])" name="imagesymptoms[]"> <br>                                          
+                                          <input type="file" onchange="document.getElementById('thisfirstimage').src = window.URL.createObjectURL(this.files[0])" name="imagesymptoms[]" required> <br>                                          
                                           
                                           <xyz></xyz><br>
-                                          <input type="button" value="Add Image" id="add_image1">
+                                          <input type="button" class="col-lg-8 col-xs-12 form-control btn-primary" value="Add Another Image More." id="add_image1">
                                           <br><br>
                                     </div>
-                                    <div class="col-xs-12 col-md-8">
+                                    <div class="col-xs-12 col-lg-8">
                                           <!-- //Key start-->
                                           <?php
                                           function generateRandomString($length = 40)
@@ -147,7 +147,9 @@
                                           <h3> ชื่อของอาการ </h3>
                                           <input type="text" class="form-control col-lg-8 col-xs-12" name="symptomsname" maxlength="50" required><br>
                                           <h3> โรคที่พบอาการ </h3>
-                                          <select required class="form-control col-lg-8 col-xs-12" name="symptomsofdisease" style="float: left;" >
+                                          <select class="form-control col-lg-8 col-xs-12" name="symptomsofdisease" style="float: left;" required>
+                                                <option value="" selected disabled>เลือก</option>
+
                                                 <?php
                                                 for ($i = 0; $i < sizeof($diseaseSelect); $i++) {
                                                       ?>
@@ -155,7 +157,6 @@
                                                 <?php
                                           }
                                           ?>
-                                                <option value="" selected disabled>เลือก</option>
                                           </select><br>
                                           <!-- <input type="text" class="form-control col-lg-8 col-xs-12" name="symptomsofdisease" maxlength="50" required><br> -->
                                           <h3> รายละเอียด </h3>
