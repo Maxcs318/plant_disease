@@ -172,7 +172,7 @@
             require("../ConnData/connectDB.php");
             $sql = " SELECT * FROM image_of_post WHERE iop_linkpost ='".$mypostAll[$i]."' ";
             $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
+            if ($result->num_rows > 1) {
                 while ($row = $result->fetch_assoc()) {
                     ?>
                     <div class="col-lg-2 col-xs-6">
@@ -180,6 +180,20 @@
                     </div>
                     <?php
                 }
+            }else if($result->num_rows > 0){
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                     <div class="col-lg-2 col-xs-6"></div>
+                     <div class="col-lg-2 col-xs-6">
+                         <img src="../Image/image_file_post/<?php echo $row["iop_name"]; ?>" width="100%">
+                     </div>
+                     <?php 
+                }
+            }else{
+                ?>
+                    <div class="col-lg-4 col-xs-6">
+                    </div>
+                <?php
             }
             $conn->close();
             // end loop image
